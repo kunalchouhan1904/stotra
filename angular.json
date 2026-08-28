@@ -7,7 +7,7 @@
   },
   "newProjectRoot": "projects",
   "projects": {
-    "kunal-chouhan-pmp": {
+    "stotraam": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -62,10 +62,10 @@
           "builder": "@angular/build:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "kunal-chouhan-pmp:build:production"
+              "buildTarget": "stotraam:build:production"
             },
             "development": {
-              "buildTarget": "kunal-chouhan-pmp:build:development"
+              "buildTarget": "stotraam:build:development"
             }
           },
           "defaultConfiguration": "development"

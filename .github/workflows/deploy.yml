@@ -33,12 +33,12 @@ jobs:
 
       - name: Build Angular App
         run: |
-          npm run build -- --configuration production --base-href=/kunal-chouhan-pmp/
+          npm run build -- --configuration production --base-href=/stotraam/
 
       - name: Upload GitHub Pages Artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: dist/kunal-chouhan-pmp/browser
+          path: dist/stotraam/browser
 
   deploy:
     needs: build
