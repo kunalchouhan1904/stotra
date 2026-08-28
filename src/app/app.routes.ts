@@ -3,15 +3,6 @@ import { Routes } from '@angular/router';
 import { Layout } from './core/layout/layout/layout';
 
 import { Dashboard } from './features/dashboard/dashboard';
-import { StudyPlan } from './features/study-plan/study-plan';
-import { LearningComponent } from './features/learning/learning.component';
-import { Practice } from './features/practice/practice';
-import { MockExams } from './features/mock-exams/mock-exams';
-import { Review } from './features/review/review';
-import { Resources } from './features/resources/resources';
-import { Flashcards } from './features/flashcards/flashcards';
-import { Notes } from './features/notes/notes';
-import { Analytics } from './features/analytics/analytics';
 
 export const routes: Routes = [
   {
@@ -21,15 +12,7 @@ export const routes: Routes = [
       { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
 
       { path: 'dashboard', component: Dashboard },
-      { path: 'study-plan', component: StudyPlan },
-      { path: 'learning', component: LearningComponent },
-      { path: 'practice', component: Practice },
-      { path: 'mock-exams', component: MockExams },
-      { path: 'review', component: Review },
-      { path: 'resources', component: Resources },
-      { path: 'flashcards', component: Flashcards },
-      { path: 'notes', component: Notes },
-      { path: 'analytics', component: Analytics }
+
     ]
   },
 
