@@ -2,19 +2,19 @@ import { Routes } from '@angular/router';
 
 import { Layout } from './core/layout/layout/layout';
 
-import { Dashboard } from './features/dashboard/dashboard';
+import { HomeComponent } from './features/home/home';
 
 export const routes: Routes = [
   {
     path: '',
     component: Layout,
     children: [
-      { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
+      { path: '', redirectTo: 'home', pathMatch: 'full' },
 
-      { path: 'dashboard', component: Dashboard },
+      { path: 'home', component: HomeComponent, title: 'Home' },
 
     ]
   },
 
-  { path: '**', redirectTo: 'dashboard' }
+  { path: '**', redirectTo: 'home' }
 ];

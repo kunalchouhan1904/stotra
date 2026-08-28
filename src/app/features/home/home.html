@@ -1,0 +1,325 @@
+<div class="home-page">
+
+  <!-- Header -->
+  <header class="site-header">
+
+    <a routerLink="/" class="brand">
+      <span class="brand-symbol">ॐ</span>
+
+      <div class="brand-text">
+        <span class="brand-name">Stotra</span>
+        <span class="brand-tagline">Prayer • Recite • Listen</span>
+      </div>
+    </a>
+
+    <nav class="desktop-nav">
+      <a routerLink="/">Home</a>
+      <a routerLink="/library">Library</a>
+      <a routerLink="/favorites">Favorites</a>
+    </nav>
+
+    <button class="theme-button" type="button" aria-label="Change theme">
+      ☼
+    </button>
+
+  </header>
+
+
+  <!-- Hero -->
+  <main>
+
+    <section class="hero">
+
+      <div class="hero-content">
+
+        <span class="hero-eyebrow">
+          ॥ सनातन प्रार्थना संग्रह ॥
+        </span>
+
+        <h1>
+          Read. Recite.<br />
+          <span>Listen.</span>
+        </h1>
+
+        <p class="hero-description">
+          A peaceful digital library for Hindu
+          <strong>Chalisa, Mantra, Aarti and Stotra.</strong>
+          Discover, read and listen to sacred prayers
+          whenever you need them.
+        </p>
+
+
+        <!-- Search -->
+        <div class="search-box">
+
+          <span class="search-icon">⌕</span>
+
+          <input
+            type="text"
+            placeholder="Search prayers, deities or festivals..."
+            aria-label="Search prayers"
+          />
+
+          <span class="search-shortcut">
+            /
+          </span>
+
+        </div>
+
+
+        <div class="hero-actions">
+
+          <a routerLink="/library" class="primary-button">
+            Explore prayers
+            <span>→</span>
+          </a>
+
+          <a
+            routerLink="/prayer/hanuman-chalisa"
+            class="secondary-button"
+          >
+            <span>▶</span>
+            Hanuman Chalisa
+          </a>
+
+        </div>
+
+      </div>
+
+
+      <!-- Featured Prayer -->
+      <div class="featured-prayer">
+
+        <div class="featured-top">
+          <span class="featured-label">Featured prayer</span>
+
+          <span class="featured-icon">
+            🚩
+          </span>
+        </div>
+
+        <div class="featured-content">
+
+          <span class="devanagari-small">
+            श्री हनुमान चालीसा
+          </span>
+
+          <h2>
+            Hanuman Chalisa
+          </h2>
+
+          <p>
+            श्रीगुरु चरन सरोज रज,<br />
+            निज मनु मुकुरु सुधारि।
+          </p>
+
+        </div>
+
+        <div class="featured-footer">
+
+          <a
+            routerLink="/prayer/hanuman-chalisa"
+            class="read-link"
+          >
+            Read prayer
+            <span>→</span>
+          </a>
+
+          <span class="language">
+            हिन्दी
+          </span>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- Categories -->
+    <section class="section categories-section">
+
+      <div class="section-heading">
+
+        <div>
+          <span class="section-kicker">
+            Explore
+          </span>
+
+          <h2>
+            Prayer library
+          </h2>
+        </div>
+
+        <a routerLink="/library" class="view-all">
+          View all →
+        </a>
+
+      </div>
+
+
+      <div class="category-grid">
+
+        @for (category of categories; track category.title) {
+
+          <a
+            routerLink="/library"
+            class="category-item"
+          >
+
+            <span class="category-icon">
+              {{ category.icon }}
+            </span>
+
+            <span class="category-title">
+              {{ category.title }}
+            </span>
+
+            <span class="category-description">
+              {{ category.description }}
+            </span>
+
+          </a>
+
+        }
+
+      </div>
+
+    </section>
+
+
+    <!-- Deities -->
+    <section class="section deity-section">
+
+      <div class="section-heading">
+
+        <div>
+          <span class="section-kicker">
+            Browse by
+          </span>
+
+          <h2>
+            Deity
+          </h2>
+        </div>
+
+      </div>
+
+
+      <div class="deity-list">
+
+        @for (deity of deities; track deity.name) {
+
+          <a
+            routerLink="/library"
+            class="deity-item"
+          >
+
+            <span class="deity-symbol">
+              {{ deity.symbol }}
+            </span>
+
+            <span>
+              {{ deity.name }}
+            </span>
+
+          </a>
+
+        }
+
+      </div>
+
+    </section>
+
+
+    <!-- Festivals -->
+    <section class="section festival-section">
+
+      <div class="festival-inner">
+
+        <div class="festival-copy">
+
+          <span class="section-kicker">
+            Pray with the occasion
+          </span>
+
+          <h2>
+            Festival prayers
+          </h2>
+
+          <p>
+            Find the prayers, mantras and aartis
+            traditionally recited during your
+            favourite Hindu festivals.
+          </p>
+
+          <a
+            routerLink="/library"
+            class="text-button"
+          >
+            Explore festivals →
+          </a>
+
+        </div>
+
+
+        <div class="festival-list">
+
+          @for (festival of festivals; track festival) {
+
+            <a
+              routerLink="/library"
+              class="festival-item"
+            >
+              <span>{{ festival }}</span>
+              <span>→</span>
+            </a>
+
+          }
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- Closing -->
+    <section class="closing-section">
+
+      <span class="closing-symbol">
+        ॐ
+      </span>
+
+      <p class="closing-hindi">
+        श्रद्धा से पढ़ें, मन से सुनें।
+      </p>
+
+      <p>
+        A simple place for timeless prayers.
+      </p>
+
+    </section>
+
+  </main>
+
+
+  <!-- Footer -->
+  <footer class="site-footer">
+
+    <div class="footer-brand">
+      <span>ॐ</span>
+      <strong>Stotra</strong>
+    </div>
+
+    <span>
+      Hindu Prayers & Recitations
+    </span>
+
+    <span>
+      © 2026
+    </span>
+
+  </footer>
+
+</div>
