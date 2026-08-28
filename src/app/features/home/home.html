@@ -1,34 +1,14 @@
 <div class="home-page">
 
-  <!-- Header -->
-  <header class="site-header">
-
-    <a routerLink="/" class="brand">
-      <span class="brand-symbol">ॐ</span>
-
-      <div class="brand-text">
-        <span class="brand-name">Stotra</span>
-        <span class="brand-tagline">Prayer • Recite • Listen</span>
-      </div>
-    </a>
-
-    <nav class="desktop-nav">
-      <a routerLink="/">Home</a>
-      <a routerLink="/library">Library</a>
-      <a routerLink="/favorites">Favorites</a>
-    </nav>
-
-    <button class="theme-button" type="button" aria-label="Change theme">
-      ☼
-    </button>
-
-  </header>
-
-
-  <!-- Hero -->
   <main>
 
+    <!-- =========================
+         HERO
+    ========================== -->
+
     <section class="hero">
+
+      <!-- LEFT CONTENT -->
 
       <div class="hero-content">
 
@@ -37,7 +17,7 @@
         </span>
 
         <h1>
-          Read. Recite.<br />
+          Read. Recite.<br>
           <span>Listen.</span>
         </h1>
 
@@ -49,16 +29,19 @@
         </p>
 
 
-        <!-- Search -->
+        <!-- SEARCH -->
+
         <div class="search-box">
 
-          <span class="search-icon">⌕</span>
+          <span class="search-icon">
+            ⌕
+          </span>
 
           <input
             type="text"
             placeholder="Search prayers, deities or festivals..."
-            aria-label="Search prayers"
-          />
+            aria-label="Search prayers, deities or festivals"
+          >
 
           <span class="search-shortcut">
             /
@@ -67,19 +50,34 @@
         </div>
 
 
+        <!-- ACTIONS -->
+
         <div class="hero-actions">
 
-          <a routerLink="/library" class="primary-button">
+          <a
+            routerLink="/library"
+            class="primary-button"
+          >
             Explore prayers
-            <span>→</span>
+
+            <span>
+              →
+            </span>
+
           </a>
+
 
           <a
             routerLink="/prayer/hanuman-chalisa"
             class="secondary-button"
           >
-            <span>▶</span>
+
+            <span class="play-icon">
+              ▶
+            </span>
+
             Hanuman Chalisa
+
           </a>
 
         </div>
@@ -87,20 +85,26 @@
       </div>
 
 
-      <!-- Featured Prayer -->
-      <div class="featured-prayer">
+      <!-- FEATURED PRAYER -->
+
+      <article class="featured-prayer">
 
         <div class="featured-top">
-          <span class="featured-label">Featured prayer</span>
 
-          <span class="featured-icon">
+          <span class="featured-label">
+            Featured prayer
+          </span>
+
+          <span class="featured-symbol">
             🚩
           </span>
+
         </div>
+
 
         <div class="featured-content">
 
-          <span class="devanagari-small">
+          <span class="devanagari-title">
             श्री हनुमान चालीसा
           </span>
 
@@ -108,12 +112,22 @@
             Hanuman Chalisa
           </h2>
 
-          <p>
-            श्रीगुरु चरन सरोज रज,<br />
-            निज मनु मुकुरु सुधारि।
-          </p>
+
+          <div class="featured-verse">
+
+            <p>
+              श्रीगुरु चरन सरोज रज,<br>
+              निज मनु मुकुरु सुधारि।
+            </p>
+
+            <span class="verse-more">
+              ...
+            </span>
+
+          </div>
 
         </div>
+
 
         <div class="featured-footer">
 
@@ -121,27 +135,48 @@
             routerLink="/prayer/hanuman-chalisa"
             class="read-link"
           >
-            Read prayer
-            <span>→</span>
+
+            <span>
+              Read prayer
+            </span>
+
+            <span>
+              →
+            </span>
+
           </a>
 
-          <span class="language">
-            हिन्दी
-          </span>
+
+          <a
+            routerLink="/prayer/hanuman-chalisa"
+            class="listen-link"
+          >
+
+            <span>
+              ▶
+            </span>
+
+            Listen
+
+          </a>
 
         </div>
 
-      </div>
+      </article>
 
     </section>
 
 
-    <!-- Categories -->
+    <!-- =========================
+         PRAYER LIBRARY
+    ========================== -->
+
     <section class="section categories-section">
 
       <div class="section-heading">
 
         <div>
+
           <span class="section-kicker">
             Explore
           </span>
@@ -149,9 +184,14 @@
           <h2>
             Prayer library
           </h2>
+
         </div>
 
-        <a routerLink="/library" class="view-all">
+
+        <a
+          routerLink="/library"
+          class="view-all"
+        >
           View all →
         </a>
 
@@ -188,12 +228,16 @@
     </section>
 
 
-    <!-- Deities -->
+    <!-- =========================
+         DEITIES
+    ========================== -->
+
     <section class="section deity-section">
 
       <div class="section-heading">
 
         <div>
+
           <span class="section-kicker">
             Browse by
           </span>
@@ -201,6 +245,7 @@
           <h2>
             Deity
           </h2>
+
         </div>
 
       </div>
@@ -232,7 +277,10 @@
     </section>
 
 
-    <!-- Festivals -->
+    <!-- =========================
+         FESTIVALS
+    ========================== -->
+
     <section class="section festival-section">
 
       <div class="festival-inner">
@@ -249,9 +297,10 @@
 
           <p>
             Find the prayers, mantras and aartis
-            traditionally recited during your
-            favourite Hindu festivals.
+            traditionally recited during Hindu
+            festivals and special occasions.
           </p>
+
 
           <a
             routerLink="/library"
@@ -271,8 +320,15 @@
               routerLink="/library"
               class="festival-item"
             >
-              <span>{{ festival }}</span>
-              <span>→</span>
+
+              <span>
+                {{ festival }}
+              </span>
+
+              <span>
+                →
+              </span>
+
             </a>
 
           }
@@ -284,7 +340,10 @@
     </section>
 
 
-    <!-- Closing -->
+    <!-- =========================
+         CLOSING
+    ========================== -->
+
     <section class="closing-section">
 
       <span class="closing-symbol">
@@ -304,17 +363,29 @@
   </main>
 
 
-  <!-- Footer -->
+  <!-- =========================
+       FOOTER
+  ========================== -->
+
   <footer class="site-footer">
 
     <div class="footer-brand">
-      <span>ॐ</span>
-      <strong>Stotra</strong>
+
+      <span>
+        ॐ
+      </span>
+
+      <strong>
+        Stotra
+      </strong>
+
     </div>
+
 
     <span>
       Hindu Prayers & Recitations
     </span>
+
 
     <span>
       © 2026

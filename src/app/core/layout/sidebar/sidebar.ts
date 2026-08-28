@@ -27,16 +27,20 @@ export class Sidebar implements OnInit {
 
   isMobile = false;
 
+
   ngOnInit(): void {
     this.updateViewport();
   }
+
 
   @HostListener('window:resize')
   onResize(): void {
     this.updateViewport();
   }
 
+
   toggleSidebar(): void {
+
     if (this.isMobile) {
       this.mobileOpen = !this.mobileOpen;
       return;
@@ -45,26 +49,32 @@ export class Sidebar implements OnInit {
     this.collapsed = !this.collapsed;
   }
 
+
   onNavigationClick(): void {
+
     if (this.isMobile) {
       this.mobileOpen = false;
     }
   }
 
+
   closeMobileSidebar(): void {
     this.mobileOpen = false;
   }
 
+
   private updateViewport(): void {
+
     if (typeof window === 'undefined') {
       return;
     }
 
     this.isMobile =
-      window.matchMedia('(max-width: 768px)').matches;
+      window.matchMedia('(max-width: 900px)').matches;
 
     if (!this.isMobile) {
       this.mobileOpen = false;
     }
   }
+
 }

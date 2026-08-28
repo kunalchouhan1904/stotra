@@ -11,7 +11,7 @@ export const routes: Routes = [
     children: [
       { path: '', redirectTo: 'home', pathMatch: 'full' },
 
-      { path: 'home', component: HomeComponent, title: 'Home' },
+      { path: 'home', component: HomeComponent, title: 'Stotra — Hindu Prayers & Recitations' },
 
     ]
   },

@@ -10,11 +10,16 @@
   --text-muted: #78716c;
 
   --accent: #9a6a32;
-  --accent-soft: #f2e7d5;
+  --accent-light: #b8874d;
 
   --border: #e7e2d9;
 
   --max-width: 1180px;
+}
+
+
+* {
+  box-sizing: border-box;
 }
 
 
@@ -24,8 +29,18 @@
 
 .home-page {
   min-height: 100vh;
+
   background: var(--page-bg);
+
   color: var(--text);
+
+  font-family:
+    Inter,
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    sans-serif;
 }
 
 
@@ -39,13 +54,12 @@
     var(--max-width)
   );
 
-  margin: 0 auto;
+  height: 76px;
 
-  height: 78px;
+  margin: 0 auto;
 
   display: flex;
   align-items: center;
-  justify-content: space-between;
 
   border-bottom: 1px solid var(--border);
 }
@@ -54,20 +68,23 @@
 .brand {
   display: flex;
   align-items: center;
+
   gap: 12px;
 
   color: inherit;
+
   text-decoration: none;
 }
 
 
 .brand-symbol {
-  font-family: serif;
-
-  font-size: 30px;
-  line-height: 1;
-
   color: var(--accent);
+
+  font-family: Georgia, serif;
+
+  font-size: 31px;
+
+  line-height: 1;
 }
 
 
@@ -78,9 +95,13 @@
 
 
 .brand-name {
-  font-family: Georgia, serif;
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
 
-  font-size: 20px;
+  font-size: 21px;
+
   font-weight: 600;
 
   letter-spacing: -0.02em;
@@ -92,28 +113,30 @@
 
   color: var(--text-muted);
 
-  font-size: 10px;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
+  font-size: 9px;
+
+  letter-spacing: 0.13em;
 }
 
 
 .desktop-nav {
   display: flex;
   align-items: center;
-  gap: 34px;
+
+  gap: 32px;
 
   margin-left: auto;
-  margin-right: 28px;
+
+  margin-right: 26px;
 }
 
 
 .desktop-nav a {
   color: var(--text-soft);
 
-  text-decoration: none;
-
   font-size: 14px;
+
+  text-decoration: none;
 
   transition: color 0.2s ease;
 }
@@ -125,27 +148,29 @@
 
 
 .theme-button {
-  width: 38px;
-  height: 38px;
+  width: 40px;
+  height: 40px;
+
+  display: grid;
+  place-items: center;
 
   border: 1px solid var(--border);
+
   border-radius: 50%;
 
   background: var(--surface);
 
-  color: var(--text);
+  color: var(--text-soft);
 
   cursor: pointer;
 
-  font-size: 17px;
-
-  transition:
-    background 0.2s ease,
-    border-color 0.2s ease;
+  font-size: 18px;
 }
 
 
 .theme-button:hover {
+  color: var(--accent);
+
   background: var(--surface-soft);
 }
 
@@ -160,17 +185,19 @@
     var(--max-width)
   );
 
+  min-height: 600px;
+
   margin: 0 auto;
 
-  padding: 105px 0 90px;
+  padding: 72px 0 68px;
 
   display: grid;
 
   grid-template-columns:
-    minmax(0, 1.15fr)
-    minmax(320px, 0.85fr);
+    minmax(0, 1.08fr)
+    minmax(360px, 0.82fr);
 
-  gap: 90px;
+  gap: 80px;
 
   align-items: center;
 }
@@ -184,26 +211,32 @@
 .hero-eyebrow {
   display: inline-block;
 
-  margin-bottom: 24px;
+  margin-bottom: 19px;
 
   color: var(--accent);
 
-  font-size: 13px;
+  font-family:
+    "Noto Serif Devanagari",
+    "Nirmala UI",
+    serif;
 
-  letter-spacing: 0.06em;
+  font-size: 14px;
 }
 
 
 .hero h1 {
   margin: 0;
 
-  font-family: Georgia, "Times New Roman", serif;
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
 
-  font-size: clamp(48px, 6vw, 76px);
+  font-size: clamp(52px, 5.6vw, 72px);
 
   font-weight: 400;
 
-  line-height: 1.05;
+  line-height: 1.02;
 
   letter-spacing: -0.045em;
 }
@@ -215,20 +248,21 @@
 
 
 .hero-description {
-  max-width: 590px;
+  max-width: 570px;
 
-  margin: 30px 0 34px;
+  margin: 25px 0 27px;
 
   color: var(--text-soft);
 
-  font-size: 17px;
+  font-size: 16px;
 
-  line-height: 1.8;
+  line-height: 1.75;
 }
 
 
 .hero-description strong {
   color: var(--text);
+
   font-weight: 600;
 }
 
@@ -239,33 +273,33 @@
 
 .search-box {
   width: 100%;
-  max-width: 590px;
 
-  height: 58px;
+  max-width: 570px;
+
+  height: 55px;
 
   display: flex;
   align-items: center;
 
-  padding: 0 15px 0 20px;
+  padding: 0 13px 0 18px;
 
   border: 1px solid var(--border);
-  border-radius: 10px;
+
+  border-radius: 9px;
 
   background: var(--surface);
 
   box-shadow:
-    0 4px 20px rgba(50, 40, 30, 0.04);
+    0 7px 25px rgba(60, 45, 30, 0.045);
 }
 
 
 .search-icon {
-  margin-right: 12px;
+  margin-right: 11px;
 
   color: var(--text-muted);
 
-  font-size: 25px;
-
-  transform: rotate(-15deg);
+  font-size: 24px;
 }
 
 
@@ -275,6 +309,7 @@
   min-width: 0;
 
   border: 0;
+
   outline: 0;
 
   background: transparent;
@@ -300,39 +335,42 @@
   place-items: center;
 
   border: 1px solid var(--border);
-  border-radius: 6px;
+
+  border-radius: 5px;
 
   color: var(--text-muted);
 
-  font-size: 13px;
+  font-size: 12px;
 }
 
 
 /* ========================================
-   HERO BUTTONS
+   HERO ACTIONS
 ======================================== */
 
 .hero-actions {
   display: flex;
   align-items: center;
-  gap: 18px;
 
-  margin-top: 22px;
+  gap: 12px;
+
+  margin-top: 18px;
 }
 
 
 .primary-button,
 .secondary-button {
-  min-height: 45px;
+  min-height: 43px;
 
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 10px;
 
-  padding: 0 19px;
+  gap: 9px;
 
-  border-radius: 8px;
+  padding: 0 17px;
+
+  border-radius: 7px;
 
   text-decoration: none;
 
@@ -346,6 +384,7 @@
 
 .primary-button {
   background: var(--text);
+
   color: var(--page-bg);
 }
 
@@ -365,7 +404,12 @@
 
 
 .secondary-button:hover {
-  background: var(--surface-soft);
+  background: var(--surface);
+}
+
+
+.play-icon {
+  font-size: 10px;
 }
 
 
@@ -376,15 +420,18 @@
 .featured-prayer {
   position: relative;
 
-  min-height: 390px;
+  min-height: 385px;
 
   display: flex;
   flex-direction: column;
 
-  padding: 32px;
+  padding: 30px;
+
+  overflow: hidden;
 
   border: 1px solid var(--border);
-  border-radius: 14px;
+
+  border-radius: 13px;
 
   background:
     linear-gradient(
@@ -394,31 +441,35 @@
     );
 
   box-shadow:
-    0 20px 60px rgba(60, 45, 30, 0.07);
+    0 18px 50px rgba(60, 45, 30, 0.06);
 }
 
 
-.featured-prayer::before {
+.featured-prayer::after {
   content: "ॐ";
 
   position: absolute;
 
-  right: 24px;
-  bottom: 0;
+  right: -10px;
+  bottom: -28px;
 
   color: var(--accent);
 
-  opacity: 0.07;
+  opacity: 0.065;
 
-  font-family: serif;
+  font-family: Georgia, serif;
 
-  font-size: 170px;
+  font-size: 165px;
 
   line-height: 1;
 }
 
 
 .featured-top {
+  position: relative;
+
+  z-index: 1;
+
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -428,16 +479,18 @@
 .featured-label {
   color: var(--text-muted);
 
-  font-size: 11px;
+  font-size: 10px;
+
+  font-weight: 500;
+
+  letter-spacing: 0.13em;
 
   text-transform: uppercase;
-
-  letter-spacing: 0.12em;
 }
 
 
-.featured-icon {
-  font-size: 25px;
+.featured-symbol {
+  font-size: 23px;
 }
 
 
@@ -450,10 +503,10 @@
 }
 
 
-.devanagari-small {
+.devanagari-title {
   display: block;
 
-  margin-bottom: 8px;
+  margin-bottom: 7px;
 
   color: var(--accent);
 
@@ -467,17 +520,22 @@
 
 
 .featured-content h2 {
-  margin: 0 0 25px;
+  margin: 0 0 22px;
 
-  font-family: Georgia, serif;
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
 
-  font-size: 31px;
+  font-size: 30px;
 
   font-weight: 400;
+
+  letter-spacing: -0.025em;
 }
 
 
-.featured-content p {
+.featured-verse p {
   margin: 0;
 
   color: var(--text-soft);
@@ -487,45 +545,61 @@
     "Nirmala UI",
     serif;
 
-  font-size: 20px;
+  font-size: 18px;
 
-  line-height: 1.9;
+  line-height: 1.8;
+}
+
+
+.verse-more {
+  color: var(--text-muted);
+
+  font-size: 15px;
 }
 
 
 .featured-footer {
   position: relative;
 
-  z-index: 1;
+  z-index: 2;
 
   display: flex;
   align-items: center;
   justify-content: space-between;
 
-  padding-top: 22px;
+  padding-top: 18px;
 
   border-top: 1px solid var(--border);
 }
 
 
-.read-link {
+.read-link,
+.listen-link {
   display: inline-flex;
-  gap: 9px;
+  align-items: center;
 
-  color: var(--accent);
+  gap: 8px;
 
   text-decoration: none;
 
-  font-size: 13px;
+  font-size: 12px;
 
   font-weight: 600;
 }
 
 
-.language {
-  color: var(--text-muted);
+.read-link {
+  color: var(--accent);
+}
 
-  font-size: 12px;
+
+.listen-link {
+  color: var(--text-soft);
+}
+
+
+.listen-link:hover {
+  color: var(--accent);
 }
 
 
@@ -541,7 +615,7 @@
 
   margin: 0 auto;
 
-  padding: 80px 0;
+  padding: 72px 0;
 
   border-top: 1px solid var(--border);
 }
@@ -552,22 +626,22 @@
   align-items: flex-end;
   justify-content: space-between;
 
-  margin-bottom: 30px;
+  margin-bottom: 27px;
 }
 
 
 .section-kicker {
   display: block;
 
-  margin-bottom: 8px;
+  margin-bottom: 7px;
 
   color: var(--accent);
 
-  font-size: 11px;
+  font-size: 10px;
 
   font-weight: 600;
 
-  letter-spacing: 0.12em;
+  letter-spacing: 0.13em;
 
   text-transform: uppercase;
 }
@@ -576,9 +650,12 @@
 .section h2 {
   margin: 0;
 
-  font-family: Georgia, serif;
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
 
-  font-size: 34px;
+  font-size: 32px;
 
   font-weight: 400;
 
@@ -590,11 +667,11 @@
 .text-button {
   color: var(--accent);
 
-  text-decoration: none;
-
-  font-size: 13px;
+  font-size: 12px;
 
   font-weight: 600;
+
+  text-decoration: none;
 }
 
 
@@ -609,19 +686,21 @@
     repeat(4, 1fr);
 
   border-top: 1px solid var(--border);
+
   border-left: 1px solid var(--border);
 }
 
 
 .category-item {
-  min-height: 175px;
+  min-height: 155px;
 
   display: flex;
   flex-direction: column;
 
-  padding: 25px;
+  padding: 23px;
 
   border-right: 1px solid var(--border);
+
   border-bottom: 1px solid var(--border);
 
   color: inherit;
@@ -644,23 +723,27 @@
 .category-icon {
   margin-bottom: auto;
 
-  font-size: 27px;
+  color: var(--accent);
+
+  font-size: 25px;
 }
 
 
 .category-title {
-  margin-bottom: 5px;
+  margin-bottom: 4px;
 
-  font-family: Georgia, serif;
+  font-family:
+    Georgia,
+    serif;
 
-  font-size: 21px;
+  font-size: 20px;
 }
 
 
 .category-description {
   color: var(--text-muted);
 
-  font-size: 12px;
+  font-size: 11px;
 }
 
 
@@ -669,7 +752,7 @@
 ======================================== */
 
 .deity-section {
-  padding-top: 60px;
+  padding-top: 58px;
 }
 
 
@@ -679,28 +762,29 @@
   grid-template-columns:
     repeat(8, 1fr);
 
-  gap: 10px;
+  gap: 9px;
 }
 
 
 .deity-item {
-  min-height: 105px;
+  min-height: 100px;
 
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
 
-  gap: 10px;
+  gap: 9px;
 
   border: 1px solid var(--border);
-  border-radius: 9px;
+
+  border-radius: 8px;
 
   color: var(--text-soft);
 
   text-decoration: none;
 
-  font-size: 12px;
+  font-size: 11px;
 
   transition:
     background 0.2s ease,
@@ -716,7 +800,7 @@
 
 
 .deity-symbol {
-  font-size: 23px;
+  font-size: 21px;
 }
 
 
@@ -725,7 +809,7 @@
 ======================================== */
 
 .festival-section {
-  padding-bottom: 100px;
+  padding-bottom: 90px;
 }
 
 
@@ -734,11 +818,11 @@
 
   grid-template-columns: 1fr 1fr;
 
-  gap: 90px;
+  gap: 80px;
 
-  padding: 55px;
+  padding: 48px;
 
-  border-radius: 14px;
+  border-radius: 13px;
 
   background: var(--surface-soft);
 }
@@ -750,16 +834,16 @@
 
 
 .festival-copy h2 {
-  margin-bottom: 20px;
+  margin-bottom: 17px;
 }
 
 
 .festival-copy p {
-  margin-bottom: 25px;
+  margin: 0 0 23px;
 
   color: var(--text-soft);
 
-  font-size: 15px;
+  font-size: 14px;
 
   line-height: 1.8;
 }
@@ -781,7 +865,7 @@
   align-items: center;
   justify-content: space-between;
 
-  padding: 16px 0;
+  padding: 14px 0;
 
   border-bottom: 1px solid var(--border);
 
@@ -789,7 +873,7 @@
 
   text-decoration: none;
 
-  font-size: 13px;
+  font-size: 12px;
 
   transition: color 0.2s ease;
 }
@@ -812,7 +896,7 @@
 
   margin: 0 auto;
 
-  padding: 80px 0;
+  padding: 75px 0;
 
   text-align: center;
 
@@ -823,25 +907,25 @@
 .closing-symbol {
   display: block;
 
-  margin-bottom: 20px;
+  margin-bottom: 17px;
 
   color: var(--accent);
 
-  font-family: serif;
+  font-family: Georgia, serif;
 
-  font-size: 35px;
+  font-size: 32px;
 }
 
 
 .closing-hindi {
-  margin-bottom: 8px;
+  margin: 0 0 7px;
 
   font-family:
     "Noto Serif Devanagari",
     "Nirmala UI",
     serif;
 
-  font-size: 19px;
+  font-size: 18px;
 }
 
 
@@ -850,7 +934,7 @@
 
   color: var(--text-muted);
 
-  font-size: 12px;
+  font-size: 11px;
 }
 
 
@@ -859,12 +943,12 @@
 ======================================== */
 
 .site-footer {
-  min-height: 70px;
-
   width: min(
     calc(100% - 48px),
     var(--max-width)
   );
+
+  min-height: 68px;
 
   margin: 0 auto;
 
@@ -876,13 +960,14 @@
 
   color: var(--text-muted);
 
-  font-size: 11px;
+  font-size: 10px;
 }
 
 
 .footer-brand {
   display: flex;
   align-items: center;
+
   gap: 8px;
 
   color: var(--text);
@@ -892,9 +977,9 @@
 .footer-brand span {
   color: var(--accent);
 
-  font-family: serif;
+  font-family: Georgia, serif;
 
-  font-size: 20px;
+  font-size: 19px;
 }
 
 
@@ -907,9 +992,9 @@
   .hero {
     grid-template-columns: 1fr;
 
-    gap: 55px;
+    gap: 45px;
 
-    padding-top: 75px;
+    padding-top: 60px;
   }
 
 
@@ -950,10 +1035,7 @@
   .section,
   .closing-section,
   .site-footer {
-    width: min(
-      calc(100% - 32px),
-      var(--max-width)
-    );
+    width: calc(100% - 32px);
   }
 
 
@@ -973,19 +1055,21 @@
 
 
   .hero {
-    padding: 60px 0 55px;
+    min-height: auto;
 
-    gap: 40px;
+    padding: 52px 0 55px;
+
+    gap: 38px;
   }
 
 
   .hero h1 {
-    font-size: 51px;
+    font-size: 50px;
   }
 
 
   .hero-description {
-    font-size: 15px;
+    font-size: 14px;
 
     line-height: 1.7;
   }
@@ -1016,13 +1100,13 @@
   }
 
 
-  .featured-content p {
-    font-size: 18px;
+  .featured-verse p {
+    font-size: 17px;
   }
 
 
   .section {
-    padding: 60px 0;
+    padding: 58px 0;
   }
 
 
@@ -1032,17 +1116,18 @@
 
 
   .section h2 {
-    font-size: 29px;
+    font-size: 28px;
   }
 
 
   .category-grid {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns:
+      repeat(2, 1fr);
   }
 
 
   .category-item {
-    min-height: 145px;
+    min-height: 140px;
 
     padding: 18px;
   }
@@ -1057,19 +1142,19 @@
     grid-template-columns:
       repeat(4, 1fr);
 
-    gap: 7px;
+    gap: 6px;
   }
 
 
   .deity-item {
-    min-height: 90px;
+    min-height: 88px;
 
-    font-size: 10px;
+    font-size: 9px;
   }
 
 
   .deity-symbol {
-    font-size: 19px;
+    font-size: 18px;
   }
 
 
@@ -1084,6 +1169,8 @@
 
 
   .site-footer {
+    min-height: auto;
+
     padding: 20px 0;
 
     flex-wrap: wrap;

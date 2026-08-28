@@ -52,4 +52,5 @@ export class HomeComponent {
     'Hanuman Jayanti',
     'Janmashtami'
   ];
+
 }
