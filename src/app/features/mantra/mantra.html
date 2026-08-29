@@ -1,5 +1,126 @@
-<div class="home-page">
-  <p>
-    Mantra.
-  </p>
+<div class="kindle-container">
+
+  <!-- =====================================================
+       1. MANTRA SELECTION VIEW
+  ====================================================== -->
+  @if (!selectedMantra) {
+    <div class="mantra-selection">
+
+      <h1 class="kindle-title">Mantra Collection</h1>
+
+      <p class="kindle-subtitle">
+        Select a mantra to begin reading
+      </p>
+
+      <div class="mantra-grid">
+
+        @for (mantra of mantraList; track mantra.id) {
+          <div
+            class="kindle-card"
+            (click)="selectMantra(mantra.id)"
+          >
+
+            <div class="card-icon">
+              {{ mantra.icon }}
+            </div>
+
+            <h3>
+              {{ mantra.title }}
+            </h3>
+
+            <p>
+              {{ mantra.subtitle }}
+            </p>
+
+          </div>
+        }
+
+      </div>
+
+    </div>
+  }
+
+
+  <!-- =====================================================
+       2. MANTRA READER VIEW
+  ====================================================== -->
+  @if (selectedMantra) {
+
+    <div class="kindle-paper-spread">
+
+      <!-- =================================================
+           HEADER
+      ================================================== -->
+      <div class="spread-header">
+
+        <button
+          type="button"
+          class="kindle-back-btn"
+          (click)="selectedMantra = null"
+        >
+          ‹ Back to Collection
+        </button>
+
+        <h1 class="book-title">
+          {{ mantraDetails[selectedMantra].title }}
+        </h1>
+
+        <p class="book-subtitle">
+          {{ mantraDetails[selectedMantra].subtitle }}
+        </p>
+
+      </div>
+
+
+      <!-- =================================================
+           READING AREA
+      ================================================== -->
+      <article class="book-columns">
+
+        <!-- DEITY -->
+        <section class="book-section deity-section">
+
+          <h2 class="section-label">
+            ॥ {{ mantraDetails[selectedMantra].deity }} ॥
+          </h2>
+
+        </section>
+
+
+        <!-- SANSKRIT MANTRA -->
+        <section class="book-section mantra-section">
+
+          <h2 class="section-label">
+            ॥ मंत्र ॥
+          </h2>
+
+          <p class="mantra-para">
+            {{ mantraDetails[selectedMantra].mantra }}
+          </p>
+
+        </section>
+
+
+        <!-- TRANSLITERATION -->
+        <section class="book-section transliteration-section">
+
+          <h2 class="section-label">
+            ॥ Transliteration ॥
+          </h2>
+
+          <p class="transliteration-para">
+            {{ mantraDetails[selectedMantra].transliteration }}
+          </p>
+
+        </section>
+
+
+        
+
+      </article>
+
+    </div>
+
+  }
+
 </div>
