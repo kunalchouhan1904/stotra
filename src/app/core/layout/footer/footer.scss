@@ -8,6 +8,11 @@
   width: 100%;
   height: 100%;
 
+  min-width: 0;
+  min-height: 0;
+
+  overflow: hidden;
+
   font-family:
     Inter,
     "Segoe UI",
@@ -16,43 +21,60 @@
 }
 
 
+/* =========================================================
+   FOOTER
+========================================================= */
+
 .deity-footer {
   width: 100%;
   height: 100%;
 
+  min-width: 0;
+
   box-sizing: border-box;
 
-  background: rgba(250, 249, 246, 0.97);
+  background: rgba(250, 249, 246, 0.98);
 
   border-top: 1px solid #e7e2d9;
 
   backdrop-filter: blur(12px);
+
+  overflow: hidden;
 }
 
+
+/* =========================================================
+   FOOTER INNER
+========================================================= */
 
 .deity-footer-inner {
   width: 100%;
   height: 100%;
 
-  min-height: 58px;
+  min-width: 0;
+  min-height: 54px;
 
-  max-width: 1200px;
+  box-sizing: border-box;
 
   margin: 0 auto;
 
   padding: 0 24px;
 
-  box-sizing: border-box;
-
   display: flex;
   align-items: center;
 
   gap: 24px;
+
+  overflow: hidden;
 }
 
 
+/* =========================================================
+   BROWSE LABEL
+========================================================= */
+
 .browse-label {
-  flex-shrink: 0;
+  flex: 0 0 auto;
 
   color: #9a6a32;
 
@@ -70,10 +92,18 @@
   letter-spacing: 0.1em;
 
   text-transform: uppercase;
+
+  white-space: nowrap;
 }
 
 
+/* =========================================================
+   DEITY LIST
+========================================================= */
+
 .deity-list {
+  flex: 1 1 auto;
+
   min-width: 0;
 
   display: flex;
@@ -82,17 +112,25 @@
   gap: 4px;
 
   overflow-x: auto;
+  overflow-y: hidden;
 
   scrollbar-width: none;
+
+  -webkit-overflow-scrolling: touch;
 }
+
 
 .deity-list::-webkit-scrollbar {
   display: none;
 }
 
 
+/* =========================================================
+   DEITY ITEM
+========================================================= */
+
 .deity-item {
-  flex-shrink: 0;
+  flex: 0 0 auto;
 
   display: inline-flex;
   align-items: center;
@@ -132,7 +170,17 @@
 }
 
 
+/* =========================================================
+   SYMBOL
+========================================================= */
+
 .deity-symbol {
+  flex: 0 0 auto;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
   font-family:
     "Noto Serif Devanagari",
     "Segoe UI",
@@ -144,7 +192,13 @@
 }
 
 
+/* =========================================================
+   NAME
+========================================================= */
+
 .deity-name {
+  flex: 0 0 auto;
+
   font-family:
     Inter,
     "Segoe UI",
@@ -152,6 +206,8 @@
     sans-serif;
 
   line-height: 1;
+
+  white-space: nowrap;
 }
 
 
@@ -164,22 +220,61 @@
   .deity-footer-inner {
     min-height: 54px;
 
-    padding: 0 14px;
+    padding: 0 10px;
 
-    gap: 12px;
+    gap: 8px;
   }
+
 
   .browse-label {
     display: none;
   }
 
+
   .deity-list {
     width: 100%;
+
+    gap: 2px;
+
+    overflow-x: auto;
+    overflow-y: hidden;
   }
+
 
   .deity-item {
     padding: 7px 9px;
 
+    gap: 6px;
+
+    font-size: 12px;
+  }
+
+
+  .deity-symbol {
+    font-size: 18px;
+  }
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media (max-width: 400px) {
+
+  .deity-footer-inner {
+    padding: 0 6px;
+  }
+
+
+  .deity-item {
+    padding: 6px 8px;
+
     font-size: 11px;
+  }
+
+
+  .deity-symbol {
+    font-size: 17px;
   }
 }
