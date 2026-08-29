@@ -1,71 +1,611 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Noto+Serif+Devanagari:wght@400;500;600;700&display=swap');
+
+
 /* =========================================================
-   STOTRAAM — HOME
+   FESTIVALS
+   Elegant • Devotional • Comfortable • Responsive
 ========================================================= */
 
 :host {
   display: block;
-
   width: 100%;
-
+  flex: 1;
   min-width: 0;
-  min-height: 0;
-
-  margin: 0;
-  padding: 0;
-
-  box-sizing: border-box;
-
-  font-family:
-    Inter,
-    "Segoe UI",
-    Arial,
-    sans-serif;
 }
 
 
 /* =========================================================
-   HOME PAGE
+   MAIN CONTAINER
 ========================================================= */
 
-.home-page {
+.kindle-container {
   width: 100%;
+  padding: 18px 20px 28px;
+  box-sizing: border-box;
+}
 
-  min-width: 0;
+
+/* =========================================================
+   1. FESTIVAL SELECTION
+========================================================= */
+
+.festival-selection {
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+
+.kindle-title {
+  margin: 0 0 6px;
+
+  font-family:
+    "Cormorant Garamond",
+    Georgia,
+    serif;
+
+  font-size: clamp(2rem, 3vw, 2.6rem);
+
+  font-weight: 700;
+  line-height: 1;
+
+  color: #2f2924;
+}
+
+
+.kindle-subtitle {
+  margin: 0 0 24px;
+
+  font-family:
+    "Noto Serif Devanagari",
+    Georgia,
+    serif;
+
+  font-size: 14px;
+
+  line-height: 1.5;
+
+  color: #756b62;
+}
+
+
+/* =========================================================
+   FESTIVAL CARDS
+========================================================= */
+
+.festival-grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(2, minmax(0, 1fr));
+
+  gap: 18px;
+
+  width: 100%;
+}
+
+
+.kindle-card {
+  width: 100%;
 
   box-sizing: border-box;
 
-  margin: 0;
-  padding: 32px 40px;
+  padding: 22px;
 
-  color: #292524;
+  background: #fcfaf6;
+
+  border: 1px solid #e4dbce;
+
+  border-radius: 14px;
+
+  cursor: pointer;
+
+  box-shadow:
+    0 2px 8px rgba(60, 43, 30, 0.035);
+
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    border-color 0.2s ease,
+    background 0.2s ease;
+
+  text-align: left;
+
+
+  &:hover {
+    background: #f8f2e8;
+
+    border-color: #d7c8b5;
+
+    transform: translateY(-2px);
+
+    box-shadow:
+      0 8px 20px rgba(60, 43, 30, 0.07);
+  }
+
+
+  .card-icon {
+    margin-bottom: 10px;
+
+    font-size: 26px;
+
+    line-height: 1;
+  }
+
+
+  h3 {
+    margin: 0 0 6px;
+
+    font-family:
+      "Cormorant Garamond",
+      Georgia,
+      serif;
+
+    font-size: 1.45rem;
+
+    font-weight: 700;
+
+    line-height: 1.1;
+
+    color: #342b25;
+  }
+
+
+  p {
+    margin: 0;
+
+    font-family:
+      "Noto Serif Devanagari",
+      Georgia,
+      serif;
+
+    font-size: 13px;
+
+    line-height: 1.5;
+
+    color: #74695f;
+  }
+}
+
+
+/* =========================================================
+   2. FESTIVAL PAPER
+========================================================= */
+
+.kindle-paper-spread {
+  width: 100%;
+
+  max-width: none;
+
+  margin: 0;
+
+  position: relative;
+
+  overflow: hidden;
+
+  padding: 30px 42px 34px;
+
+  box-sizing: border-box;
+
+  background:
+    radial-gradient(
+      circle at 50% 0%,
+      rgba(181, 129, 68, 0.055),
+      transparent 30%
+    ),
+    linear-gradient(
+      180deg,
+      #fffdf9 0%,
+      #fbf7ef 100%
+    );
+
+  color: #2f2924;
+
+  border: 1px solid #e5d8c7;
+
+  border-radius: 15px;
+
+  box-shadow:
+    0 8px 30px rgba(60, 43, 30, 0.055),
+    0 1px 3px rgba(60, 43, 30, 0.04);
 
   font-family:
-    Inter,
-    "Segoe UI",
-    Arial,
-    sans-serif;
+    "Noto Serif Devanagari",
+    Georgia,
+    serif;
+
+
+  &::before,
+  &::after {
+    content: "✦";
+
+    position: absolute;
+
+    top: 14px;
+
+    font-family: Georgia, serif;
+
+    font-size: 15px;
+
+    color: #c4955c;
+
+    opacity: 0.65;
+  }
+
+
+  &::before {
+    left: 18px;
+  }
+
+
+  &::after {
+    right: 18px;
+  }
+}
+
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+.spread-header {
+  position: relative;
+
+  text-align: center;
+
+  margin-bottom: 22px;
+
+  padding-bottom: 17px;
+
+  border-bottom: 1px solid #e4d9ca;
+
+
+  &::after {
+    content: "◇  ◆  ◇";
+
+    display: block;
+
+    margin-top: 9px;
+
+    font-family: Georgia, serif;
+
+    font-size: 10px;
+
+    letter-spacing: 0.18em;
+
+    color: #b7834d;
+
+    opacity: 0.72;
+  }
+}
+
+
+/* =========================================================
+   BACK BUTTON
+========================================================= */
+
+.kindle-back-btn {
+  position: absolute;
+
+  left: 0;
+
+  top: 4px;
+
+  padding: 4px 0;
+
+  background: transparent;
+
+  border: 0;
+
+  font-family:
+    "Cormorant Garamond",
+    Georgia,
+    serif;
+
+  font-size: 17px;
+
+  font-weight: 600;
+
+  color: #766b61;
+
+  cursor: pointer;
+
+  transition:
+    color 0.2s ease,
+    transform 0.2s ease;
+
+
+  &:hover {
+    color: #9b673b;
+
+    transform: translateX(-2px);
+  }
+}
+
+
+/* =========================================================
+   BOOK TITLE
+========================================================= */
+
+.book-title {
+  margin: 0;
+
+  font-family:
+    "Cormorant Garamond",
+    Georgia,
+    serif;
+
+  font-size:
+    clamp(2.15rem, 3.2vw, 3rem);
+
+  font-weight: 700;
+
+  line-height: 1;
+
+  letter-spacing: -0.015em;
+
+  color: #29231f;
+}
+
+
+.book-subtitle {
+  margin: 5px 0 0;
+
+  font-family:
+    "Cormorant Garamond",
+    Georgia,
+    serif;
 
   font-size: 15px;
-  font-weight: 400;
 
-  line-height: 1.6;
+  font-weight: 500;
 
-  background: #ffffff;
+  font-style: italic;
+
+  line-height: 1.3;
+
+  color: #7b6e62;
 }
 
 
 /* =========================================================
-   HOME TEXT
+   READING AREA
 ========================================================= */
 
-.home-page p {
+.book-columns {
+  width: 100%;
+
+  column-count: 2;
+
+  column-gap: 52px;
+
+  column-rule: 1px solid #e3d8ca;
+
+  column-fill: balance;
+
+  font-family:
+    "Noto Serif Devanagari",
+    Georgia,
+    serif;
+
+  font-size: 16px;
+
+  line-height: 1.72;
+
+  letter-spacing: 0.005em;
+
+  color: #302a25;
+
+  text-align: left;
+}
+
+
+.book-section {
+  margin: 0 0 22px;
+
+  break-inside: avoid;
+}
+
+
+/* =========================================================
+   SECTION LABEL
+========================================================= */
+
+.section-label {
+  margin: 8px 0 13px;
+
+  text-align: center;
+
+  font-family:
+    "Noto Serif Devanagari",
+    Georgia,
+    serif;
+
+  font-size: 15px;
+
+  font-weight: 700;
+
+  line-height: 1.35;
+
+  color: #a15f2e;
+}
+
+
+/* =========================================================
+   FESTIVAL INTRO
+========================================================= */
+
+.festival-intro {
+  text-align: center;
+
+  padding: 12px 0 20px;
+}
+
+
+.festival-icon {
+  margin-bottom: 12px;
+
+  font-size: 42px;
+
+  line-height: 1;
+}
+
+
+.festival-intro p {
+  margin: 0 auto;
+
+  max-width: 550px;
+
+  font-family:
+    "Cormorant Garamond",
+    Georgia,
+    serif;
+
+  font-size: 18px;
+
+  font-weight: 600;
+
+  line-height: 1.5;
+
+  color: #66594f;
+}
+
+
+/* =========================================================
+   AARTI SECTION
+========================================================= */
+
+.aarti-section {
+  padding-top: 8px;
+}
+
+
+.aarti-heading {
+  text-align: center;
+
+  margin-bottom: 18px;
+
+  padding-bottom: 15px;
+
+  border-bottom: 1px solid #e4d9ca;
+}
+
+
+.aarti-heading h2 {
+  margin: 0 0 5px;
+
+  font-family:
+    "Cormorant Garamond",
+    Georgia,
+    serif;
+
+  font-size: 1.8rem;
+
+  font-weight: 700;
+
+  line-height: 1.1;
+
+  color: #342b25;
+}
+
+
+.aarti-heading p {
   margin: 0;
 
-  padding: 0;
+  font-family:
+    "Cormorant Garamond",
+    Georgia,
+    serif;
 
-  font: inherit;
+  font-size: 15px;
 
-  color: inherit;
+  font-style: italic;
+
+  color: #7b6e62;
+}
+
+
+.aarti-para {
+  margin: 0 0 10px;
+
+  font-family:
+    "Noto Serif Devanagari",
+    Georgia,
+    serif;
+
+  font-size: 16px;
+
+  font-weight: 400;
+
+  line-height: 1.72;
+
+  color: #302a25;
+}
+
+
+/* =========================================================
+   LARGE DESKTOP
+========================================================= */
+
+@media (min-width: 1200px) {
+
+  .kindle-container {
+    padding-left: 22px;
+
+    padding-right: 22px;
+  }
+
+
+  .kindle-paper-spread {
+    padding-left: 46px;
+
+    padding-right: 46px;
+  }
+
+
+  .book-columns {
+    column-gap: 56px;
+
+    font-size: 16.5px;
+
+    line-height: 1.74;
+  }
+
+
+  .aarti-para {
+    font-size: 16.5px;
+  }
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 950px) {
+
+  .kindle-container {
+    padding: 14px;
+  }
+
+
+  .kindle-paper-spread {
+    padding: 24px 28px 28px;
+  }
+
+
+  .book-columns {
+    column-gap: 34px;
+
+    font-size: 15.5px;
+
+    line-height: 1.7;
+  }
+
+
+  .aarti-para {
+    font-size: 15.5px;
+  }
 }
 
 
@@ -73,53 +613,290 @@
    MOBILE
 ========================================================= */
 
-@media (max-width: 900px) {
+@media (max-width: 700px) {
 
-  .home-page {
-    padding: 24px;
+  .kindle-container {
+    padding: 10px;
+  }
+
+
+  .festival-grid {
+    grid-template-columns: 1fr;
+
+    gap: 12px;
+  }
+
+
+  .kindle-card {
+    padding: 18px;
+  }
+
+
+  .kindle-paper-spread {
+    padding: 18px 16px 24px;
+
+    border-radius: 11px;
+  }
+
+
+  .spread-header {
+    margin-bottom: 17px;
+
+    padding-bottom: 12px;
+  }
+
+
+  .kindle-back-btn {
+    position: static;
+
+    display: block;
+
+    margin: 0 auto 9px;
+
+    font-size: 15px;
+  }
+
+
+  .book-title {
+    font-size: 2.05rem;
+  }
+
+
+  .book-subtitle {
+    font-size: 14px;
+  }
+
+
+  .book-columns {
+    column-count: 1;
+
+    column-gap: 0;
+
+    column-rule: none;
+
+    font-size: 16px;
+
+    line-height: 1.75;
+  }
+
+
+  .festival-icon {
+    font-size: 36px;
+  }
+
+
+  .festival-intro p {
+    font-size: 17px;
+  }
+
+
+  .aarti-heading h2 {
+    font-size: 1.6rem;
+  }
+
+
+  .aarti-para {
+    font-size: 16px;
+
+    line-height: 1.75;
+  }
+
+
+  .kindle-paper-spread::before,
+  .kindle-paper-spread::after {
+    display: none;
   }
 }
 
 
-@media (max-width: 640px) {
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
 
-  .home-page {
-    padding: 20px;
+@media (max-width: 420px) {
+
+  .kindle-container {
+    padding: 8px 7px 16px;
+  }
+
+
+  .kindle-paper-spread {
+    padding: 14px 12px 20px;
+  }
+
+
+  .book-title {
+    font-size: 1.85rem;
+  }
+
+
+  .book-subtitle {
+    font-size: 13px;
+  }
+
+
+  .book-columns {
+    font-size: 15.5px;
+
+    line-height: 1.68;
+  }
+
+
+  .aarti-para {
+    font-size: 15.5px;
   }
 }
 
-
-@media (max-width: 400px) {
-
-  .home-page {
-    padding: 16px;
-  }
-}
 
 /* =========================================================
    DARK MODE
-   Theme is controlled globally by <body class="dark-mode">
 ========================================================= */
 
-:host-context(.dark-mode) .home-page {
+:host-context(.dark-mode) {
+  color-scheme: dark;
+}
+
+
+:host-context(.dark-mode) .kindle-title {
+  color: #eee7de;
+}
+
+
+:host-context(.dark-mode) .kindle-subtitle {
+  color: #a99d90;
+}
+
+
+:host-context(.dark-mode) .kindle-card {
+  background: #211e1b;
+
+  border-color: #3b332c;
+
+  color: #eee7de;
+
+  box-shadow:
+    0 3px 12px rgba(0, 0, 0, 0.22);
+}
+
+
+:host-context(.dark-mode) .kindle-card:hover {
+  background: #29241f;
+
+  border-color: #66513b;
+
+  box-shadow:
+    0 9px 22px rgba(0, 0, 0, 0.28);
+}
+
+
+:host-context(.dark-mode) .kindle-card h3 {
+  color: #eee7de;
+}
+
+
+:host-context(.dark-mode) .kindle-card p {
+  color: #a99d90;
+}
+
+
+:host-context(.dark-mode) .kindle-paper-spread {
   background:
+    radial-gradient(
+      circle at 50% 0%,
+      rgba(194, 143, 77, 0.075),
+      transparent 32%
+    ),
     linear-gradient(
       180deg,
-      #1b1917 0%,
-      #171513 100%
+      #211e1b 0%,
+      #191715 100%
     );
 
   color: #eee7de;
+
+  border-color: #41372e;
+
+  box-shadow:
+    0 10px 32px rgba(0, 0, 0, 0.30),
+    0 1px 3px rgba(0, 0, 0, 0.22);
 }
 
-:host-context(.dark-mode) .home-page p {
-  color: inherit;
+
+:host-context(.dark-mode) .spread-header {
+  border-bottom-color: #40362d;
 }
 
-/*
- * Keep the component transparent around the actual page surface
- * so the global layout background remains consistent.
- */
-:host-context(.dark-mode) {
-  color: #eee7de;
+
+:host-context(.dark-mode) .spread-header::after {
+  color: #c39155;
+}
+
+
+:host-context(.dark-mode) .kindle-back-btn {
+  color: #aa9d8f;
+}
+
+
+:host-context(.dark-mode) .kindle-back-btn:hover {
+  color: #d3a064;
+}
+
+
+:host-context(.dark-mode) .book-title {
+  color: #f2ebe2;
+}
+
+
+:host-context(.dark-mode) .book-subtitle {
+  color: #a99c8e;
+}
+
+
+:host-context(.dark-mode) .book-columns {
+  color: #e9e0d6;
+
+  column-rule-color: #40362d;
+}
+
+
+:host-context(.dark-mode) .section-label {
+  color: #d49a58;
+}
+
+
+:host-context(.dark-mode) .festival-intro p {
+  color: #b8aa9c;
+}
+
+
+:host-context(.dark-mode) .aarti-heading {
+  border-bottom-color: #40362d;
+}
+
+
+:host-context(.dark-mode) .aarti-heading h2 {
+  color: #eee6dc;
+}
+
+
+:host-context(.dark-mode) .aarti-heading p {
+  color: #a99c8e;
+}
+
+
+:host-context(.dark-mode) .aarti-para {
+  color: #e9e0d6;
+}
+
+
+/* =========================================================
+   REDUCE MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+  .kindle-card,
+  .kindle-back-btn {
+    transition: none;
+  }
 }

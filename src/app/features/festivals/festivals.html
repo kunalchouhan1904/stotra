@@ -1,5 +1,153 @@
-<div class="home-page">
-  <p>
-    Festivals.
-  </p>
+<div class="kindle-container">
+
+  <!-- =====================================================
+       1. FESTIVAL SELECTION VIEW
+  ====================================================== -->
+
+  @if (!selectedFestival) {
+
+    <div class="festival-selection">
+
+      <h1 class="kindle-title">
+        Festival Collection
+      </h1>
+
+      <p class="kindle-subtitle">
+        Select a festival to explore
+      </p>
+
+
+      <div class="festival-grid">
+
+        @for (festival of festivalList; track festival.id) {
+
+          <button
+            type="button"
+            class="kindle-card"
+            (click)="selectFestival(festival.id)"
+          >
+
+            <div class="card-icon">
+              {{ festival.icon }}
+            </div>
+
+            <h3>
+              {{ festival.title }}
+            </h3>
+
+            <p>
+              {{ festival.subtitle }}
+            </p>
+
+          </button>
+
+        }
+
+      </div>
+
+    </div>
+
+  }
+
+
+  <!-- =====================================================
+       2. FESTIVAL READING VIEW
+  ====================================================== -->
+
+  @if (selectedFestival) {
+
+    <div class="kindle-paper-spread">
+
+      <!-- HEADER -->
+
+      <div class="spread-header">
+
+        <button
+          type="button"
+          class="kindle-back-btn"
+          (click)="selectedFestival = null"
+        >
+          ‹ Back to Festivals
+        </button>
+
+
+        <h1 class="book-title">
+          {{ festivalDetails[selectedFestival].title }}
+        </h1>
+
+
+        <p class="book-subtitle">
+          {{ festivalDetails[selectedFestival].subtitle }}
+        </p>
+
+      </div>
+
+
+      <!-- FESTIVAL INFORMATION -->
+
+      <article class="book-columns">
+
+        <section class="book-section festival-section">
+
+          <h2 class="section-label">
+            ॥ {{ festivalDetails[selectedFestival].deity }} ॥
+          </h2>
+
+
+          <div class="festival-intro">
+
+            <div class="festival-icon">
+              {{ festivalDetails[selectedFestival].icon }}
+            </div>
+
+            <p>
+              {{ festivalDetails[selectedFestival].subtitle }}
+            </p>
+
+          </div>
+
+        </section>
+
+
+        <!-- ASSOCIATED AARTI -->
+
+        <section class="book-section aarti-section">
+
+          <h2 class="section-label">
+            ॥ Associated Aarti ॥
+          </h2>
+
+
+          <div class="aarti-heading">
+
+            <h2>
+              {{ festivalDetails[selectedFestival].aartiTitle }}
+            </h2>
+
+            <p>
+              {{ festivalDetails[selectedFestival].aartiSubtitle }}
+            </p>
+
+          </div>
+
+
+          @for (
+            verse of festivalDetails[selectedFestival].aartiVerses;
+            track $index
+          ) {
+
+            <p class="aarti-para">
+              {{ verse }}
+            </p>
+
+          }
+
+        </section>
+
+      </article>
+
+    </div>
+
+  }
+
 </div>

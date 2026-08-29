@@ -3,51 +3,105 @@
   <!-- =====================================================
        1. SELECTION VIEW
   ====================================================== -->
+
   @if (!selectedAarti) {
+
     <div class="aarti-selection">
-      <h1 class="kindle-title">Aarti Collection</h1>
-      <p class="kindle-subtitle">Select an aarti to begin reading</p>
+
+      <h1 class="kindle-title">
+        Aarti Collection
+      </h1>
+
+      <p class="kindle-subtitle">
+        Select an aarti to begin reading
+      </p>
+
 
       <div class="aarti-grid">
-        <button type="button" class="kindle-card" (click)="selectAarti('ganpati')">
-          <div class="card-icon">🐘</div>
-          <h3>Ganpati Aarti</h3>
-          <p>Sukhkarta Dukhharta — Aarti of Lord Ganesha</p>
-        </button>
 
-        <button type="button" class="kindle-card" (click)="selectAarti('navratri')">
-          <div class="card-icon">🌺</div>
-          <h3>Navratri Aarti</h3>
-          <p>Jay Adhya Shakti Maa — Aarti of Goddess Durga</p>
-        </button>
+        @for (aarti of aartiList; track aarti.id) {
+
+          <button
+            type="button"
+            class="kindle-card"
+            (click)="selectAarti(aarti.id)"
+          >
+
+            <div class="card-icon">
+              {{ aarti.icon }}
+            </div>
+
+            <h3>
+              {{ aarti.title }}
+            </h3>
+
+            <p>
+              {{ aarti.subtitle }}
+            </p>
+
+          </button>
+
+        }
+
       </div>
+
     </div>
+
   }
+
 
   <!-- =====================================================
        2. READING VIEW
   ====================================================== -->
+
   @if (selectedAarti) {
+
     <div class="kindle-paper-spread">
 
       <div class="spread-header">
-        <button type="button" class="kindle-back-btn" (click)="selectedAarti = null">
+
+        <button
+          type="button"
+          class="kindle-back-btn"
+          (click)="selectedAarti = null"
+        >
           ‹ Back to Collection
         </button>
 
-        <h1 class="book-title">{{ aartiDetails[selectedAarti].title }}</h1>
-        <p class="book-subtitle">{{ aartiDetails[selectedAarti].subtitle }}</p>
+
+        <h1 class="book-title">
+          {{ aartiDetails[selectedAarti].title }}
+        </h1>
+
+
+        <p class="book-subtitle">
+          {{ aartiDetails[selectedAarti].subtitle }}
+        </p>
+
       </div>
 
+
       <article class="book-columns">
+
         <section class="book-section aarti-section">
-          @for (verse of aartiDetails[selectedAarti].verses; track $index) {
-            <p class="aarti-para">{{ verse }}</p>
+
+          @for (
+            verse of aartiDetails[selectedAarti].verses;
+            track $index
+          ) {
+
+            <p class="aarti-para">
+              {{ verse }}
+            </p>
+
           }
+
         </section>
+
       </article>
 
     </div>
+
   }
 
 </div>
