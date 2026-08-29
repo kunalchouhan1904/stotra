@@ -1,0 +1,32 @@
+<footer class="deity-footer">
+
+  <div class="deity-footer-inner">
+
+    <span class="browse-label">
+      Browse by deity
+    </span>
+
+    <nav class="deity-list" aria-label="Browse by deity">
+
+      @for (deity of deities; track deity.name) {
+
+        <a
+          routerLink="/library"
+          class="deity-item"
+        >
+          <span class="deity-symbol">
+            {{ deity.symbol }}
+          </span>
+
+          <span class="deity-name">
+            {{ deity.name }}
+          </span>
+        </a>
+
+      }
+
+    </nav>
+
+  </div>
+
+</footer>

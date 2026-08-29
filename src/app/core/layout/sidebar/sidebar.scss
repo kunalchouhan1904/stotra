@@ -1,23 +1,54 @@
-.sidebar-root {
-  position: relative;
+/* =========================================================
+   STOTRAAM — SIDEBAR
+========================================================= */
+
+:host {
+  display: block;
+
+  width: 100%;
+  height: 100%;
+
+  min-width: 0;
+  min-height: 0;
+
+  overflow: visible;
+
+  font-family:
+    Inter,
+    "Segoe UI",
+    Arial,
+    sans-serif;
 }
 
 
-/* ========================================
-   SIDEBAR
-======================================== */
+/* =========================================================
+   SIDEBAR ROOT
+========================================================= */
+
+.sidebar-root {
+  position: relative;
+
+  width: 100%;
+  height: 100%;
+
+  min-width: 0;
+  min-height: 0;
+}
+
+
+/* =========================================================
+   SIDEBAR SHELL
+========================================================= */
 
 .sidebar-shell {
   width: 238px;
+  height: 100%;
 
-  height: calc(100dvh - 72px);
+  box-sizing: border-box;
 
-  position: sticky;
-
-  top: 72px;
+  position: relative;
 
   background: #f4f1eb;
-
   color: #57534e;
 
   border-right: 1px solid #e7e2d9;
@@ -28,59 +59,77 @@
 
   z-index: 900;
 
-  /* Allow the collapse button to extend
-     outside the sidebar boundary */
-  overflow: visible;
+  overflow: hidden;
 }
 
 
+/* =========================================================
+   SIDEBAR
+========================================================= */
+
 .sidebar {
+  width: 100%;
   height: 100%;
 
-  padding: 25px 14px;
+  box-sizing: border-box;
+
+  padding: 18px 12px;
 
   display: flex;
   flex-direction: column;
 
-  gap: 4px;
+  gap: 2px;
 
-  overflow-y: auto;
-  overflow-x: hidden;
+  overflow: hidden;
 }
 
 
-/* ========================================
+/* =========================================================
    SECTION LABEL
-======================================== */
+========================================================= */
 
 .nav-section-label {
-  padding: 4px 13px 8px;
+  padding: 5px 12px 6px;
 
-  color: #a39a8e;
+  color: #9a9288;
 
-  font-size: 9px;
+  font-family:
+    Inter,
+    "Segoe UI",
+    Arial,
+    sans-serif;
 
+  font-size: 10px;
   font-weight: 600;
 
-  letter-spacing: 0.13em;
+  line-height: 1.2;
+
+  letter-spacing: 0.12em;
 
   text-transform: uppercase;
+
+  flex: 0 0 auto;
 }
 
 
-/* ========================================
+/* =========================================================
    NAVIGATION
-======================================== */
+========================================================= */
 
 .sidebar a {
-  min-height: 43px;
+  min-height: 38px;
+  height: 38px;
+
+  box-sizing: border-box;
 
   display: flex;
   align-items: center;
 
-  gap: 12px;
+  gap: 10px;
 
-  padding: 0 13px;
+  padding: 0 12px;
+
+  flex: 0 0 auto;
 
   border-radius: 7px;
 
@@ -88,123 +137,161 @@
 
   text-decoration: none;
 
+  font-family:
+    Inter,
+    "Segoe UI",
+    Arial,
+    sans-serif;
+
   font-size: 13px;
+  font-weight: 400;
+
+  line-height: 1;
 
   transition:
-    background 0.2s ease,
-    color 0.2s ease;
+    background 0.18s ease,
+    color 0.18s ease;
 }
-
 
 .sidebar a:hover {
   background: #ffffff;
-
   color: #9a6a32;
 }
 
-
 .sidebar a.active {
   background: #e9ddca;
-
   color: #8a5b2a;
 
   font-weight: 600;
 }
 
 
-.nav-icon {
-  width: 23px;
+/* =========================================================
+   ICON
+========================================================= */
 
-  flex: 0 0 23px;
+.nav-icon {
+  width: 22px;
+  height: 22px;
+
+  flex: 0 0 22px;
 
   display: grid;
   place-items: center;
 
+  font-family:
+    "Noto Serif Devanagari",
+    "Segoe UI",
+    sans-serif;
+
   color: #8b7355;
 
-  font-size: 17px;
+  font-size: 16px;
+
+  line-height: 1;
 
   text-align: center;
 }
 
-
 .nav-label {
   white-space: nowrap;
+
+  overflow: hidden;
+
+  text-overflow: ellipsis;
 }
 
 
-/* ========================================
+/* =========================================================
    DIVIDER
-======================================== */
+========================================================= */
 
 .sidebar-divider {
   height: 1px;
 
   flex: 0 0 auto;
 
-  margin: 17px 10px 14px;
+  margin: 11px 9px 10px;
 
   background: #dfd8ce;
 }
 
 
-/* ========================================
-   MESSAGE
-======================================== */
+/* =========================================================
+   SACRED WORDS
+========================================================= */
 
 .sidebar-message {
-  margin: auto 7px 5px;
+  margin: auto 6px 0;
 
-  padding: 16px;
+  padding: 12px;
 
   display: grid;
 
-  gap: 5px;
+  gap: 4px;
+
+  flex: 0 0 auto;
+
+  box-sizing: border-box;
 
   border: 1px solid #e1d9cd;
 
-  border-radius: 9px;
+  border-radius: 8px;
 
   background: #faf9f6;
 }
 
-
 .message-symbol {
   color: #9a6a32;
 
-  font-family: Georgia, serif;
+  font-family:
+    "Noto Serif Devanagari",
+    serif;
 
-  font-size: 23px;
+  font-size: 20px;
 
   line-height: 1;
 }
 
-
 .sidebar-message strong {
   color: #57534e;
 
-  font-size: 12px;
-}
+  font-family:
+    Inter,
+    "Segoe UI",
+    Arial,
+    sans-serif;
 
+  font-size: 11px;
+  font-weight: 600;
+
+  line-height: 1.2;
+}
 
 .sidebar-message small {
   color: #8b8175;
 
-  font-size: 10px;
+  font-family:
+    Inter,
+    "Segoe UI",
+    Arial,
+    sans-serif;
 
-  line-height: 1.5;
+  font-size: 9px;
+  font-weight: 400;
+
+  line-height: 1.35;
 }
 
 
-/* ========================================
+/* =========================================================
    COLLAPSE BUTTON
-======================================== */
+========================================================= */
 
 .desktop-toggle {
   position: absolute;
 
   right: -15px;
-
   top: 30px;
 
   width: 30px;
@@ -216,7 +303,6 @@
   padding: 0;
 
   border: 1px solid #d9d1c6;
-
   border-radius: 50%;
 
   background: #ffffff;
@@ -230,26 +316,25 @@
 
   z-index: 1500;
 
+  font-family:
+    Inter,
+    "Segoe UI",
+    Arial,
+    sans-serif;
+
   font-size: 20px;
+  font-weight: 400;
 
   line-height: 1;
-
-  transition:
-    background 0.2s ease,
-    color 0.2s ease,
-    box-shadow 0.2s ease;
 }
-
 
 .desktop-toggle:hover {
   background: #f4f1eb;
-
   color: #9a6a32;
 
   box-shadow:
     0 4px 13px rgba(60, 45, 30, 0.18);
 }
-
 
 .desktop-toggle span {
   display: block;
@@ -258,14 +343,13 @@
 }
 
 
-/* ========================================
+/* =========================================================
    COLLAPSED
-======================================== */
+========================================================= */
 
 .sidebar-shell.collapsed {
   width: 72px;
 }
-
 
 .sidebar-shell.collapsed .nav-label,
 .sidebar-shell.collapsed .nav-section-label,
@@ -273,38 +357,113 @@
   display: none;
 }
 
-
 .sidebar-shell.collapsed .sidebar a {
   justify-content: center;
-
   padding-inline: 8px;
 }
-
 
 .sidebar-shell.collapsed .sidebar-divider {
   margin-inline: 9px;
 }
 
 
-/* ========================================
+/* =========================================================
+   SHORT SCREENS
+========================================================= */
+
+@media (min-width: 901px) and (max-height: 800px) {
+  .sidebar {
+    padding-top: 14px;
+    padding-bottom: 14px;
+  }
+
+  .nav-section-label {
+    padding-top: 3px;
+    padding-bottom: 4px;
+  }
+
+  .sidebar a {
+    min-height: 35px;
+    height: 35px;
+
+    font-size: 13px;
+  }
+
+  .sidebar-divider {
+    margin-top: 8px;
+    margin-bottom: 7px;
+  }
+
+  .sidebar-message {
+    padding: 9px;
+  }
+}
+
+
+/* =========================================================
+   VERY SHORT SCREENS
+========================================================= */
+
+@media (min-width: 901px) and (max-height: 650px) {
+  .sidebar {
+    padding-top: 10px;
+    padding-bottom: 10px;
+
+    gap: 1px;
+  }
+
+  .nav-section-label {
+    padding-top: 2px;
+    padding-bottom: 3px;
+
+    font-size: 9px;
+  }
+
+  .sidebar a {
+    min-height: 32px;
+    height: 32px;
+
+    font-size: 12px;
+  }
+
+  .sidebar-divider {
+    margin-top: 6px;
+    margin-bottom: 5px;
+  }
+
+  .sidebar-message {
+    padding: 7px;
+  }
+
+  .message-symbol {
+    font-size: 18px;
+  }
+
+  .sidebar-message strong {
+    font-size: 10px;
+  }
+
+  .sidebar-message small {
+    font-size: 8px;
+  }
+}
+
+
+/* =========================================================
    MOBILE
-======================================== */
+========================================================= */
 
 .mobile-menu-button {
   display: none;
 }
 
-
 .sidebar-backdrop {
   display: none;
 }
 
-
 @media (max-width: 900px) {
-
   .sidebar-shell {
     width: 245px;
-
     height: 100dvh;
 
     position: fixed;
@@ -326,16 +485,13 @@
     overflow: hidden;
   }
 
-
   .sidebar-shell.mobile-open {
     transform: translateX(0);
   }
 
-
   .desktop-toggle {
     display: none;
   }
-
 
   .mobile-menu-button {
     display: grid;
@@ -350,12 +506,16 @@
     height: 40px;
 
     border: 1px solid #e1d9cd;
-
     border-radius: 8px;
 
     background: #faf9f6;
-
     color: #57534e;
+
+    font-family:
+      Inter,
+      "Segoe UI",
+      Arial,
+      sans-serif;
 
     font-size: 19px;
 
@@ -367,12 +527,10 @@
     z-index: 1250;
   }
 
-
   .sidebar-backdrop.visible {
     display: block;
 
     position: fixed;
-
     inset: 0;
 
     background: rgba(40, 30, 20, 0.38);
@@ -381,16 +539,25 @@
 
     z-index: 1100;
   }
-
 }
 
 
-@media (max-width: 640px) {
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
 
+@media (max-width: 640px) {
   .mobile-menu-button {
     top: 79px;
-
     left: 12px;
   }
 
+  .sidebar {
+    padding: 16px 12px;
+  }
+
+  .sidebar a {
+    min-height: 40px;
+    height: 40px;
+  }
 }

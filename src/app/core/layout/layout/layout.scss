@@ -1,89 +1,282 @@
-/* App shell — fixed viewport with scrolling confined to the main content area */
+/* =========================================================
+   STOTRAAM — APPLICATION LAYOUT
+========================================================= */
 
 :host {
-  display: flex;
-  flex-direction: column;
+  display: block;
+
   width: 100%;
   height: 100dvh;
-  min-height: 0;
-  max-height: 100dvh;
-  overflow: hidden;
-  background: #f5f7fc;
-}
 
-app-header {
-  display: block;
-  flex: 0 0 auto;
-  z-index: 1000;
-}
-
-.app-container {
-  display: flex;
-  flex: 1 1 auto;
-  width: 100%;
-  min-height: 0;
-  height: auto;
-  overflow: hidden;
-  background:
-    radial-gradient(circle at 80% 10%, rgba(102, 81, 255, .06), transparent 28%),
-    #f5f7fc;
-}
-
-app-sidebar {
-  display: block;
-  flex: 0 0 auto;
-  min-height: 0;
-}
-
-.content {
-  flex: 1 1 auto;
   min-width: 0;
   min-height: 0;
+
+  overflow: hidden;
+
+  font-family:
+    Inter,
+    "Segoe UI",
+    Arial,
+    sans-serif;
+}
+
+
+/* =========================================================
+   MAIN APPLICATION SHELL
+========================================================= */
+
+.layout {
+  width: 100%;
+  height: 100dvh;
+
+  min-width: 0;
+  min-height: 0;
+
+  display: grid;
+
+  /*
+   * Header
+   * Reader body
+   * Deity footer
+   */
+  grid-template-rows:
+    72px
+    minmax(0, 1fr)
+    58px;
+
+  overflow: hidden;
+
+  background: #ffffff;
+}
+
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+.layout-header {
+  width: 100%;
+  height: 72px;
+
+  min-width: 0;
+  min-height: 0;
+
+  overflow: visible;
+
+  z-index: 100;
+}
+
+
+/* =========================================================
+   MAIN BODY
+========================================================= */
+
+.layout-body {
+  width: 100%;
   height: 100%;
-  padding: 30px 34px 60px;
+
+  min-width: 0;
+  min-height: 0;
+
+  display: grid;
+
+  /*
+   * Sidebar + Kindle reader
+   */
+  grid-template-columns:
+    238px
+    minmax(0, 1fr);
+
+  overflow: hidden;
+
+  background: #ffffff;
+}
+
+
+/* =========================================================
+   SIDEBAR
+========================================================= */
+
+.layout-sidebar {
+  width: 238px;
+  height: 100%;
+
+  min-width: 0;
+  min-height: 0;
+
+  overflow: hidden;
+
+  z-index: 50;
+}
+
+
+/* =========================================================
+   READER AREA
+========================================================= */
+
+.layout-main {
+  width: 100%;
+  height: 100%;
+
+  min-width: 0;
+  min-height: 0;
+
+  position: relative;
+
+  display: block;
+
+  overflow: hidden;
+
+  /*
+   * Entire reader surface is white.
+   */
+  background: #ffffff;
+}
+
+
+/* =========================================================
+   KINDLE READER SCROLL AREA
+========================================================= */
+
+.reader-scroll {
+  width: 100%;
+  height: 100%;
+
+  min-width: 0;
+  min-height: 0;
+
+  /*
+   * ONLY the reader scrolls vertically.
+   */
   overflow-x: hidden;
   overflow-y: auto;
-  overscroll-behavior: contain;
-  -webkit-overflow-scrolling: touch;
+
+  /*
+   * Keeps the layout stable when scrollbar appears.
+   */
   scrollbar-gutter: stable;
+
+  /*
+   * Smooth Kindle-like scrolling.
+   */
+  scroll-behavior: smooth;
+
+  margin: 0;
+  padding: 0;
+
+  /*
+   * One continuous reading background.
+   */
+  background: #ffffff;
 }
 
-/* Keep the scrollbar inside the content area visually subtle. */
-.content::-webkit-scrollbar {
-  width: 8px;
+
+/* =========================================================
+   ROUTED PAGE
+========================================================= */
+
+.reader-scroll > * {
+  width: 100%;
+
+  min-width: 0;
+  min-height: 100%;
+
+  box-sizing: border-box;
+
+  /*
+   * Routed pages must remain part of the
+   * same continuous reading surface.
+   */
+  background: #ffffff;
 }
 
-.content::-webkit-scrollbar-track {
-  background: transparent;
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+.layout-footer {
+  width: 100%;
+  height: 58px;
+
+  min-width: 0;
+  min-height: 0;
+
+  overflow: hidden;
+
+  z-index: 100;
+
+  background: #ffffff;
 }
 
-.content::-webkit-scrollbar-thumb {
-  background: #cbd3e5;
-  border-radius: 10px;
-}
 
-.content::-webkit-scrollbar-thumb:hover {
-  background: #aeb9d1;
-}
+/* =========================================================
+   TABLET
+========================================================= */
 
-/* Firefox */
-.content {
-  scrollbar-width: thin;
-  scrollbar-color: #cbd3e5 transparent;
-}
+@media (max-width: 1000px) {
 
-@media (max-width: 900px) {
-  .content {
-    padding: 24px 20px 48px;
+  .layout {
+    grid-template-rows:
+      68px
+      minmax(0, 1fr)
+      58px;
   }
+
+
+  .layout-header {
+    height: 68px;
+  }
+
+
+  .layout-body {
+    grid-template-columns:
+      230px
+      minmax(0, 1fr);
+  }
+
+
+  .layout-sidebar {
+    width: 230px;
+  }
+
 }
 
-@media (max-width: 640px) {
-  .app-container {
-    min-height: 0;
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 768px) {
+
+  .layout {
+    grid-template-rows:
+      68px
+      minmax(0, 1fr)
+      58px;
   }
 
-  .content {
-    padding: 18px 14px 88px;
+
+  .layout-header {
+    height: 68px;
   }
+
+
+  .layout-body {
+    grid-template-columns:
+      minmax(0, 1fr);
+  }
+
+
+  /*
+   * Sidebar remains available for its own
+   * mobile/overlay behaviour.
+   */
+  .layout-sidebar {
+    width: 0;
+    min-width: 0;
+
+    overflow: visible;
+  }
+
 }

@@ -1,1181 +1,639 @@
+/* =========================================================
+   STOTRAAM — HOME / KINDLE READER
+========================================================= */
+
+
+/* =========================================================
+   COMPONENT HOST
+========================================================= */
+
 :host {
   display: block;
 
-  --page-bg: #faf9f6;
-  --surface: #ffffff;
-  --surface-soft: #f4f1eb;
+  width: 100%;
+  min-width: 0;
 
-  --text: #292524;
-  --text-soft: #57534e;
-  --text-muted: #78716c;
+  min-height: 100%;
+  height: auto;
 
-  --accent: #9a6a32;
-  --accent-light: #b8874d;
-
-  --border: #e7e2d9;
-
-  --max-width: 1180px;
-}
-
-
-* {
-  box-sizing: border-box;
-}
-
-
-/* ========================================
-   PAGE
-======================================== */
-
-.home-page {
-  min-height: 100vh;
-
-  background: var(--page-bg);
-
-  color: var(--text);
+  overflow: visible;
 
   font-family:
     Inter,
-    system-ui,
-    -apple-system,
-    BlinkMacSystemFont,
     "Segoe UI",
+    Arial,
     sans-serif;
 }
 
 
-/* ========================================
-   HEADER
-======================================== */
+/* =========================================================
+   READER
+   ---------------------------------------------------------
+   IMPORTANT:
+   The HOME component does NOT scroll.
+   The parent layout's .reader-scroll is the only
+   vertical scrolling container.
+========================================================= */
 
-.site-header {
-  width: min(
-    calc(100% - 48px),
-    var(--max-width)
-  );
+.reader {
+  width: 100%;
+  min-width: 0;
 
-  height: 76px;
+  min-height: 100%;
+
+  box-sizing: border-box;
+
+  background: #ffffff;
+
+  overflow: visible;
+
+  font-family:
+    Inter,
+    "Segoe UI",
+    Arial,
+    sans-serif;
+}
+
+
+/* =========================================================
+   READER PAGE
+========================================================= */
+
+.reader-page {
+  width: min(100%, 1180px);
+
+  min-height: 100%;
 
   margin: 0 auto;
 
+  box-sizing: border-box;
+
+  padding:
+    56px
+    72px
+    110px;
+
+  background: #ffffff;
+
+  overflow: visible;
+}
+
+
+/* =========================================================
+   READER HEADER
+========================================================= */
+
+.reader-header {
+  width: 100%;
+
   display: flex;
-  align-items: center;
 
-  border-bottom: 1px solid var(--border);
+  align-items: flex-start;
+  justify-content: space-between;
+
+  gap: 40px;
+
+  box-sizing: border-box;
 }
 
 
-.brand {
-  display: flex;
-  align-items: center;
+/* =========================================================
+   HEADING
+========================================================= */
 
-  gap: 12px;
+.reader-heading {
+  min-width: 0;
 
-  color: inherit;
-
-  text-decoration: none;
+  flex: 1;
 }
 
 
-.brand-symbol {
-  color: var(--accent);
+.reader-category {
+  margin: 0 0 9px;
 
-  font-family: Georgia, serif;
+  color: #a66b24;
 
-  font-size: 31px;
-
-  line-height: 1;
-}
-
-
-.brand-text {
-  display: flex;
-  flex-direction: column;
-}
-
-
-.brand-name {
   font-family:
-    Georgia,
-    "Times New Roman",
+    Inter,
+    "Segoe UI",
+    Arial,
+    sans-serif;
+
+  font-size: 13px;
+  font-weight: 600;
+
+  line-height: 1.3;
+
+  letter-spacing: 0.02em;
+}
+
+
+.reader-heading h1 {
+  margin: 0;
+
+  color: #292522;
+
+  font-family:
+    "Noto Serif Devanagari",
+    "Nirmala UI",
+    Mangal,
     serif;
 
-  font-size: 21px;
+  font-size: clamp(42px, 4vw, 62px);
 
-  font-weight: 600;
+  font-weight: 400;
+
+  line-height: 1.18;
 
   letter-spacing: -0.02em;
 }
 
 
-.brand-tagline {
-  margin-top: 2px;
+.reader-subtitle {
+  margin-top: 9px;
 
-  color: var(--text-muted);
-
-  font-size: 9px;
-
-  letter-spacing: 0.13em;
-}
-
-
-.desktop-nav {
-  display: flex;
-  align-items: center;
-
-  gap: 32px;
-
-  margin-left: auto;
-
-  margin-right: 26px;
-}
-
-
-.desktop-nav a {
-  color: var(--text-soft);
-
-  font-size: 14px;
-
-  text-decoration: none;
-
-  transition: color 0.2s ease;
-}
-
-
-.desktop-nav a:hover {
-  color: var(--accent);
-}
-
-
-.theme-button {
-  width: 40px;
-  height: 40px;
-
-  display: grid;
-  place-items: center;
-
-  border: 1px solid var(--border);
-
-  border-radius: 50%;
-
-  background: var(--surface);
-
-  color: var(--text-soft);
-
-  cursor: pointer;
-
-  font-size: 18px;
-}
-
-
-.theme-button:hover {
-  color: var(--accent);
-
-  background: var(--surface-soft);
-}
-
-
-/* ========================================
-   HERO
-======================================== */
-
-.hero {
-  width: min(
-    calc(100% - 48px),
-    var(--max-width)
-  );
-
-  min-height: 600px;
-
-  margin: 0 auto;
-
-  padding: 72px 0 68px;
-
-  display: grid;
-
-  grid-template-columns:
-    minmax(0, 1.08fr)
-    minmax(360px, 0.82fr);
-
-  gap: 80px;
-
-  align-items: center;
-}
-
-
-.hero-content {
-  max-width: 650px;
-}
-
-
-.hero-eyebrow {
-  display: inline-block;
-
-  margin-bottom: 19px;
-
-  color: var(--accent);
-
-  font-family:
-    "Noto Serif Devanagari",
-    "Nirmala UI",
-    serif;
-
-  font-size: 14px;
-}
-
-
-.hero h1 {
-  margin: 0;
+  color: #766e67;
 
   font-family:
     Georgia,
     "Times New Roman",
     serif;
 
-  font-size: clamp(52px, 5.6vw, 72px);
-
+  font-size: 19px;
   font-weight: 400;
 
-  line-height: 1.02;
-
-  letter-spacing: -0.045em;
+  line-height: 1.4;
 }
 
 
-.hero h1 span {
-  color: var(--accent);
-}
+/* =========================================================
+   ACTIONS
+========================================================= */
 
-
-.hero-description {
-  max-width: 570px;
-
-  margin: 25px 0 27px;
-
-  color: var(--text-soft);
-
-  font-size: 16px;
-
-  line-height: 1.75;
-}
-
-
-.hero-description strong {
-  color: var(--text);
-
-  font-weight: 600;
-}
-
-
-/* ========================================
-   SEARCH
-======================================== */
-
-.search-box {
-  width: 100%;
-
-  max-width: 570px;
-
-  height: 55px;
-
+.reader-actions {
   display: flex;
+
   align-items: center;
-
-  padding: 0 13px 0 18px;
-
-  border: 1px solid var(--border);
-
-  border-radius: 9px;
-
-  background: var(--surface);
-
-  box-shadow:
-    0 7px 25px rgba(60, 45, 30, 0.045);
-}
-
-
-.search-icon {
-  margin-right: 11px;
-
-  color: var(--text-muted);
-
-  font-size: 24px;
-}
-
-
-.search-box input {
-  flex: 1;
-
-  min-width: 0;
-
-  border: 0;
-
-  outline: 0;
-
-  background: transparent;
-
-  color: var(--text);
-
-  font-family: inherit;
-
-  font-size: 14px;
-}
-
-
-.search-box input::placeholder {
-  color: var(--text-muted);
-}
-
-
-.search-shortcut {
-  width: 27px;
-  height: 27px;
-
-  display: grid;
-  place-items: center;
-
-  border: 1px solid var(--border);
-
-  border-radius: 5px;
-
-  color: var(--text-muted);
-
-  font-size: 12px;
-}
-
-
-/* ========================================
-   HERO ACTIONS
-======================================== */
-
-.hero-actions {
-  display: flex;
-  align-items: center;
-
-  gap: 12px;
-
-  margin-top: 18px;
-}
-
-
-.primary-button,
-.secondary-button {
-  min-height: 43px;
-
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
 
   gap: 9px;
 
-  padding: 0 17px;
+  flex: 0 0 auto;
+}
 
-  border-radius: 7px;
 
-  text-decoration: none;
+.reader-action {
+  min-height: 44px;
+
+  display: inline-flex;
+
+  align-items: center;
+  justify-content: center;
+
+  gap: 8px;
+
+  padding: 0 16px;
+
+  box-sizing: border-box;
+
+  border: 1px solid #e5dfd7;
+  border-radius: 9px;
+
+  background: #ffffff;
+
+  color: #514b45;
+
+  font-family:
+    Inter,
+    "Segoe UI",
+    Arial,
+    sans-serif;
 
   font-size: 13px;
+  font-weight: 400;
+
+  line-height: 1;
+
+  cursor: pointer;
 
   transition:
-    transform 0.2s ease,
-    background 0.2s ease;
+    background 160ms ease,
+    border-color 160ms ease,
+    color 160ms ease;
 }
 
 
-.primary-button {
-  background: var(--text);
+.reader-action:hover {
+  background: #faf8f5;
 
-  color: var(--page-bg);
+  border-color: #d8cec1;
+
+  color: #8a5b2a;
 }
 
 
-.primary-button:hover {
-  transform: translateY(-1px);
+.reader-action:active {
+  transform: translateY(1px);
 }
 
 
-.secondary-button {
-  border: 1px solid var(--border);
+.reader-action.favorite {
+  width: 44px;
 
-  background: transparent;
+  padding: 0;
 
-  color: var(--text-soft);
-}
+  font-family:
+    "Segoe UI Symbol",
+    Arial,
+    sans-serif;
 
-
-.secondary-button:hover {
-  background: var(--surface);
-}
-
-
-.play-icon {
-  font-size: 10px;
-}
-
-
-/* ========================================
-   FEATURED PRAYER
-======================================== */
-
-.featured-prayer {
-  position: relative;
-
-  min-height: 385px;
-
-  display: flex;
-  flex-direction: column;
-
-  padding: 30px;
-
-  overflow: hidden;
-
-  border: 1px solid var(--border);
-
-  border-radius: 13px;
-
-  background:
-    linear-gradient(
-      145deg,
-      var(--surface),
-      var(--surface-soft)
-    );
-
-  box-shadow:
-    0 18px 50px rgba(60, 45, 30, 0.06);
-}
-
-
-.featured-prayer::after {
-  content: "ॐ";
-
-  position: absolute;
-
-  right: -10px;
-  bottom: -28px;
-
-  color: var(--accent);
-
-  opacity: 0.065;
-
-  font-family: Georgia, serif;
-
-  font-size: 165px;
+  font-size: 22px;
 
   line-height: 1;
 }
 
 
-.featured-top {
-  position: relative;
-
-  z-index: 1;
-
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-
-.featured-label {
-  color: var(--text-muted);
-
-  font-size: 10px;
-
-  font-weight: 500;
-
-  letter-spacing: 0.13em;
-
-  text-transform: uppercase;
-}
-
-
-.featured-symbol {
-  font-size: 23px;
-}
-
-
-.featured-content {
-  position: relative;
-
-  z-index: 1;
-
-  margin: auto 0;
-}
-
-
-.devanagari-title {
-  display: block;
-
-  margin-bottom: 7px;
-
-  color: var(--accent);
-
+.action-icon {
   font-family:
-    "Noto Serif Devanagari",
-    "Nirmala UI",
-    serif;
+    Inter,
+    "Segoe UI",
+    Arial,
+    sans-serif;
 
-  font-size: 18px;
+  font-size: 11px;
+
+  line-height: 1;
 }
 
 
-.featured-content h2 {
-  margin: 0 0 22px;
+/* =========================================================
+   DIVIDER
+========================================================= */
 
-  font-family:
-    Georgia,
-    "Times New Roman",
-    serif;
+.reader-divider {
+  width: 100%;
 
-  font-size: 30px;
+  height: 1px;
 
-  font-weight: 400;
+  margin-top: 32px;
 
-  letter-spacing: -0.025em;
+  background: #e8e1da;
 }
 
 
-.featured-verse p {
-  margin: 0;
+/* =========================================================
+   READING CONTENT
+========================================================= */
 
-  color: var(--text-soft);
+.reader-content {
+  width: 100%;
 
-  font-family:
-    "Noto Serif Devanagari",
-    "Nirmala UI",
-    serif;
+  padding-top: 58px;
 
-  font-size: 18px;
-
-  line-height: 1.8;
+  box-sizing: border-box;
 }
 
 
-.verse-more {
-  color: var(--text-muted);
+/* =========================================================
+   PRAYER
+========================================================= */
 
-  font-size: 15px;
-}
-
-
-.featured-footer {
-  position: relative;
-
-  z-index: 2;
-
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-
-  padding-top: 18px;
-
-  border-top: 1px solid var(--border);
-}
-
-
-.read-link,
-.listen-link {
-  display: inline-flex;
-  align-items: center;
-
-  gap: 8px;
-
-  text-decoration: none;
-
-  font-size: 12px;
-
-  font-weight: 600;
-}
-
-
-.read-link {
-  color: var(--accent);
-}
-
-
-.listen-link {
-  color: var(--text-soft);
-}
-
-
-.listen-link:hover {
-  color: var(--accent);
-}
-
-
-/* ========================================
-   SECTIONS
-======================================== */
-
-.section {
-  width: min(
-    calc(100% - 48px),
-    var(--max-width)
-  );
+.prayer {
+  width: min(100%, 720px);
 
   margin: 0 auto;
 
-  padding: 72px 0;
-
-  border-top: 1px solid var(--border);
+  box-sizing: border-box;
 }
 
 
-.section-heading {
-  display: flex;
-  align-items: flex-end;
-  justify-content: space-between;
+/* =========================================================
+   INVOCATION
+========================================================= */
 
-  margin-bottom: 27px;
-}
+.prayer-invocation {
+  margin: 0 0 58px;
 
-
-.section-kicker {
-  display: block;
-
-  margin-bottom: 7px;
-
-  color: var(--accent);
-
-  font-size: 10px;
-
-  font-weight: 600;
-
-  letter-spacing: 0.13em;
-
-  text-transform: uppercase;
-}
-
-
-.section h2 {
-  margin: 0;
+  color: #a66b24;
 
   font-family:
-    Georgia,
-    "Times New Roman",
+    "Noto Serif Devanagari",
+    "Nirmala UI",
+    Mangal,
     serif;
-
-  font-size: 32px;
-
-  font-weight: 400;
-
-  letter-spacing: -0.03em;
-}
-
-
-.view-all,
-.text-button {
-  color: var(--accent);
-
-  font-size: 12px;
-
-  font-weight: 600;
-
-  text-decoration: none;
-}
-
-
-/* ========================================
-   CATEGORIES
-======================================== */
-
-.category-grid {
-  display: grid;
-
-  grid-template-columns:
-    repeat(4, 1fr);
-
-  border-top: 1px solid var(--border);
-
-  border-left: 1px solid var(--border);
-}
-
-
-.category-item {
-  min-height: 155px;
-
-  display: flex;
-  flex-direction: column;
-
-  padding: 23px;
-
-  border-right: 1px solid var(--border);
-
-  border-bottom: 1px solid var(--border);
-
-  color: inherit;
-
-  text-decoration: none;
-
-  transition:
-    background 0.2s ease,
-    transform 0.2s ease;
-}
-
-
-.category-item:hover {
-  background: var(--surface);
-
-  transform: translateY(-2px);
-}
-
-
-.category-icon {
-  margin-bottom: auto;
-
-  color: var(--accent);
 
   font-size: 25px;
+  font-weight: 400;
+
+  line-height: 1.7;
+
+  text-align: center;
 }
 
 
-.category-title {
-  margin-bottom: 4px;
+/* =========================================================
+   PRAYER TEXT
+========================================================= */
+
+.prayer-text {
+  color: #292522;
 
   font-family:
-    Georgia,
+    "Noto Serif Devanagari",
+    "Nirmala UI",
+    Mangal,
     serif;
 
-  font-size: 20px;
-}
+  font-size: 28px;
+  font-weight: 400;
 
-
-.category-description {
-  color: var(--text-muted);
-
-  font-size: 11px;
-}
-
-
-/* ========================================
-   DEITIES
-======================================== */
-
-.deity-section {
-  padding-top: 58px;
-}
-
-
-.deity-list {
-  display: grid;
-
-  grid-template-columns:
-    repeat(8, 1fr);
-
-  gap: 9px;
-}
-
-
-.deity-item {
-  min-height: 100px;
-
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-
-  gap: 9px;
-
-  border: 1px solid var(--border);
-
-  border-radius: 8px;
-
-  color: var(--text-soft);
-
-  text-decoration: none;
-
-  font-size: 11px;
-
-  transition:
-    background 0.2s ease,
-    color 0.2s ease;
-}
-
-
-.deity-item:hover {
-  background: var(--surface);
-
-  color: var(--accent);
-}
-
-
-.deity-symbol {
-  font-size: 21px;
-}
-
-
-/* ========================================
-   FESTIVALS
-======================================== */
-
-.festival-section {
-  padding-bottom: 90px;
-}
-
-
-.festival-inner {
-  display: grid;
-
-  grid-template-columns: 1fr 1fr;
-
-  gap: 80px;
-
-  padding: 48px;
-
-  border-radius: 13px;
-
-  background: var(--surface-soft);
-}
-
-
-.festival-copy {
-  max-width: 420px;
-}
-
-
-.festival-copy h2 {
-  margin-bottom: 17px;
-}
-
-
-.festival-copy p {
-  margin: 0 0 23px;
-
-  color: var(--text-soft);
-
-  font-size: 14px;
-
-  line-height: 1.8;
-}
-
-
-.festival-list {
-  display: grid;
-
-  grid-template-columns: 1fr 1fr;
-
-  align-content: center;
-
-  gap: 0 30px;
-}
-
-
-.festival-item {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-
-  padding: 14px 0;
-
-  border-bottom: 1px solid var(--border);
-
-  color: var(--text-soft);
-
-  text-decoration: none;
-
-  font-size: 12px;
-
-  transition: color 0.2s ease;
-}
-
-
-.festival-item:hover {
-  color: var(--accent);
-}
-
-
-/* ========================================
-   CLOSING
-======================================== */
-
-.closing-section {
-  width: min(
-    calc(100% - 48px),
-    var(--max-width)
-  );
-
-  margin: 0 auto;
-
-  padding: 75px 0;
+  line-height: 2.05;
 
   text-align: center;
 
-  border-top: 1px solid var(--border);
+  letter-spacing: 0;
 }
 
 
-.closing-symbol {
-  display: block;
-
-  margin-bottom: 17px;
-
-  color: var(--accent);
-
-  font-family: Georgia, serif;
-
-  font-size: 32px;
+.prayer-text p {
+  margin: 0 0 42px;
 }
 
 
-.closing-hindi {
-  margin: 0 0 7px;
+/* =========================================================
+   FINAL PARAGRAPH
+========================================================= */
 
-  font-family:
-    "Noto Serif Devanagari",
-    "Nirmala UI",
-    serif;
-
-  font-size: 18px;
+.prayer-text p:last-child {
+  margin-bottom: 0;
 }
 
 
-.closing-section p:last-child {
-  margin: 0;
+/* =========================================================
+   LARGE DESKTOP
+========================================================= */
 
-  color: var(--text-muted);
+@media (min-width: 1400px) {
 
-  font-size: 11px;
+  .reader-page {
+    width: min(100%, 1220px);
+
+    padding:
+      62px
+      80px
+      120px;
+  }
+
+  .reader-content {
+    padding-top: 64px;
+  }
+
+  .prayer {
+    width: min(100%, 740px);
+  }
+
+  .prayer-text {
+    font-size: 29px;
+  }
+
 }
 
 
-/* ========================================
-   FOOTER
-======================================== */
+/* =========================================================
+   LAPTOP
+========================================================= */
 
-.site-footer {
-  width: min(
-    calc(100% - 48px),
-    var(--max-width)
-  );
+@media (max-width: 1100px) {
 
-  min-height: 68px;
+  .reader-page {
+    width: 100%;
 
-  margin: 0 auto;
+    padding:
+      50px
+      55px
+      100px;
+  }
 
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+  .reader-header {
+    gap: 28px;
+  }
 
-  border-top: 1px solid var(--border);
+  .reader-heading h1 {
+    font-size: clamp(40px, 4.5vw, 56px);
+  }
 
-  color: var(--text-muted);
+  .prayer {
+    width: min(100%, 700px);
+  }
 
-  font-size: 10px;
 }
 
 
-.footer-brand {
-  display: flex;
-  align-items: center;
-
-  gap: 8px;
-
-  color: var(--text);
-}
-
-
-.footer-brand span {
-  color: var(--accent);
-
-  font-family: Georgia, serif;
-
-  font-size: 19px;
-}
-
-
-/* ========================================
+/* =========================================================
    TABLET
-======================================== */
+========================================================= */
 
 @media (max-width: 900px) {
 
-  .hero {
-    grid-template-columns: 1fr;
-
-    gap: 45px;
-
-    padding-top: 60px;
+  .reader-page {
+    padding:
+      42px
+      38px
+      90px;
   }
 
-
-  .featured-prayer {
-    max-width: 600px;
+  .reader-header {
+    gap: 22px;
   }
 
-
-  .category-grid {
-    grid-template-columns:
-      repeat(2, 1fr);
+  .reader-category {
+    font-size: 12px;
   }
 
+  .reader-heading h1 {
+    font-size: 44px;
 
-  .deity-list {
-    grid-template-columns:
-      repeat(4, 1fr);
+    line-height: 1.2;
   }
 
+  .reader-subtitle {
+    font-size: 18px;
+  }
 
-  .festival-inner {
-    grid-template-columns: 1fr;
+  .reader-action {
+    min-height: 42px;
 
-    gap: 35px;
+    padding-inline: 14px;
+
+    font-size: 12px;
+  }
+
+  .reader-action.favorite {
+    width: 42px;
+  }
+
+  .reader-content {
+    padding-top: 50px;
+  }
+
+  .prayer-invocation {
+    margin-bottom: 50px;
+
+    font-size: 23px;
+  }
+
+  .prayer-text {
+    font-size: 26px;
+
+    line-height: 2;
   }
 
 }
 
 
-/* ========================================
+/* =========================================================
    MOBILE
-======================================== */
+========================================================= */
 
-@media (max-width: 600px) {
+@media (max-width: 768px) {
 
-  .site-header,
-  .hero,
-  .section,
-  .closing-section,
-  .site-footer {
-    width: calc(100% - 32px);
+  .reader-page {
+    width: 100%;
+
+    padding:
+      32px
+      24px
+      80px;
   }
 
 
-  .site-header {
-    height: 68px;
+  .reader-header {
+    flex-direction: column;
+
+    gap: 20px;
   }
 
 
-  .desktop-nav {
-    display: none;
+  .reader-heading {
+    width: 100%;
   }
 
 
-  .brand-tagline {
-    display: none;
+  .reader-heading h1 {
+    font-size: 38px;
+
+    line-height: 1.2;
   }
 
 
-  .hero {
-    min-height: auto;
+  .reader-subtitle {
+    margin-top: 7px;
 
-    padding: 52px 0 55px;
-
-    gap: 38px;
+    font-size: 17px;
   }
 
 
-  .hero h1 {
-    font-size: 50px;
+  .reader-actions {
+    width: 100%;
   }
 
 
-  .hero-description {
-    font-size: 14px;
+  .reader-action:first-child {
+    flex: 1;
+  }
+
+
+  .reader-divider {
+    margin-top: 26px;
+  }
+
+
+  .reader-content {
+    padding-top: 42px;
+  }
+
+
+  .prayer {
+    width: 100%;
+  }
+
+
+  .prayer-invocation {
+    margin-bottom: 44px;
+
+    font-size: 22px;
 
     line-height: 1.7;
   }
 
 
-  .hero-actions {
-    flex-direction: column;
+  .prayer-text {
+    font-size: 23px;
 
-    align-items: stretch;
+    line-height: 1.95;
   }
 
 
-  .primary-button,
-  .secondary-button {
-    width: 100%;
+  .prayer-text p {
+    margin-bottom: 36px;
+  }
+
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media (max-width: 480px) {
+
+  .reader-page {
+    padding:
+      26px
+      18px
+      70px;
   }
 
 
-  .featured-prayer {
-    min-height: 350px;
-
-    padding: 25px;
+  .reader-heading h1 {
+    font-size: 32px;
   }
 
 
-  .featured-content h2 {
-    font-size: 27px;
+  .reader-subtitle {
+    font-size: 16px;
   }
 
 
-  .featured-verse p {
-    font-size: 17px;
+  .reader-action {
+    min-height: 40px;
+
+    font-size: 12px;
   }
 
 
-  .section {
-    padding: 58px 0;
+  .reader-action.favorite {
+    width: 40px;
+
+    font-size: 20px;
   }
 
 
-  .section-heading {
-    align-items: flex-start;
+  .prayer-invocation {
+    margin-bottom: 38px;
+
+    font-size: 20px;
   }
 
 
-  .section h2 {
-    font-size: 28px;
+  .prayer-text {
+    font-size: 21px;
+
+    line-height: 1.9;
   }
 
 
-  .category-grid {
-    grid-template-columns:
-      repeat(2, 1fr);
-  }
-
-
-  .category-item {
-    min-height: 140px;
-
-    padding: 18px;
-  }
-
-
-  .category-title {
-    font-size: 18px;
-  }
-
-
-  .deity-list {
-    grid-template-columns:
-      repeat(4, 1fr);
-
-    gap: 6px;
-  }
-
-
-  .deity-item {
-    min-height: 88px;
-
-    font-size: 9px;
-  }
-
-
-  .deity-symbol {
-    font-size: 18px;
-  }
-
-
-  .festival-inner {
-    padding: 30px 22px;
-  }
-
-
-  .festival-list {
-    grid-template-columns: 1fr;
-  }
-
-
-  .site-footer {
-    min-height: auto;
-
-    padding: 20px 0;
-
-    flex-wrap: wrap;
-
-    gap: 8px;
+  .prayer-text p {
+    margin-bottom: 32px;
   }
 
 }

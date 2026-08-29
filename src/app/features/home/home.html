@@ -1,396 +1,97 @@
-<div class="home-page">
+<div class="reader">
 
-  <main>
+  <article class="reader-page">
 
-    <!-- =========================
-         HERO
-    ========================== -->
+    <!-- Reader Header -->
+    <header class="reader-header">
 
-    <section class="hero">
+      <div class="reader-heading">
 
-      <!-- LEFT CONTENT -->
-
-      <div class="hero-content">
-
-        <span class="hero-eyebrow">
-          ॥ सनातन प्रार्थना संग्रह ॥
-        </span>
+        <div class="reader-category">
+          चालीसा
+        </div>
 
         <h1>
-          Read. Recite.<br>
-          <span>Listen.</span>
+          श्री हनुमान चालीसा
         </h1>
 
-        <p class="hero-description">
-          A peaceful digital library for Hindu
-          <strong>Chalisa, Mantra, Aarti and Stotra.</strong>
-          Discover, read and listen to sacred prayers
-          whenever you need them.
-        </p>
-
-
-        <!-- SEARCH -->
-
-        <div class="search-box">
-
-          <span class="search-icon">
-            ⌕
-          </span>
-
-          <input
-            type="text"
-            placeholder="Search prayers, deities or festivals..."
-            aria-label="Search prayers, deities or festivals"
-          >
-
-          <span class="search-shortcut">
-            /
-          </span>
-
-        </div>
-
-
-        <!-- ACTIONS -->
-
-        <div class="hero-actions">
-
-          <a
-            routerLink="/library"
-            class="primary-button"
-          >
-            Explore prayers
-
-            <span>
-              →
-            </span>
-
-          </a>
-
-
-          <a
-            routerLink="/prayer/hanuman-chalisa"
-            class="secondary-button"
-          >
-
-            <span class="play-icon">
-              ▶
-            </span>
-
-            Hanuman Chalisa
-
-          </a>
-
+        <div class="reader-subtitle">
+          Hanuman Chalisa
         </div>
 
       </div>
 
+      <div class="reader-actions">
 
-      <!-- FEATURED PRAYER -->
-
-      <article class="featured-prayer">
-
-        <div class="featured-top">
-
-          <span class="featured-label">
-            Featured prayer
-          </span>
-
-          <span class="featured-symbol">
-            🚩
-          </span>
-
-        </div>
-
-
-        <div class="featured-content">
-
-          <span class="devanagari-title">
-            श्री हनुमान चालीसा
-          </span>
-
-          <h2>
-            Hanuman Chalisa
-          </h2>
-
-
-          <div class="featured-verse">
-
-            <p>
-              श्रीगुरु चरन सरोज रज,<br>
-              निज मनु मुकुरु सुधारि।
-            </p>
-
-            <span class="verse-more">
-              ...
-            </span>
-
-          </div>
-
-        </div>
-
-
-        <div class="featured-footer">
-
-          <a
-            routerLink="/prayer/hanuman-chalisa"
-            class="read-link"
-          >
-
-            <span>
-              Read prayer
-            </span>
-
-            <span>
-              →
-            </span>
-
-          </a>
-
-
-          <a
-            routerLink="/prayer/hanuman-chalisa"
-            class="listen-link"
-          >
-
-            <span>
-              ▶
-            </span>
-
-            Listen
-
-          </a>
-
-        </div>
-
-      </article>
-
-    </section>
-
-
-    <!-- =========================
-         PRAYER LIBRARY
-    ========================== -->
-
-    <section class="section categories-section">
-
-      <div class="section-heading">
-
-        <div>
-
-          <span class="section-kicker">
-            Explore
-          </span>
-
-          <h2>
-            Prayer library
-          </h2>
-
-        </div>
-
-
-        <a
-          routerLink="/library"
-          class="view-all"
+        <button
+          type="button"
+          class="reader-action"
+          aria-label="Listen to Hanuman Chalisa"
         >
-          View all →
-        </a>
+          <span class="action-icon">▶</span>
+          <span>Listen</span>
+        </button>
+
+        <button
+          type="button"
+          class="reader-action favorite"
+          aria-label="Add to favorites"
+        >
+          ♡
+        </button>
 
       </div>
 
-
-      <div class="category-grid">
-
-        @for (category of categories; track category.title) {
-
-          <a
-            routerLink="/library"
-            class="category-item"
-          >
-
-            <span class="category-icon">
-              {{ category.icon }}
-            </span>
-
-            <span class="category-title">
-              {{ category.title }}
-            </span>
-
-            <span class="category-description">
-              {{ category.description }}
-            </span>
-
-          </a>
-
-        }
-
-      </div>
-
-    </section>
+    </header>
 
 
-    <!-- =========================
-         DEITIES
-    ========================== -->
+    <!-- Divider -->
+    <div class="reader-divider"></div>
 
-    <section class="section deity-section">
 
-      <div class="section-heading">
+    <!-- Prayer Reading Area -->
+    <main class="reader-content">
 
-        <div>
+      <div class="prayer">
 
-          <span class="section-kicker">
-            Browse by
-          </span>
-
-          <h2>
-            Deity
-          </h2>
-
+        <div class="prayer-invocation">
+          ॥ श्री हनुमान चालीसा ॥
         </div>
 
-      </div>
 
-
-      <div class="deity-list">
-
-        @for (deity of deities; track deity.name) {
-
-          <a
-            routerLink="/library"
-            class="deity-item"
-          >
-
-            <span class="deity-symbol">
-              {{ deity.symbol }}
-            </span>
-
-            <span>
-              {{ deity.name }}
-            </span>
-
-          </a>
-
-        }
-
-      </div>
-
-    </section>
-
-
-    <!-- =========================
-         FESTIVALS
-    ========================== -->
-
-    <section class="section festival-section">
-
-      <div class="festival-inner">
-
-        <div class="festival-copy">
-
-          <span class="section-kicker">
-            Pray with the occasion
-          </span>
-
-          <h2>
-            Festival prayers
-          </h2>
+        <div class="prayer-text">
 
           <p>
-            Find the prayers, mantras and aartis
-            traditionally recited during Hindu
-            festivals and special occasions.
+            श्रीगुरु चरन सरोज रज,<br>
+            निज मनु मुकुरु सुधारि।
           </p>
 
+          <p>
+            बरनऊँ रघुबर बिमल जसु,<br>
+            जो दायकु फल चारि॥
+          </p>
 
-          <a
-            routerLink="/library"
-            class="text-button"
-          >
-            Explore festivals →
-          </a>
+          <p>
+            बुद्धिहीन तनु जानिके,<br>
+            सुमिरौं पवन-कुमार।
+          </p>
 
-        </div>
+          <p>
+            बल बुधि विद्या देहु मोहिं,<br>
+            हरहु कलेस बिकार॥
+          </p>
 
-
-        <div class="festival-list">
-
-          @for (festival of festivals; track festival) {
-
-            <a
-              routerLink="/library"
-              class="festival-item"
-            >
-
-              <span>
-                {{ festival }}
-              </span>
-
-              <span>
-                →
-              </span>
-
-            </a>
-
-          }
+          <!--
+            Continue the remaining Hanuman Chalisa
+            verses here.
+          -->
 
         </div>
 
       </div>
 
-    </section>
+    </main>
 
-
-    <!-- =========================
-         CLOSING
-    ========================== -->
-
-    <section class="closing-section">
-
-      <span class="closing-symbol">
-        ॐ
-      </span>
-
-      <p class="closing-hindi">
-        श्रद्धा से पढ़ें, मन से सुनें।
-      </p>
-
-      <p>
-        A simple place for timeless prayers.
-      </p>
-
-    </section>
-
-  </main>
-
-
-  <!-- =========================
-       FOOTER
-  ========================== -->
-
-  <footer class="site-footer">
-
-    <div class="footer-brand">
-
-      <span>
-        ॐ
-      </span>
-
-      <strong>
-        Stotra
-      </strong>
-
-    </div>
-
-
-    <span>
-      Hindu Prayers & Recitations
-    </span>
-
-
-    <span>
-      © 2026
-    </span>
-
-  </footer>
+  </article>
 
 </div>
