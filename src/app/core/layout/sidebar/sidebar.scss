@@ -4,10 +4,20 @@
 
 :host {
   display: block;
+
   width: 100%;
   height: 100%;
+
   min-width: 0;
   min-height: 0;
+
+  overflow: visible;
+
+  font-family:
+    Inter,
+    "Segoe UI",
+    Arial,
+    sans-serif;
 }
 
 
@@ -29,7 +39,7 @@
 
 
 /* =========================================================
-   DESKTOP SIDEBAR
+   SIDEBAR SHELL — DESKTOP
 ========================================================= */
 
 .sidebar-shell {
@@ -49,12 +59,13 @@
 
   z-index: 1000;
 
-  transition: width 0.25s ease;
+  transition:
+    width 0.25s ease;
 }
 
 
 /* =========================================================
-   NAV
+   NAVIGATION
 ========================================================= */
 
 .sidebar {
@@ -103,7 +114,7 @@
 
 
 /* =========================================================
-   LINKS
+   NAVIGATION LINKS
 ========================================================= */
 
 .sidebar a {
@@ -154,6 +165,7 @@
 .sidebar a.active {
   background: #e9ddca;
   color: #8a5b2a;
+
   font-weight: 600;
 }
 
@@ -313,12 +325,21 @@
     sans-serif;
 
   font-size: 20px;
+
+  line-height: 1;
 }
 
 
 .desktop-toggle:hover {
   background: #f4f1eb;
   color: #9a6a32;
+}
+
+
+.desktop-toggle span {
+  display: block;
+
+  transform: translateY(-1px);
 }
 
 
@@ -340,30 +361,28 @@
 
 .sidebar-shell.collapsed .sidebar a {
   justify-content: center;
+
   padding-inline: 8px;
 }
 
 
-/* =========================================================
-   MOBILE BUTTON
-========================================================= */
-
-.mobile-menu-button {
-  display: none;
+.sidebar-shell.collapsed .sidebar-divider {
+  margin-inline: 9px;
 }
 
 
 /* =========================================================
-   BACKDROP
+   MOBILE ELEMENTS — DEFAULT HIDDEN
 ========================================================= */
 
+.mobile-menu-button,
 .sidebar-backdrop {
   display: none;
 }
 
 
 /* =========================================================
-   DESKTOP SHORT HEIGHT
+   SHORT DESKTOP
 ========================================================= */
 
 @media (min-width: 901px) and (max-height: 800px) {
@@ -373,20 +392,24 @@
     padding-bottom: 14px;
   }
 
+
   .nav-section-label {
     padding-top: 3px;
     padding-bottom: 4px;
   }
+
 
   .sidebar a {
     height: 35px;
     min-height: 35px;
   }
 
+
   .sidebar-divider {
     margin-top: 8px;
     margin-bottom: 7px;
   }
+
 
   .sidebar-message {
     padding: 9px;
@@ -396,26 +419,52 @@
 
 /* =========================================================
    MOBILE
+   ---------------------------------------------------------
+   IMPORTANT:
+   No position: fixed.
+   The drawer lives inside the layout body.
 ========================================================= */
 
 @media (max-width: 900px) {
 
   /* -------------------------------------------------------
+     SIDEBAR HOST
+  ------------------------------------------------------- */
+
+  :host {
+    width: 100%;
+    height: 100%;
+
+    overflow: visible;
+  }
+
+
+  .sidebar-root {
+    width: 100%;
+    height: 100%;
+
+    overflow: visible;
+  }
+
+
+  /* -------------------------------------------------------
      MOBILE DRAWER
-     
-     IMPORTANT:
-     We deliberately use LEFT instead of TRANSFORM.
-     ------------------------------------------------------- */
+
+     Closed:
+       left: -300px
+
+     Open:
+       left: 0
+  ------------------------------------------------------- */
 
   .sidebar-shell {
-    position: fixed;
+    position: absolute;
 
-    top: 68px;
-    bottom: 58px;
-    left: -105%;
+    top: 0;
+    left: -300px;
 
-    width: min(300px, 82vw);
-    height: auto;
+    width: min(300px, 84vw);
+    height: 100%;
 
     box-sizing: border-box;
 
@@ -428,10 +477,6 @@
 
     overflow: hidden;
 
-    visibility: visible;
-
-    opacity: 1;
-
     z-index: 2000;
 
     transition:
@@ -441,20 +486,16 @@
 
   /* -------------------------------------------------------
      OPEN STATE
-     ------------------------------------------------------- */
+  ------------------------------------------------------- */
 
   .sidebar-shell.mobile-open {
-    left: 0 !important;
-
-    visibility: visible !important;
-
-    opacity: 1 !important;
+    left: 0;
   }
 
 
   /* -------------------------------------------------------
-     NAV INSIDE MOBILE DRAWER
-     ------------------------------------------------------- */
+     NAV
+  ------------------------------------------------------- */
 
   .sidebar {
     width: 100%;
@@ -475,8 +516,8 @@
 
 
   .sidebar a {
-    height: 44px;
-    min-height: 44px;
+    height: 42px;
+    min-height: 42px;
 
     padding: 0 12px;
 
@@ -497,8 +538,8 @@
 
 
   /* -------------------------------------------------------
-     REMOVE DESKTOP TOGGLE
-     ------------------------------------------------------- */
+     DESKTOP BUTTON OFF
+  ------------------------------------------------------- */
 
   .desktop-toggle {
     display: none !important;
@@ -507,12 +548,16 @@
 
   /* -------------------------------------------------------
      MOBILE MENU BUTTON
-     ------------------------------------------------------- */
+
+     Because the sidebar component is already inside
+     the layout body, this button is positioned relative
+     to the body rather than the viewport.
+  ------------------------------------------------------- */
 
   .mobile-menu-button {
-    position: fixed;
+    position: absolute;
 
-    top: 78px;
+    top: 14px;
     left: 12px;
 
     width: 42px;
@@ -546,9 +591,16 @@
       Arial,
       sans-serif;
 
-    font-size: 22px;
+    font-size: 21px;
 
     line-height: 1;
+  }
+
+
+  .mobile-menu-button:hover {
+    background: #ffffff;
+
+    color: #9a6a32;
   }
 
 
@@ -559,17 +611,14 @@
 
   /* -------------------------------------------------------
      BACKDROP
-     ------------------------------------------------------- */
+  ------------------------------------------------------- */
 
   .sidebar-backdrop.visible {
     display: block;
 
-    position: fixed;
+    position: absolute;
 
-    top: 68px;
-    right: 0;
-    bottom: 58px;
-    left: 0;
+    inset: 0;
 
     background: rgba(45, 38, 30, 0.35);
 
@@ -587,25 +636,29 @@
 @media (max-width: 640px) {
 
   .sidebar-shell {
-    top: 64px;
-    bottom: 56px;
-
     width: min(300px, 84vw);
   }
 
 
   .mobile-menu-button {
-    top: 74px;
+    top: 12px;
     left: 10px;
 
-    width: 42px;
-    height: 42px;
+    width: 40px;
+    height: 40px;
   }
 
 
-  .sidebar-backdrop.visible {
-    top: 64px;
-    bottom: 56px;
+  .sidebar {
+    padding: 16px 14px;
+  }
+
+
+  .sidebar a {
+    height: 42px;
+    min-height: 42px;
+
+    font-size: 14px;
   }
 }
 
@@ -617,20 +670,12 @@
 @media (max-width: 400px) {
 
   .sidebar-shell {
-    top: 62px;
-    bottom: 54px;
-
     width: min(290px, 86vw);
   }
 
 
   .mobile-menu-button {
-    top: 72px;
-  }
-
-
-  .sidebar-backdrop.visible {
-    top: 62px;
-    bottom: 54px;
+    top: 10px;
+    left: 10px;
   }
 }
