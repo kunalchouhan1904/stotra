@@ -4,20 +4,10 @@
 
 :host {
   display: block;
-
   width: 100%;
   height: 100%;
-
   min-width: 0;
   min-height: 0;
-
-  overflow: visible;
-
-  font-family:
-    Inter,
-    "Segoe UI",
-    Arial,
-    sans-serif;
 }
 
 
@@ -39,7 +29,7 @@
 
 
 /* =========================================================
-   SIDEBAR SHELL — DESKTOP
+   DESKTOP SIDEBAR
 ========================================================= */
 
 .sidebar-shell {
@@ -51,23 +41,20 @@
   box-sizing: border-box;
 
   background: #f4f1eb;
-
   color: #57534e;
 
   border-right: 1px solid #e7e2d9;
 
   overflow: hidden;
 
-  z-index: 900;
+  z-index: 1000;
 
-  transition:
-    width 0.25s ease,
-    transform 0.25s ease;
+  transition: width 0.25s ease;
 }
 
 
 /* =========================================================
-   SIDEBAR NAVIGATION
+   NAV
 ========================================================= */
 
 .sidebar {
@@ -116,7 +103,7 @@
 
 
 /* =========================================================
-   NAVIGATION LINKS
+   LINKS
 ========================================================= */
 
 .sidebar a {
@@ -160,16 +147,13 @@
 
 .sidebar a:hover {
   background: #ffffff;
-
   color: #9a6a32;
 }
 
 
 .sidebar a.active {
   background: #e9ddca;
-
   color: #8a5b2a;
-
   font-weight: 600;
 }
 
@@ -309,7 +293,6 @@
   padding: 0;
 
   border: 1px solid #d9d1c6;
-
   border-radius: 50%;
 
   background: #ffffff;
@@ -330,14 +313,11 @@
     sans-serif;
 
   font-size: 20px;
-
-  line-height: 1;
 }
 
 
 .desktop-toggle:hover {
   background: #f4f1eb;
-
   color: #9a6a32;
 }
 
@@ -360,18 +340,12 @@
 
 .sidebar-shell.collapsed .sidebar a {
   justify-content: center;
-
   padding-inline: 8px;
 }
 
 
-.sidebar-shell.collapsed .sidebar-divider {
-  margin-inline: 9px;
-}
-
-
 /* =========================================================
-   MOBILE CONTROLS — HIDDEN DESKTOP
+   MOBILE BUTTON
 ========================================================= */
 
 .mobile-menu-button {
@@ -379,13 +353,17 @@
 }
 
 
+/* =========================================================
+   BACKDROP
+========================================================= */
+
 .sidebar-backdrop {
   display: none;
 }
 
 
 /* =========================================================
-   SHORT DESKTOP
+   DESKTOP SHORT HEIGHT
 ========================================================= */
 
 @media (min-width: 901px) and (max-height: 800px) {
@@ -417,115 +395,66 @@
 
 
 /* =========================================================
-   VERY SHORT DESKTOP
-========================================================= */
-
-@media (min-width: 901px) and (max-height: 650px) {
-
-  .sidebar {
-    padding-top: 10px;
-    padding-bottom: 10px;
-
-    gap: 1px;
-  }
-
-  .nav-section-label {
-    padding-top: 2px;
-    padding-bottom: 3px;
-
-    font-size: 9px;
-  }
-
-  .sidebar a {
-    height: 32px;
-    min-height: 32px;
-
-    font-size: 12px;
-  }
-
-  .sidebar-divider {
-    margin-top: 6px;
-    margin-bottom: 5px;
-  }
-
-  .sidebar-message {
-    padding: 7px;
-  }
-
-  .message-symbol {
-    font-size: 18px;
-  }
-
-  .sidebar-message strong {
-    font-size: 10px;
-  }
-
-  .sidebar-message small {
-    font-size: 8px;
-  }
-}
-
-
-/* =========================================================
-   MOBILE — 900px AND BELOW
+   MOBILE
 ========================================================= */
 
 @media (max-width: 900px) {
 
   /* -------------------------------------------------------
-     SIDEBAR
-  ------------------------------------------------------- */
+     MOBILE DRAWER
+     
+     IMPORTANT:
+     We deliberately use LEFT instead of TRANSFORM.
+     ------------------------------------------------------- */
 
   .sidebar-shell {
     position: fixed;
 
-    /*
-     * Header remains visible.
-     * Footer remains visible.
-     */
     top: 68px;
     bottom: 58px;
-
-    left: 0;
+    left: -105%;
 
     width: min(300px, 82vw);
     height: auto;
 
-    transform: translateX(-105%);
+    box-sizing: border-box;
 
     background: #f4f1eb;
 
-    border-right: 1px solid #e0d8cc;
+    border-right: 1px solid #ded6ca;
 
     box-shadow:
-      12px 0 35px rgba(40, 30, 20, 0.16);
+      12px 0 35px rgba(40, 30, 20, 0.18);
 
     overflow: hidden;
 
-    z-index: 1600;
+    visibility: visible;
+
+    opacity: 1;
+
+    z-index: 2000;
 
     transition:
-      transform 0.25s ease;
+      left 0.25s ease;
   }
 
+
+  /* -------------------------------------------------------
+     OPEN STATE
+     ------------------------------------------------------- */
 
   .sidebar-shell.mobile-open {
-    transform: translateX(0);
+    left: 0 !important;
+
+    visibility: visible !important;
+
+    opacity: 1 !important;
   }
 
 
   /* -------------------------------------------------------
-     DESKTOP BUTTON OFF
-  ------------------------------------------------------- */
-
-  .desktop-toggle {
-    display: none;
-  }
-
-
-  /* -------------------------------------------------------
-     SIDEBAR CONTENT
-  ------------------------------------------------------- */
+     NAV INSIDE MOBILE DRAWER
+     ------------------------------------------------------- */
 
   .sidebar {
     width: 100%;
@@ -538,19 +467,22 @@
 
 
   .nav-section-label {
+    padding-left: 12px;
+    padding-right: 12px;
+
     font-size: 10px;
   }
 
 
   .sidebar a {
-    height: 42px;
-    min-height: 42px;
+    height: 44px;
+    min-height: 44px;
 
-    font-size: 14px;
+    padding: 0 12px;
 
     gap: 12px;
 
-    padding: 0 12px;
+    font-size: 14px;
   }
 
 
@@ -558,15 +490,24 @@
     width: 24px;
     height: 24px;
 
-    flex-basis: 24px;
+    flex: 0 0 24px;
 
     font-size: 18px;
   }
 
 
   /* -------------------------------------------------------
-     MOBILE MENU / CLOSE BUTTON
-  ------------------------------------------------------- */
+     REMOVE DESKTOP TOGGLE
+     ------------------------------------------------------- */
+
+  .desktop-toggle {
+    display: none !important;
+  }
+
+
+  /* -------------------------------------------------------
+     MOBILE MENU BUTTON
+     ------------------------------------------------------- */
 
   .mobile-menu-button {
     position: fixed;
@@ -574,17 +515,17 @@
     top: 78px;
     left: 12px;
 
-    width: 40px;
-    height: 40px;
+    width: 42px;
+    height: 42px;
 
     display: grid;
     place-items: center;
 
-    padding: 0;
-
     box-sizing: border-box;
 
-    border: 1px solid #e1d9cd;
+    padding: 0;
+
+    border: 1px solid #e0d8cc;
 
     border-radius: 10px;
 
@@ -593,11 +534,11 @@
     color: #57534e;
 
     box-shadow:
-      0 5px 18px rgba(40, 30, 20, 0.12);
+      0 5px 18px rgba(40, 30, 20, 0.14);
 
     cursor: pointer;
 
-    z-index: 1800;
+    z-index: 3000;
 
     font-family:
       Inter,
@@ -605,22 +546,20 @@
       Arial,
       sans-serif;
 
-    font-size: 20px;
+    font-size: 22px;
 
     line-height: 1;
   }
 
 
-  .mobile-menu-button:hover {
-    background: #ffffff;
-
-    color: #9a6a32;
+  .mobile-menu-button:active {
+    transform: scale(0.96);
   }
 
 
   /* -------------------------------------------------------
      BACKDROP
-  ------------------------------------------------------- */
+     ------------------------------------------------------- */
 
   .sidebar-backdrop.visible {
     display: block;
@@ -632,17 +571,17 @@
     bottom: 58px;
     left: 0;
 
-    background: rgba(40, 30, 20, 0.34);
+    background: rgba(45, 38, 30, 0.35);
 
     backdrop-filter: blur(2px);
 
-    z-index: 1500;
+    z-index: 1900;
   }
 }
 
 
 /* =========================================================
-   SMALL MOBILE — 640px
+   SMALL MOBILE
 ========================================================= */
 
 @media (max-width: 640px) {
@@ -656,11 +595,11 @@
 
 
   .mobile-menu-button {
-    top: 76px;
+    top: 74px;
     left: 10px;
 
-    width: 40px;
-    height: 40px;
+    width: 42px;
+    height: 42px;
   }
 
 
@@ -668,24 +607,11 @@
     top: 64px;
     bottom: 56px;
   }
-
-
-  .sidebar {
-    padding: 16px 14px;
-  }
-
-
-  .sidebar a {
-    height: 44px;
-    min-height: 44px;
-
-    font-size: 14px;
-  }
 }
 
 
 /* =========================================================
-   VERY SMALL MOBILE — 400px
+   VERY SMALL MOBILE
 ========================================================= */
 
 @media (max-width: 400px) {
@@ -699,32 +625,12 @@
 
 
   .mobile-menu-button {
-    top: 73px;
+    top: 72px;
   }
 
 
   .sidebar-backdrop.visible {
     top: 62px;
     bottom: 54px;
-  }
-}
-
-
-/* =========================================================
-   TOUCH DEVICES
-========================================================= */
-
-@media (hover: none) {
-
-  .sidebar a:hover {
-    background: transparent;
-
-    color: #57534e;
-  }
-
-  .sidebar a.active {
-    background: #e9ddca;
-
-    color: #8a5b2a;
   }
 }
