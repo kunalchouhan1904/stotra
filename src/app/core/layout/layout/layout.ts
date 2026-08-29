@@ -17,4 +17,7 @@ import { FooterComponent } from '../footer/footer';
   templateUrl: './layout.html',
   styleUrl: './layout.scss'
 })
-export class Layout {}
+
+export class Layout {
+  isSidebarCollapsed = false;
+}

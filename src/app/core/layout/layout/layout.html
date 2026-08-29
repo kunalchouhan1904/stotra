@@ -3,12 +3,14 @@
     <header class="layout-header">
         <app-header></app-header>
     </header>
+    
     <!-- MAIN WORKSPACE -->
-    <div class="layout-body">
+    <div class="layout-body" [class.is-collapsed]="isSidebarCollapsed">
         <!-- SIDEBAR -->
         <aside class="layout-sidebar">
-            <app-sidebar></app-sidebar>
+            <app-sidebar (toggleCollapse)="isSidebarCollapsed = $event"></app-sidebar>
         </aside>
+
         <!-- KINDLE READER -->
         <main class="layout-main">
             <div class="reader-scroll">
@@ -16,6 +18,7 @@
             </div>
         </main>
     </div>
+
     <!-- DEITY FOOTER -->
     <footer class="layout-footer">
         <app-footer></app-footer>

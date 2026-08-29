@@ -1,30 +1,103 @@
 @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+Devanagari:wght@400;600;700&display=swap');
 
+:host {
+  display: block;
+  width: 100%;
+  flex: 1;
+}
+
 .kindle-container {
   width: 100%;
-  height: 100%;
-  display: flex;
-  justify-content: center;
-  padding: 24px;
+  padding: 24px 16px;
   box-sizing: border-box;
 }
 
 /* =========================================================
-   DYNAMIC TWO-PAGE SPREAD (Fills Available Width)
+   1. SELECTION GRID STYLES
+========================================================= */
+
+.chalisa-selection {
+  width: 100%;
+  max-width: 100%;
+  text-align: left;
+}
+
+.kindle-title {
+  font-family: 'Noto Serif Devanagari', Georgia, serif;
+  font-size: 32px;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin: 0 0 8px 0;
+}
+
+.kindle-subtitle {
+  font-size: 15px;
+  color: #666;
+  margin: 0 0 32px 0;
+}
+
+.chalisa-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+  width: 100%;
+}
+
+.kindle-card {
+  width: 100%;
+  box-sizing: border-box;
+  background-color: #fbf9f5;
+  border: 1px solid #e5dfd5;
+  border-radius: 8px;
+  padding: 24px;
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
+  transition: all 0.2s ease-in-out;
+
+  &:hover {
+    background-color: #f3efe6;
+    border-color: #d4c8b8;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+  }
+
+  .card-icon {
+    font-size: 24px;
+    margin-bottom: 12px;
+  }
+
+  h3 {
+    font-family: 'Noto Serif Devanagari', Georgia, serif;
+    font-size: 20px;
+    font-weight: 700;
+    color: #1a1a1a;
+    margin: 0 0 8px 0;
+  }
+
+  p {
+    font-size: 14px;
+    color: #666;
+    margin: 0;
+    line-height: 1.5;
+  }
+}
+
+/* =========================================================
+   2. TWO-PAGE KINDLE SPREAD VIEW (FULL WIDTH EXPANSION)
 ========================================================= */
 
 .kindle-paper-spread {
   background-color: #fbf9f5;
   color: #1a1a1a;
-  width: 100%;
-  /* Removed fixed max-width restriction so it stretches dynamically */
-  max-width: 100%; 
-  padding: 36px 48px;
+  width: 100% !important;
+  max-width: none !important;
+  margin: 0 !important;
+  padding: 32px 40px;
   border-radius: 6px;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06), 0 1px 3px rgba(0, 0, 0, 0.04);
   font-family: 'Noto Serif Devanagari', 'Georgia', serif;
   box-sizing: border-box;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); /* Smooth stretch transition */
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .spread-header {
@@ -66,16 +139,16 @@
 }
 
 /* =========================================================
-   STRETCHABLE 2-COLUMN BOOK BODY
+   DYNAMIC 2-COLUMN BOOK BODY
 ========================================================= */
 
 .book-columns {
   column-count: 2;
-  column-gap: 60px;
+  column-gap: 40px;
   column-rule: 1px solid #eae4d9;
-  column-fill: balance; /* Automatically balances text across both expanded pages */
-  font-size: 16px;
-  line-height: 1.9;
+  column-fill: balance;
+  font-size: 15px;
+  line-height: 1.85;
   text-align: justify;
 
   @media (max-width: 850px) {
@@ -107,71 +180,4 @@
 .chaupai-para {
   margin: 0 0 8px 0;
   text-indent: 1.2em;
-}
-
-/* =========================================================
-   SELECTION GRID STYLES
-========================================================= */
-
-.chalisa-selection {
-  width: 100%;
-  text-align: left;
-}
-
-.kindle-title {
-  font-family: 'Noto Serif Devanagari', Georgia, serif;
-  font-size: 32px;
-  font-weight: 700;
-  color: #1a1a1a;
-  margin: 0 0 8px 0;
-}
-
-.kindle-subtitle {
-  font-size: 15px;
-  color: #666;
-  margin: 0 0 32px 0;
-}
-
-.chalisa-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-  gap: 20px;
-  width: 100%;
-}
-
-.kindle-card {
-  background-color: #fbf9f5;
-  border: 1px solid #e5dfd5;
-  border-radius: 8px;
-  padding: 24px;
-  cursor: pointer;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
-  transition: all 0.2s ease-in-out;
-
-  &:hover {
-    background-color: #f3efe6;
-    border-color: #d4c8b8;
-    transform: translateY(-2px);
-    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
-  }
-
-  .card-icon {
-    font-size: 24px;
-    margin-bottom: 12px;
-  }
-
-  h3 {
-    font-family: 'Noto Serif Devanagari', Georgia, serif;
-    font-size: 20px;
-    font-weight: 700;
-    color: #1a1a1a;
-    margin: 0 0 8px 0;
-  }
-
-  p {
-    font-size: 14px;
-    color: #666;
-    margin: 0;
-    line-height: 1.5;
-  }
 }

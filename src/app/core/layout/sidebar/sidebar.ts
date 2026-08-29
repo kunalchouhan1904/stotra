@@ -1,80 +1,35 @@
-import {
-  Component,
-  HostListener,
-  OnInit
-} from '@angular/core';
-
-import {
-  RouterLink,
-  RouterLinkActive
-} from '@angular/router';
+import { Component, EventEmitter, Output } from '@angular/core';
+import { RouterLink, RouterLinkActive } from '@angular/router';
 
 @Component({
   selector: 'app-sidebar',
   standalone: true,
-  imports: [
-    RouterLink,
-    RouterLinkActive
-  ],
+  imports: [RouterLink, RouterLinkActive],
   templateUrl: './sidebar.html',
-  styleUrl: './sidebar.scss'
+  styleUrls: ['./sidebar.scss']
 })
-export class Sidebar implements OnInit {
-
+export class Sidebar {
   collapsed = false;
-
   mobileOpen = false;
 
-  isMobile = false;
-
-
-  ngOnInit(): void {
-    this.updateViewport();
-  }
-
-
-  @HostListener('window:resize')
-  onResize(): void {
-    this.updateViewport();
-  }
-
+  @Output() toggleCollapse = new EventEmitter<boolean>();
 
   toggleSidebar(): void {
-
-    if (this.isMobile) {
+    if (window.innerWidth <= 900) {
       this.mobileOpen = !this.mobileOpen;
-      return;
-    }
-
-    this.collapsed = !this.collapsed;
-  }
-
-
-  onNavigationClick(): void {
-
-    if (this.isMobile) {
-      this.mobileOpen = false;
+    } else {
+      this.collapsed = !this.collapsed;
+      this.toggleCollapse.emit(this.collapsed);
     }
   }
-
 
   closeMobileSidebar(): void {
     this.mobileOpen = false;
   }
 
-
-  private updateViewport(): void {
-
-    if (typeof window === 'undefined') {
-      return;
-    }
-
-    this.isMobile =
-      window.matchMedia('(max-width: 900px)').matches;
-
-    if (!this.isMobile) {
-      this.mobileOpen = false;
+  onNavigationClick(): void {
+    if (this.mobileOpen) {
+      this.closeMobileSidebar();
     }
   }
-
 }
