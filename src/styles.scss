@@ -1,57 +1,51 @@
 /* =========================================================
    STOTRAAM — GLOBAL STYLES
-   Application shell foundation
+   Global foundation only.
+
+   IMPORTANT:
+   - Browser/page itself must NEVER scroll.
+   - Layout component controls the application shell.
+   - Reader component controls the actual reading scroll.
+========================================================= */
+
+
+/* =========================================================
+   DOCUMENT
 ========================================================= */
 
 html,
 body {
   width: 100%;
   height: 100%;
-  margin: 0;
-  padding: 0;
 
   min-width: 0;
   min-height: 0;
 
-  overflow: hidden;
-}
+  margin: 0;
+  padding: 0;
 
-body {
+  overflow: hidden;
+
   font-family:
+    Inter,
+    "Segoe UI",
     Arial,
     Helvetica,
     sans-serif;
 
-  background: #f5f7fa;
-  color: #101828;
+  background: #ffffff;
+  color: #292524;
 }
+
+
+/* =========================================================
+   GLOBAL BOX SIZING
+========================================================= */
 
 *,
 *::before,
 *::after {
   box-sizing: border-box;
-}
-
-img,
-svg,
-video,
-canvas {
-  max-width: 100%;
-}
-
-button,
-input,
-textarea,
-select {
-  font: inherit;
-}
-
-button {
-  touch-action: manipulation;
-}
-
-a {
-  color: inherit;
 }
 
 
@@ -68,7 +62,54 @@ app-root {
   min-width: 0;
   min-height: 0;
 
+  margin: 0;
+  padding: 0;
+
   overflow: hidden;
+}
+
+
+/* =========================================================
+   MEDIA
+========================================================= */
+
+img,
+svg,
+video,
+canvas {
+  display: block;
+
+  max-width: 100%;
+}
+
+
+/* =========================================================
+   FORM ELEMENTS
+========================================================= */
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+
+/* =========================================================
+   BUTTONS / TOUCH
+========================================================= */
+
+button {
+  touch-action: manipulation;
+}
+
+
+/* =========================================================
+   LINKS
+========================================================= */
+
+a {
+  color: inherit;
 }
 
 
@@ -90,10 +131,28 @@ div {
 
 
 /* =========================================================
+   HEADINGS / PARAGRAPHS
+   Remove browser default margins.
+   Individual components control their own spacing.
+========================================================= */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin-top: 0;
+}
+
+
+/* =========================================================
    MOBILE
 ========================================================= */
 
 @media (max-width: 768px) {
+
   html,
   body,
   app-root {
@@ -113,6 +172,7 @@ div {
 ========================================================= */
 
 @media (max-width: 480px) {
+
   html {
     font-size: 14px;
   }

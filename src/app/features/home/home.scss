@@ -1,206 +1,43 @@
 /* =========================================================
-   STOTRAAM — HOME / KINDLE READER
-========================================================= */
-
-
-/* =========================================================
-   COMPONENT HOST
+   STOTRAAM — HOME
 ========================================================= */
 
 :host {
   display: block;
 
   width: 100%;
+
   min-width: 0;
+  min-height: 0;
 
-  min-height: 100%;
-  height: auto;
-
-  overflow: visible;
-
-  font-family:
-    Inter,
-    "Segoe UI",
-    Arial,
-    sans-serif;
-}
-
-
-/* =========================================================
-   READER
-   ---------------------------------------------------------
-   IMPORTANT:
-   The HOME component does NOT scroll.
-   The parent layout's .reader-scroll is the only
-   vertical scrolling container.
-========================================================= */
-
-.reader {
-  width: 100%;
-  min-width: 0;
-
-  min-height: 100%;
-
-  box-sizing: border-box;
-
-  background: #ffffff;
-
-  overflow: visible;
-
-  font-family:
-    Inter,
-    "Segoe UI",
-    Arial,
-    sans-serif;
-}
-
-
-/* =========================================================
-   READER PAGE
-========================================================= */
-
-.reader-page {
-  width: min(100%, 1180px);
-
-  min-height: 100%;
-
-  margin: 0 auto;
-
-  box-sizing: border-box;
-
-  padding:
-    56px
-    72px
-    110px;
-
-  background: #ffffff;
-
-  overflow: visible;
-}
-
-
-/* =========================================================
-   READER HEADER
-========================================================= */
-
-.reader-header {
-  width: 100%;
-
-  display: flex;
-
-  align-items: flex-start;
-  justify-content: space-between;
-
-  gap: 40px;
-
-  box-sizing: border-box;
-}
-
-
-/* =========================================================
-   HEADING
-========================================================= */
-
-.reader-heading {
-  min-width: 0;
-
-  flex: 1;
-}
-
-
-.reader-category {
-  margin: 0 0 9px;
-
-  color: #a66b24;
-
-  font-family:
-    Inter,
-    "Segoe UI",
-    Arial,
-    sans-serif;
-
-  font-size: 13px;
-  font-weight: 600;
-
-  line-height: 1.3;
-
-  letter-spacing: 0.02em;
-}
-
-
-.reader-heading h1 {
   margin: 0;
+  padding: 0;
 
-  color: #292522;
-
-  font-family:
-    "Noto Serif Devanagari",
-    "Nirmala UI",
-    Mangal,
-    serif;
-
-  font-size: clamp(42px, 4vw, 62px);
-
-  font-weight: 400;
-
-  line-height: 1.18;
-
-  letter-spacing: -0.02em;
-}
-
-
-.reader-subtitle {
-  margin-top: 9px;
-
-  color: #766e67;
+  box-sizing: border-box;
 
   font-family:
-    Georgia,
-    "Times New Roman",
-    serif;
-
-  font-size: 19px;
-  font-weight: 400;
-
-  line-height: 1.4;
+    Inter,
+    "Segoe UI",
+    Arial,
+    sans-serif;
 }
 
 
 /* =========================================================
-   ACTIONS
+   HOME PAGE
 ========================================================= */
 
-.reader-actions {
-  display: flex;
+.home-page {
+  width: 100%;
 
-  align-items: center;
-
-  gap: 9px;
-
-  flex: 0 0 auto;
-}
-
-
-.reader-action {
-  min-height: 44px;
-
-  display: inline-flex;
-
-  align-items: center;
-  justify-content: center;
-
-  gap: 8px;
-
-  padding: 0 16px;
+  min-width: 0;
 
   box-sizing: border-box;
 
-  border: 1px solid #e5dfd7;
-  border-radius: 9px;
+  margin: 0;
+  padding: 32px 40px;
 
-  background: #ffffff;
-
-  color: #514b45;
+  color: #292524;
 
   font-family:
     Inter,
@@ -208,285 +45,27 @@
     Arial,
     sans-serif;
 
-  font-size: 13px;
+  font-size: 15px;
   font-weight: 400;
 
-  line-height: 1;
+  line-height: 1.6;
 
-  cursor: pointer;
-
-  transition:
-    background 160ms ease,
-    border-color 160ms ease,
-    color 160ms ease;
+  background: #ffffff;
 }
 
 
-.reader-action:hover {
-  background: #faf8f5;
+/* =========================================================
+   HOME TEXT
+========================================================= */
 
-  border-color: #d8cec1;
-
-  color: #8a5b2a;
-}
-
-
-.reader-action:active {
-  transform: translateY(1px);
-}
-
-
-.reader-action.favorite {
-  width: 44px;
+.home-page p {
+  margin: 0;
 
   padding: 0;
 
-  font-family:
-    "Segoe UI Symbol",
-    Arial,
-    sans-serif;
+  font: inherit;
 
-  font-size: 22px;
-
-  line-height: 1;
-}
-
-
-.action-icon {
-  font-family:
-    Inter,
-    "Segoe UI",
-    Arial,
-    sans-serif;
-
-  font-size: 11px;
-
-  line-height: 1;
-}
-
-
-/* =========================================================
-   DIVIDER
-========================================================= */
-
-.reader-divider {
-  width: 100%;
-
-  height: 1px;
-
-  margin-top: 32px;
-
-  background: #e8e1da;
-}
-
-
-/* =========================================================
-   READING CONTENT
-========================================================= */
-
-.reader-content {
-  width: 100%;
-
-  padding-top: 58px;
-
-  box-sizing: border-box;
-}
-
-
-/* =========================================================
-   PRAYER
-========================================================= */
-
-.prayer {
-  width: min(100%, 720px);
-
-  margin: 0 auto;
-
-  box-sizing: border-box;
-}
-
-
-/* =========================================================
-   INVOCATION
-========================================================= */
-
-.prayer-invocation {
-  margin: 0 0 58px;
-
-  color: #a66b24;
-
-  font-family:
-    "Noto Serif Devanagari",
-    "Nirmala UI",
-    Mangal,
-    serif;
-
-  font-size: 25px;
-  font-weight: 400;
-
-  line-height: 1.7;
-
-  text-align: center;
-}
-
-
-/* =========================================================
-   PRAYER TEXT
-========================================================= */
-
-.prayer-text {
-  color: #292522;
-
-  font-family:
-    "Noto Serif Devanagari",
-    "Nirmala UI",
-    Mangal,
-    serif;
-
-  font-size: 28px;
-  font-weight: 400;
-
-  line-height: 2.05;
-
-  text-align: center;
-
-  letter-spacing: 0;
-}
-
-
-.prayer-text p {
-  margin: 0 0 42px;
-}
-
-
-/* =========================================================
-   FINAL PARAGRAPH
-========================================================= */
-
-.prayer-text p:last-child {
-  margin-bottom: 0;
-}
-
-
-/* =========================================================
-   LARGE DESKTOP
-========================================================= */
-
-@media (min-width: 1400px) {
-
-  .reader-page {
-    width: min(100%, 1220px);
-
-    padding:
-      62px
-      80px
-      120px;
-  }
-
-  .reader-content {
-    padding-top: 64px;
-  }
-
-  .prayer {
-    width: min(100%, 740px);
-  }
-
-  .prayer-text {
-    font-size: 29px;
-  }
-
-}
-
-
-/* =========================================================
-   LAPTOP
-========================================================= */
-
-@media (max-width: 1100px) {
-
-  .reader-page {
-    width: 100%;
-
-    padding:
-      50px
-      55px
-      100px;
-  }
-
-  .reader-header {
-    gap: 28px;
-  }
-
-  .reader-heading h1 {
-    font-size: clamp(40px, 4.5vw, 56px);
-  }
-
-  .prayer {
-    width: min(100%, 700px);
-  }
-
-}
-
-
-/* =========================================================
-   TABLET
-========================================================= */
-
-@media (max-width: 900px) {
-
-  .reader-page {
-    padding:
-      42px
-      38px
-      90px;
-  }
-
-  .reader-header {
-    gap: 22px;
-  }
-
-  .reader-category {
-    font-size: 12px;
-  }
-
-  .reader-heading h1 {
-    font-size: 44px;
-
-    line-height: 1.2;
-  }
-
-  .reader-subtitle {
-    font-size: 18px;
-  }
-
-  .reader-action {
-    min-height: 42px;
-
-    padding-inline: 14px;
-
-    font-size: 12px;
-  }
-
-  .reader-action.favorite {
-    width: 42px;
-  }
-
-  .reader-content {
-    padding-top: 50px;
-  }
-
-  .prayer-invocation {
-    margin-bottom: 50px;
-
-    font-size: 23px;
-  }
-
-  .prayer-text {
-    font-size: 26px;
-
-    line-height: 2;
-  }
-
+  color: inherit;
 }
 
 
@@ -494,146 +73,25 @@
    MOBILE
 ========================================================= */
 
-@media (max-width: 768px) {
+@media (max-width: 900px) {
 
-  .reader-page {
-    width: 100%;
-
-    padding:
-      32px
-      24px
-      80px;
+  .home-page {
+    padding: 24px;
   }
-
-
-  .reader-header {
-    flex-direction: column;
-
-    gap: 20px;
-  }
-
-
-  .reader-heading {
-    width: 100%;
-  }
-
-
-  .reader-heading h1 {
-    font-size: 38px;
-
-    line-height: 1.2;
-  }
-
-
-  .reader-subtitle {
-    margin-top: 7px;
-
-    font-size: 17px;
-  }
-
-
-  .reader-actions {
-    width: 100%;
-  }
-
-
-  .reader-action:first-child {
-    flex: 1;
-  }
-
-
-  .reader-divider {
-    margin-top: 26px;
-  }
-
-
-  .reader-content {
-    padding-top: 42px;
-  }
-
-
-  .prayer {
-    width: 100%;
-  }
-
-
-  .prayer-invocation {
-    margin-bottom: 44px;
-
-    font-size: 22px;
-
-    line-height: 1.7;
-  }
-
-
-  .prayer-text {
-    font-size: 23px;
-
-    line-height: 1.95;
-  }
-
-
-  .prayer-text p {
-    margin-bottom: 36px;
-  }
-
 }
 
 
-/* =========================================================
-   SMALL MOBILE
-========================================================= */
+@media (max-width: 640px) {
 
-@media (max-width: 480px) {
-
-  .reader-page {
-    padding:
-      26px
-      18px
-      70px;
+  .home-page {
+    padding: 20px;
   }
+}
 
 
-  .reader-heading h1 {
-    font-size: 32px;
+@media (max-width: 400px) {
+
+  .home-page {
+    padding: 16px;
   }
-
-
-  .reader-subtitle {
-    font-size: 16px;
-  }
-
-
-  .reader-action {
-    min-height: 40px;
-
-    font-size: 12px;
-  }
-
-
-  .reader-action.favorite {
-    width: 40px;
-
-    font-size: 20px;
-  }
-
-
-  .prayer-invocation {
-    margin-bottom: 38px;
-
-    font-size: 20px;
-  }
-
-
-  .prayer-text {
-    font-size: 21px;
-
-    line-height: 1.9;
-  }
-
-
-  .prayer-text p {
-    margin-bottom: 32px;
-  }
-
 }

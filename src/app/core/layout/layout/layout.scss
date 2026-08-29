@@ -1,13 +1,22 @@
 /* =========================================================
    STOTRAAM — APPLICATION LAYOUT
-   Desktop + Mobile Kindle Reader Shell
+   Fixed Header + Sidebar + Kindle Reader + Footer
+
+   RULE:
+   The browser itself NEVER scrolls.
+   Only .reader-scroll can scroll.
+========================================================= */
+
+
+/* =========================================================
+   HOST
 ========================================================= */
 
 :host {
   display: block;
 
   width: 100%;
-  height: 100dvh;
+  height: 100%;
 
   min-width: 0;
   min-height: 0;
@@ -27,14 +36,23 @@
 ========================================================= */
 
 .layout {
+  position: relative;
+
   width: 100%;
   height: 100dvh;
 
   min-width: 0;
   min-height: 0;
 
+  box-sizing: border-box;
+
   display: grid;
 
+  /*
+    Header
+    Reader area
+    Footer
+  */
   grid-template-rows:
     72px
     minmax(0, 1fr)
@@ -51,15 +69,17 @@
 ========================================================= */
 
 .layout-header {
+  position: relative;
+
   width: 100%;
   height: 72px;
 
   min-width: 0;
   min-height: 0;
 
-  overflow: visible;
+  box-sizing: border-box;
 
-  position: relative;
+  overflow: visible;
 
   z-index: 2000;
 }
@@ -70,11 +90,15 @@
 ========================================================= */
 
 .layout-body {
+  position: relative;
+
   width: 100%;
   height: 100%;
 
   min-width: 0;
   min-height: 0;
+
+  box-sizing: border-box;
 
   display: grid;
 
@@ -83,8 +107,6 @@
     minmax(0, 1fr);
 
   overflow: hidden;
-
-  position: relative;
 
   background: #ffffff;
 }
@@ -95,44 +117,29 @@
 ========================================================= */
 
 .layout-sidebar {
+  position: relative;
+
   width: 238px;
   height: 100%;
 
   min-width: 0;
   min-height: 0;
 
+  box-sizing: border-box;
+
   overflow: visible;
 
-  position: relative;
-
-  z-index: 1000;
+  z-index: 1500;
 }
 
 
 /* =========================================================
-   KINDLE READER AREA
+   READER AREA
 ========================================================= */
 
 .layout-main {
-  width: 100%;
-  height: 100%;
-
-  min-width: 0;
-  min-height: 0;
-
   position: relative;
 
-  overflow: hidden;
-
-  background: #ffffff;
-}
-
-
-/* =========================================================
-   KINDLE READER SCROLL
-========================================================= */
-
-.reader-scroll {
   width: 100%;
   height: 100%;
 
@@ -141,30 +148,65 @@
 
   box-sizing: border-box;
 
-  overflow-x: hidden;
-  overflow-y: auto;
+  overflow: hidden;
+
+  background: #ffffff;
+}
+
+
+/* =========================================================
+   KINDLE READER SCROLL AREA
+
+   THIS IS THE ONLY AREA THAT SHOULD SCROLL.
+========================================================= */
+
+.reader-scroll {
+  position: relative;
+
+  width: 100%;
+  height: 100%;
+
+  min-width: 0;
+  min-height: 0;
+
+  box-sizing: border-box;
 
   margin: 0;
   padding: 0;
 
+  overflow-x: hidden;
+  overflow-y: auto;
+
   background: #ffffff;
 
+  /*
+    Prevent horizontal expansion.
+  */
+  max-width: 100%;
+
+  /*
+    Smooth reading.
+  */
   scroll-behavior: smooth;
 
   /*
-   * Prevent layout jumping caused by scrollbar.
-   */
+    Keeps the reader stable when scrollbar appears.
+  */
   scrollbar-gutter: stable;
 
   /*
-   * Firefox.
-   */
+    Firefox.
+  */
   scrollbar-width: thin;
 }
 
 
 /* =========================================================
-   ROUTED READER PAGE
+   ROUTED PAGE
+
+   IMPORTANT:
+   DO NOT force min-height: 100%.
+   An empty page must remain empty.
 ========================================================= */
 
 .reader-scroll > * {
@@ -173,7 +215,6 @@
   width: 100%;
 
   min-width: 0;
-  min-height: 100%;
 
   box-sizing: border-box;
 
@@ -189,15 +230,17 @@
 ========================================================= */
 
 .layout-footer {
+  position: relative;
+
   width: 100%;
   height: 58px;
 
   min-width: 0;
   min-height: 0;
 
-  overflow: hidden;
+  box-sizing: border-box;
 
-  position: relative;
+  overflow: hidden;
 
   z-index: 2000;
 
@@ -218,15 +261,18 @@
       58px;
   }
 
+
   .layout-header {
     height: 68px;
   }
+
 
   .layout-body {
     grid-template-columns:
       220px
       minmax(0, 1fr);
   }
+
 
   .layout-sidebar {
     width: 220px;
@@ -240,18 +286,10 @@
 
 @media (max-width: 900px) {
 
-  /*
-   * Mobile shell remains exactly:
-   *
-   * Header
-   * Reader
-   * Footer
-   *
-   * Sidebar is removed from document flow and becomes
-   * an independent overlay/drawer.
-   */
-
   .layout {
+    width: 100%;
+    height: 100dvh;
+
     grid-template-rows:
       68px
       minmax(0, 1fr)
@@ -261,8 +299,15 @@
   }
 
 
+  /* -------------------------------------------------------
+     HEADER
+  ------------------------------------------------------- */
+
   .layout-header {
+    width: 100%;
     height: 68px;
+
+    overflow: visible;
 
     z-index: 2000;
   }
@@ -281,8 +326,6 @@
     min-width: 0;
     min-height: 0;
 
-    position: relative;
-
     overflow: hidden;
 
     background: #ffffff;
@@ -290,7 +333,9 @@
 
 
   /* -------------------------------------------------------
-     SIDEBAR CONTAINER
+     SIDEBAR
+
+     Sidebar becomes an independent mobile drawer.
   ------------------------------------------------------- */
 
   .layout-sidebar {
@@ -304,10 +349,11 @@
     height: auto;
 
     min-width: 0;
+    min-height: 0;
 
     overflow: visible;
 
-    z-index: 1500;
+    z-index: 2500;
 
     pointer-events: none;
   }
@@ -315,6 +361,8 @@
 
   /* -------------------------------------------------------
      READER
+
+     Full width on mobile.
   ------------------------------------------------------- */
 
   .layout-main {
@@ -334,6 +382,9 @@
     width: 100%;
     height: 100%;
 
+    min-width: 0;
+    min-height: 0;
+
     overflow-x: hidden;
     overflow-y: auto;
 
@@ -348,11 +399,14 @@
   ------------------------------------------------------- */
 
   .layout-footer {
+    width: 100%;
     height: 58px;
 
     min-height: 58px;
 
-    z-index: 2000;
+    overflow: hidden;
+
+    z-index: 3000;
   }
 }
 
@@ -422,13 +476,15 @@
 
 
 /* =========================================================
-   GLOBAL SCROLLBAR PROTECTION
+   HARD OVERFLOW PROTECTION
 ========================================================= */
 
 .layout,
 .layout-body,
 .layout-main,
 .layout-sidebar,
-.layout-footer {
+.layout-header,
+.layout-footer,
+.reader-scroll {
   max-width: 100%;
 }
