@@ -20,7 +20,7 @@
 
 .kindle-container {
   width: 100%;
-  padding: 16px 18px 24px;
+  padding: 18px 20px 28px;
   box-sizing: border-box;
 }
 
@@ -138,24 +138,51 @@
 
   margin: 0;
 
-  padding: 22px 28px 28px;
+  position: relative;
+  overflow: hidden;
+
+  padding: 30px 42px 34px;
 
   box-sizing: border-box;
 
   background:
+    radial-gradient(circle at 50% 0%, rgba(181, 129, 68, 0.055), transparent 30%),
     linear-gradient(
       180deg,
-      #fdfbf7 0%,
-      #fbf8f2 100%
+      #fffdf9 0%,
+      #fbf7ef 100%
     );
 
   color: #2f2924;
 
-  border: 1px solid #ebe3d8;
-  border-radius: 10px;
+  border: 1px solid #e5d8c7;
+  border-radius: 15px;
 
   box-shadow:
-    0 5px 22px rgba(60, 43, 30, 0.045);
+    0 8px 30px rgba(60, 43, 30, 0.055),
+    0 1px 3px rgba(60, 43, 30, 0.04);
+
+  /* Subtle traditional-book ornamentation */
+  &::before,
+  &::after {
+    content: "✦";
+    position: absolute;
+    top: 14px;
+
+    font-family: Georgia, serif;
+    font-size: 15px;
+
+    color: #c4955c;
+    opacity: 0.65;
+  }
+
+  &::before {
+    left: 18px;
+  }
+
+  &::after {
+    right: 18px;
+  }
 
   font-family:
     "Noto Serif Devanagari",
@@ -173,10 +200,24 @@
 
   text-align: center;
 
-  margin-bottom: 18px;
-  padding-bottom: 13px;
+  margin-bottom: 22px;
+  padding-bottom: 17px;
 
-  border-bottom: 1px solid #e6ddd1;
+  border-bottom: 1px solid #e4d9ca;
+
+  &::after {
+    content: "◇  ◆  ◇";
+    display: block;
+
+    margin-top: 9px;
+
+    font-family: Georgia, serif;
+    font-size: 10px;
+    letter-spacing: 0.18em;
+
+    color: #b7834d;
+    opacity: 0.72;
+  }
 }
 
 
@@ -226,14 +267,14 @@
     Georgia,
     serif;
 
-  font-size: clamp(2rem, 3vw, 2.7rem);
+  font-size: clamp(2.15rem, 3.2vw, 3rem);
 
   font-weight: 700;
-  line-height: 0.95;
+  line-height: 1;
 
-  letter-spacing: -0.01em;
+  letter-spacing: -0.015em;
 
-  color: #2d2824;
+  color: #29231f;
 }
 
 
@@ -251,9 +292,9 @@
   font-weight: 500;
   font-style: italic;
 
-  line-height: 1.2;
+  line-height: 1.3;
 
-  color: #776c63;
+  color: #7b6e62;
 }
 
 
@@ -265,9 +306,9 @@
   width: 100%;
 
   column-count: 2;
-  column-gap: 42px;
+  column-gap: 52px;
 
-  column-rule: 1px solid #e8e0d5;
+  column-rule: 1px solid #e3d8ca;
 
   column-fill: balance;
 
@@ -284,9 +325,9 @@
   font-size: 16px;
 
   /*
-     Compact but still comfortable.
+     Comfortable devotional reading rhythm.
   */
-  line-height: 1.68;
+  line-height: 1.72;
 
   /*
      Devanagari looks cleaner with a little
@@ -296,7 +337,7 @@
 
   color: #302a25;
 
-  text-align: justify;
+  text-align: left;
 }
 
 
@@ -316,7 +357,7 @@
 ========================================================= */
 
 .section-label {
-  margin: 8px 0 12px;
+  margin: 8px 0 13px;
 
   text-align: center;
 
@@ -330,7 +371,9 @@
 
   line-height: 1.35;
 
-  color: #715a45;
+  color: #a15f2e;
+
+  letter-spacing: 0.01em;
 
   break-after: avoid;
 }
@@ -345,7 +388,7 @@
 }
 
 .doha-para {
-  margin: 0 0 10px;
+  margin: 0 0 12px;
 
   text-align: center;
 
@@ -357,7 +400,7 @@
   font-size: 16px;
   font-weight: 600;
 
-  line-height: 1.72;
+  line-height: 1.78;
 
   color: #302a25;
 }
@@ -372,7 +415,7 @@
 }
 
 .chaupai-para {
-  margin: 0 0 7px;
+  margin: 0 0 8px;
 
   font-family:
     "Noto Serif Devanagari",
@@ -382,7 +425,7 @@
   font-size: 16px;
   font-weight: 400;
 
-  line-height: 1.68;
+  line-height: 1.72;
 
   color: #302a25;
 
@@ -400,9 +443,9 @@
 
 .doha-section:last-child {
   margin-top: 12px;
-  padding-top: 12px;
+  padding-top: 14px;
 
-  border-top: 1px solid #e8dfd3;
+  border-top: 1px solid #e4d9ca;
 }
 
 
@@ -413,15 +456,15 @@
 @media (min-width: 1200px) {
 
   .kindle-paper-spread {
-    padding-left: 32px;
-    padding-right: 32px;
+    padding-left: 46px;
+    padding-right: 46px;
   }
 
   .book-columns {
-    column-gap: 48px;
+    column-gap: 56px;
 
     font-size: 16.5px;
-    line-height: 1.7;
+    line-height: 1.74;
   }
 
   .chaupai-para,
@@ -442,14 +485,14 @@
   }
 
   .kindle-paper-spread {
-    padding: 20px 22px 24px;
+    padding: 24px 28px 28px;
   }
 
   .book-columns {
-    column-gap: 30px;
+    column-gap: 34px;
 
     font-size: 15.5px;
-    line-height: 1.67;
+    line-height: 1.7;
   }
 
   .chaupai-para,
@@ -485,19 +528,19 @@
   /* Paper */
 
   .kindle-paper-spread {
-    padding: 16px 15px 22px;
+    padding: 18px 16px 24px;
 
-    border-radius: 8px;
+    border-radius: 11px;
 
     box-shadow:
-      0 3px 12px rgba(60, 43, 30, 0.04);
+      0 4px 16px rgba(60, 43, 30, 0.045);
   }
 
 
   /* Header */
 
   .spread-header {
-    margin-bottom: 16px;
+    margin-bottom: 17px;
     padding-bottom: 12px;
   }
 
@@ -512,7 +555,7 @@
   }
 
   .book-title {
-    font-size: 2rem;
+    font-size: 2.05rem;
   }
 
   .book-subtitle {
@@ -528,7 +571,7 @@
     column-rule: none;
 
     font-size: 16px;
-    line-height: 1.7;
+    line-height: 1.75;
 
     text-align: left;
   }
@@ -544,14 +587,14 @@
 
   .doha-para {
     font-size: 16px;
-    line-height: 1.75;
+    line-height: 1.8;
 
     text-align: center;
   }
 
   .chaupai-para {
     font-size: 16px;
-    line-height: 1.7;
+    line-height: 1.75;
 
     text-indent: 0;
   }
@@ -614,5 +657,156 @@
   .kindle-card,
   .kindle-back-btn {
     transition: none;
+  }
+}
+
+/* =========================================================
+   POLISH — READER DETAILS
+========================================================= */
+
+.kindle-paper-spread {
+  scrollbar-color: #d8c6ae transparent;
+  scrollbar-width: thin;
+}
+
+.book-columns p {
+  hanging-punctuation: first last;
+}
+
+.book-columns::selection,
+.book-columns *::selection {
+  background: rgba(190, 142, 82, 0.18);
+}
+
+@media (min-width: 1200px) {
+  .kindle-container {
+    padding-left: 22px;
+    padding-right: 22px;
+  }
+}
+
+@media (max-width: 700px) {
+  .kindle-paper-spread::before,
+  .kindle-paper-spread::after {
+    display: none;
+  }
+}
+
+
+/* =========================================================
+   DARK MODE — CHALISA READER
+========================================================= */
+
+:host-context(.dark-mode) {
+  color-scheme: dark;
+}
+
+:host-context(.dark-mode) .kindle-container {
+  background: transparent;
+}
+
+:host-context(.dark-mode) .kindle-title {
+  color: #eee7de;
+}
+
+:host-context(.dark-mode) .kindle-subtitle {
+  color: #a99d90;
+}
+
+:host-context(.dark-mode) .kindle-card {
+  background: #211e1b;
+  border-color: #3b332c;
+  color: #eee7de;
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.22);
+}
+
+:host-context(.dark-mode) .kindle-card:hover {
+  background: #29241f;
+  border-color: #66513b;
+  box-shadow: 0 9px 22px rgba(0, 0, 0, 0.28);
+}
+
+:host-context(.dark-mode) .kindle-card h3 {
+  color: #eee7de;
+}
+
+:host-context(.dark-mode) .kindle-card p {
+  color: #a99d90;
+}
+
+:host-context(.dark-mode) .kindle-paper-spread {
+  background:
+    radial-gradient(circle at 50% 0%, rgba(194, 143, 77, 0.075), transparent 32%),
+    linear-gradient(
+      180deg,
+      #211e1b 0%,
+      #191715 100%
+    );
+
+  color: #eee7de;
+  border-color: #41372e;
+
+  box-shadow:
+    0 10px 32px rgba(0, 0, 0, 0.30),
+    0 1px 3px rgba(0, 0, 0, 0.22);
+}
+
+:host-context(.dark-mode) .spread-header {
+  border-bottom-color: #40362d;
+}
+
+:host-context(.dark-mode) .spread-header::after {
+  color: #c39155;
+}
+
+:host-context(.dark-mode) .kindle-back-btn {
+  color: #aa9d8f;
+}
+
+:host-context(.dark-mode) .kindle-back-btn:hover {
+  color: #d3a064;
+}
+
+:host-context(.dark-mode) .book-title {
+  color: #f2ebe2;
+}
+
+:host-context(.dark-mode) .book-subtitle {
+  color: #a99c8e;
+}
+
+:host-context(.dark-mode) .book-columns {
+  color: #e9e0d6;
+  column-rule-color: #40362d;
+}
+
+:host-context(.dark-mode) .book-columns p {
+  color: #e9e0d6;
+}
+
+:host-context(.dark-mode) .book-columns .section-title,
+:host-context(.dark-mode) .book-columns h3,
+:host-context(.dark-mode) .book-columns h4 {
+  color: #d49a58;
+}
+
+:host-context(.dark-mode) .kindle-paper-spread {
+  scrollbar-color: #5d4b38 transparent;
+}
+
+:host-context(.dark-mode) .book-columns::selection,
+:host-context(.dark-mode) .book-columns *::selection {
+  background: rgba(214, 161, 92, 0.24);
+}
+
+/* Keep the mobile reader equally calm and readable. */
+@media (max-width: 700px) {
+  :host-context(.dark-mode) .kindle-paper-spread {
+    background:
+      linear-gradient(
+        180deg,
+        #211e1b 0%,
+        #191715 100%
+      );
   }
 }

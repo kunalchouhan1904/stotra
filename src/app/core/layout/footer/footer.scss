@@ -278,3 +278,25 @@
     font-size: 17px;
   }
 }
+
+/* =========================================================
+   DARK MODE
+========================================================= */
+
+:host-context(.dark-mode) .deity-footer {
+  background: rgba(23, 21, 19, 0.98);
+  border-top-color: #332d27;
+}
+
+:host-context(.dark-mode) .browse-label {
+  color: #c49254;
+}
+
+:host-context(.dark-mode) .deity-item {
+  color: #bdb3a8;
+}
+
+:host-context(.dark-mode) .deity-item:hover {
+  background: #2a241e;
+  color: #d9a05c;
+}

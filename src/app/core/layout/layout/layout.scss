@@ -220,3 +220,62 @@
     background: #ffffff;
   }
 }
+
+/* =========================================================
+   DARK MODE — APPLICATION SHELL
+   The header toggles .dark-mode on <body>.
+   These rules make the layout itself follow that theme.
+========================================================= */
+
+:host-context(.dark-mode) .layout {
+  background: #171513;
+  color: #eee7de;
+}
+
+:host-context(.dark-mode) .layout-body {
+  background: #171513;
+}
+
+:host-context(.dark-mode) .layout-main {
+  background: #171513;
+}
+
+:host-context(.dark-mode) .reader-scroll {
+  background: #171513;
+}
+
+:host-context(.dark-mode) .reader-scroll::-webkit-scrollbar-track {
+  background: #171513;
+}
+
+:host-context(.dark-mode) .reader-scroll::-webkit-scrollbar-thumb {
+  background: #5a4a3a;
+}
+
+:host-context(.dark-mode) .reader-scroll::-webkit-scrollbar-thumb:hover {
+  background: #765f46;
+}
+
+/*
+ * Router outlet projects the active page into .reader-scroll.
+ * Do not force every page to a specific dark color; transparent
+ * surfaces let each component provide its own dark-mode styling.
+ */
+:host-context(.dark-mode) .reader-scroll > * {
+  background: transparent;
+  color: inherit;
+}
+
+:host-context(.dark-mode) .layout-footer {
+  background: #171513;
+  border-top-color: #39322b;
+}
+
+/* Mobile shell */
+@media (max-width: 900px) {
+  :host-context(.dark-mode) .layout-body,
+  :host-context(.dark-mode) .layout-main,
+  :host-context(.dark-mode) .reader-scroll {
+    background: #171513;
+  }
+}

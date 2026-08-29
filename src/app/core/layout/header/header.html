@@ -51,10 +51,11 @@
     <button
       type="button"
       class="theme-button"
-      aria-label="Change reading theme"
-      title="Change theme"
+      [attr.aria-label]="isDarkMode ? 'Switch to light mode' : 'Switch to dark mode'"
+      [attr.title]="isDarkMode ? 'Switch to light mode' : 'Switch to dark mode'"
+      (click)="toggleTheme()"
     >
-      ☼
+      {{ isDarkMode ? '☀' : '☾' }}
     </button>
 
   </div>

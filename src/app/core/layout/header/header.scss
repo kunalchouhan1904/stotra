@@ -332,3 +332,64 @@
 
   color: #8a7c6d;
 }
+
+
+/* =========================================================
+   DARK MODE
+   Applied when the header toggles .dark-mode on <body>
+========================================================= */
+
+:host-context(.dark-mode) .header {
+  background: #171513;
+  color: #eee8df;
+  border-bottom-color: #332d27;
+}
+
+:host-context(.dark-mode) .brand-mark {
+  color: #d6a15c;
+}
+
+:host-context(.dark-mode) .brand-tagline {
+  color: #a79b8e;
+}
+
+:host-context(.dark-mode) .creator-credit {
+  color: #9d9082;
+}
+
+:host-context(.dark-mode) .search input {
+  background: #211e1b;
+  color: #f1ebe3;
+  border-color: #3a332c;
+}
+
+:host-context(.dark-mode) .search input::placeholder {
+  color: #92877b;
+}
+
+:host-context(.dark-mode) .search input:focus {
+  background: #28231f;
+  border-color: #8e6a45;
+}
+
+:host-context(.dark-mode) .search-icon {
+  color: #a79b8e;
+}
+
+:host-context(.dark-mode) .search-shortcut {
+  color: #a79b8e;
+  border-color: #4a4138;
+  background: #1b1917;
+}
+
+:host-context(.dark-mode) .theme-button {
+  background: #211e1b;
+  color: #e3d6c5;
+  border-color: #443a31;
+}
+
+:host-context(.dark-mode) .theme-button:hover {
+  background: #2b251f;
+  color: #e0ad68;
+  border-color: #735638;
+}

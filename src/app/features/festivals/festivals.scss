@@ -95,3 +95,31 @@
     padding: 16px;
   }
 }
+
+/* =========================================================
+   DARK MODE
+   Theme is controlled globally by <body class="dark-mode">
+========================================================= */
+
+:host-context(.dark-mode) .home-page {
+  background:
+    linear-gradient(
+      180deg,
+      #1b1917 0%,
+      #171513 100%
+    );
+
+  color: #eee7de;
+}
+
+:host-context(.dark-mode) .home-page p {
+  color: inherit;
+}
+
+/*
+ * Keep the component transparent around the actual page surface
+ * so the global layout background remains consistent.
+ */
+:host-context(.dark-mode) {
+  color: #eee7de;
+}

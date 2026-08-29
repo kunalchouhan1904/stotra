@@ -177,3 +177,89 @@ p {
     font-size: 14px;
   }
 }
+
+
+/* =========================================================
+   STOTRA GLOBAL THEME
+   Add this file to your global styles.scss OR copy these rules
+   into the existing global styles.scss.
+========================================================= */
+
+:root {
+  --stotra-bg: #f8f6f1;
+  --stotra-surface: #fffdf9;
+  --stotra-text: #302a25;
+  --stotra-muted: #7b7065;
+  --stotra-border: #e5ded2;
+  --stotra-accent: #9a6a32;
+}
+
+body {
+  background: var(--stotra-bg);
+  color: var(--stotra-text);
+  transition:
+    background-color 0.25s ease,
+    color 0.25s ease;
+}
+
+body.dark-mode {
+  --stotra-bg: #121110;
+  --stotra-surface: #211e1b;
+  --stotra-text: #eee7de;
+  --stotra-muted: #a99d90;
+  --stotra-border: #3a332c;
+  --stotra-accent: #d19a58;
+
+  background: #121110 !important;
+  color: #eee7de !important;
+}
+
+/* Main application surfaces */
+body.dark-mode app-root,
+body.dark-mode main,
+body.dark-mode .main-content,
+body.dark-mode .content,
+body.dark-mode .page-content {
+  background: #121110 !important;
+  color: #eee7de;
+}
+
+/* Common collection/list surfaces */
+body.dark-mode .collection-page,
+body.dark-mode .library-page,
+body.dark-mode .collection-content,
+body.dark-mode .page-shell,
+body.dark-mode .content-shell {
+  background: #121110 !important;
+  color: #eee7de !important;
+}
+
+/* Scrollbars */
+body.dark-mode * {
+  scrollbar-color: #5b4937 #171513;
+}
+
+body.dark-mode *::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+body.dark-mode *::-webkit-scrollbar-track {
+  background: #171513;
+}
+
+body.dark-mode *::-webkit-scrollbar-thumb {
+  background: #5b4937;
+  border-radius: 8px;
+}
+
+/* Smooth global theme transition */
+body.dark-mode,
+body.dark-mode .sidebar-shell,
+body.dark-mode .deity-footer,
+body.dark-mode .kindle-paper-spread {
+  transition:
+    background-color 0.25s ease,
+    color 0.25s ease,
+    border-color 0.25s ease;
+}
