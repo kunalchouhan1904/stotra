@@ -1,35 +1,23 @@
 <div class="layout">
-
-  <!-- HEADER -->
-  <header class="layout-header">
-    <app-header></app-header>
-  </header>
-
-
-  <!-- MAIN WORKSPACE -->
-  <div class="layout-body">
-
-    <!-- SIDEBAR -->
-    <aside class="layout-sidebar">
-      <app-sidebar></app-sidebar>
-    </aside>
-
-
-    <!-- KINDLE READER -->
-    <main class="layout-main">
-
-      <div class="reader-scroll">
-        <router-outlet></router-outlet>
-      </div>
-
-    </main>
-
-  </div>
-
-
-  <!-- DEITY FOOTER -->
-  <footer class="layout-footer">
-    <app-footer></app-footer>
-  </footer>
-
+    <!-- HEADER -->
+    <header class="layout-header">
+        <app-header></app-header>
+    </header>
+    <!-- MAIN WORKSPACE -->
+    <div class="layout-body">
+        <!-- SIDEBAR -->
+        <aside class="layout-sidebar">
+            <app-sidebar></app-sidebar>
+        </aside>
+        <!-- KINDLE READER -->
+        <main class="layout-main">
+            <div class="reader-scroll">
+                <router-outlet></router-outlet>
+            </div>
+        </main>
+    </div>
+    <!-- DEITY FOOTER -->
+    <footer class="layout-footer">
+        <app-footer></app-footer>
+    </footer>
 </div>

@@ -1,35 +1,16 @@
 /* =========================================================
    STOTRAAM — APPLICATION LAYOUT
-   Fixed Header + Sidebar + Kindle Reader + Footer
-
-   RULE:
-   The browser itself NEVER scrolls.
-   Only .reader-scroll can scroll.
-========================================================= */
-
-
-/* =========================================================
-   HOST
 ========================================================= */
 
 :host {
   display: block;
-
   width: 100%;
   height: 100%;
-
   min-width: 0;
   min-height: 0;
-
   overflow: hidden;
-
-  font-family:
-    Inter,
-    "Segoe UI",
-    Arial,
-    sans-serif;
+  font-family: Inter, "Segoe UI", Arial, sans-serif;
 }
-
 
 /* =========================================================
    APPLICATION SHELL
@@ -37,32 +18,19 @@
 
 .layout {
   position: relative;
-
   width: 100%;
-  height: 100dvh;
-
+  height: 100%; /* Changed from 100dvh to 100% to stay strictly bound to viewport */
+  max-height: 100vh;
   min-width: 0;
   min-height: 0;
-
   box-sizing: border-box;
 
-  display: grid;
-
-  /*
-    Header
-    Reader area
-    Footer
-  */
-  grid-template-rows:
-    72px
-    minmax(0, 1fr)
-    58px;
+  display: flex;
+  flex-direction: column;
 
   overflow: hidden;
-
   background: #ffffff;
 }
-
 
 /* =========================================================
    HEADER
@@ -70,47 +38,32 @@
 
 .layout-header {
   position: relative;
-
+  flex: 0 0 auto; /* Ensures header never expands or shrinks */
   width: 100%;
-  height: 72px;
-
   min-width: 0;
-  min-height: 0;
-
   box-sizing: border-box;
-
-  overflow: visible;
-
-  z-index: 2000;
+  z-index: 3000;
 }
 
-
 /* =========================================================
-   MAIN BODY
+   MAIN WORKSPACE
 ========================================================= */
 
 .layout-body {
   position: relative;
-
+  flex: 1 1 0%; /* Take remaining space between header and footer */
   width: 100%;
-  height: 100%;
-
+  height: 0; /* Critical for CSS grid flex height calculation */
   min-width: 0;
   min-height: 0;
-
   box-sizing: border-box;
 
   display: grid;
-
-  grid-template-columns:
-    238px
-    minmax(0, 1fr);
+  grid-template-columns: 286px minmax(0, 1fr);
 
   overflow: hidden;
-
   background: #ffffff;
 }
-
 
 /* =========================================================
    SIDEBAR CONTAINER
@@ -118,373 +71,126 @@
 
 .layout-sidebar {
   position: relative;
-
-  width: 238px;
+  width: 286px;
   height: 100%;
-
-  min-width: 0;
+  min-width: 286px;
   min-height: 0;
-
   box-sizing: border-box;
-
-  overflow: visible;
-
-  z-index: 1500;
+  overflow: visible; /* Allows toggle button to extend past right border */
+  z-index: 2000;
 }
 
-
 /* =========================================================
-   READER AREA
+   READER / MAIN CONTENT AREA
 ========================================================= */
 
 .layout-main {
   position: relative;
-
   width: 100%;
   height: 100%;
-
   min-width: 0;
   min-height: 0;
-
   box-sizing: border-box;
-
   overflow: hidden;
-
   background: #ffffff;
 }
-
-
-/* =========================================================
-   KINDLE READER SCROLL AREA
-
-   THIS IS THE ONLY AREA THAT SHOULD SCROLL.
-========================================================= */
 
 .reader-scroll {
   position: relative;
-
   width: 100%;
   height: 100%;
-
   min-width: 0;
   min-height: 0;
-
   box-sizing: border-box;
-
   margin: 0;
   padding: 0;
-
   overflow-x: hidden;
   overflow-y: auto;
-
   background: #ffffff;
-
-  /*
-    Prevent horizontal expansion.
-  */
-  max-width: 100%;
-
-  /*
-    Smooth reading.
-  */
-  scroll-behavior: smooth;
-
-  /*
-    Keeps the reader stable when scrollbar appears.
-  */
   scrollbar-gutter: stable;
-
-  /*
-    Firefox.
-  */
+  scroll-behavior: smooth;
   scrollbar-width: thin;
 }
 
+.reader-scroll::-webkit-scrollbar {
+  width: 8px;
+}
 
-/* =========================================================
-   ROUTED PAGE
-
-   IMPORTANT:
-   DO NOT force min-height: 100%.
-   An empty page must remain empty.
-========================================================= */
-
-.reader-scroll > * {
-  display: block;
-
-  width: 100%;
-
-  min-width: 0;
-
-  box-sizing: border-box;
-
-  margin: 0;
-  padding: 0;
-
+.reader-scroll::-webkit-scrollbar-track {
   background: #ffffff;
 }
 
+.reader-scroll::-webkit-scrollbar-thumb {
+  background: #d5cec3;
+  border-radius: 10px;
+}
+
+.reader-scroll::-webkit-scrollbar-thumb:hover {
+  background: #b9afa1;
+}
+
+.reader-scroll > * {
+  display: block;
+  width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  background: #ffffff;
+}
 
 /* =========================================================
-   FOOTER
+   FOOTER (ALWAYS VISIBLE AT BOTTOM)
 ========================================================= */
 
 .layout-footer {
   position: relative;
-
+  flex: 0 0 auto; /* Forces footer to stay fixed at bottom */
   width: 100%;
-  height: 58px;
-
   min-width: 0;
-  min-height: 0;
-
   box-sizing: border-box;
-
   overflow: hidden;
-
-  z-index: 2000;
-
+  z-index: 3000;
   background: #ffffff;
+  border-top: 1px solid #e5ded2;
 }
 
-
 /* =========================================================
-   TABLET
+   MEDIA QUERIES
 ========================================================= */
 
 @media (max-width: 1000px) {
-
-  .layout {
-    grid-template-rows:
-      68px
-      minmax(0, 1fr)
-      58px;
-  }
-
-
-  .layout-header {
-    height: 68px;
-  }
-
-
   .layout-body {
-    grid-template-columns:
-      220px
-      minmax(0, 1fr);
+    grid-template-columns: 260px minmax(0, 1fr);
   }
-
 
   .layout-sidebar {
-    width: 220px;
+    width: 260px;
+    min-width: 260px;
   }
 }
-
-
-/* =========================================================
-   MOBILE
-========================================================= */
 
 @media (max-width: 900px) {
-
-  .layout {
-    width: 100%;
-    height: 100dvh;
-
-    grid-template-rows:
-      68px
-      minmax(0, 1fr)
-      58px;
-
-    overflow: hidden;
-  }
-
-
-  /* -------------------------------------------------------
-     HEADER
-  ------------------------------------------------------- */
-
-  .layout-header {
-    width: 100%;
-    height: 68px;
-
-    overflow: visible;
-
-    z-index: 2000;
-  }
-
-
-  /* -------------------------------------------------------
-     BODY
-  ------------------------------------------------------- */
-
   .layout-body {
     display: block;
-
     width: 100%;
     height: 100%;
-
-    min-width: 0;
-    min-height: 0;
-
-    overflow: hidden;
-
-    background: #ffffff;
   }
-
-
-  /* -------------------------------------------------------
-     SIDEBAR
-
-     Sidebar becomes an independent mobile drawer.
-  ------------------------------------------------------- */
 
   .layout-sidebar {
-    position: fixed;
-
-    top: 68px;
-    left: 0;
-    bottom: 58px;
-
+    position: relative;
     width: 0;
-    height: auto;
-
     min-width: 0;
-    min-height: 0;
-
+    height: 100%;
     overflow: visible;
-
-    z-index: 2500;
-
     pointer-events: none;
+    z-index: 4000;
   }
-
-
-  /* -------------------------------------------------------
-     READER
-
-     Full width on mobile.
-  ------------------------------------------------------- */
 
   .layout-main {
+    position: absolute;
+    inset: 0;
     width: 100%;
     height: 100%;
-
-    min-width: 0;
-    min-height: 0;
-
-    overflow: hidden;
-
-    background: #ffffff;
   }
-
-
-  .reader-scroll {
-    width: 100%;
-    height: 100%;
-
-    min-width: 0;
-    min-height: 0;
-
-    overflow-x: hidden;
-    overflow-y: auto;
-
-    scrollbar-gutter: auto;
-
-    background: #ffffff;
-  }
-
-
-  /* -------------------------------------------------------
-     FOOTER
-  ------------------------------------------------------- */
-
-  .layout-footer {
-    width: 100%;
-    height: 58px;
-
-    min-height: 58px;
-
-    overflow: hidden;
-
-    z-index: 3000;
-  }
-}
-
-
-/* =========================================================
-   SMALL MOBILE
-========================================================= */
-
-@media (max-width: 640px) {
-
-  .layout {
-    grid-template-rows:
-      64px
-      minmax(0, 1fr)
-      56px;
-  }
-
-
-  .layout-header {
-    height: 64px;
-  }
-
-
-  .layout-sidebar {
-    top: 64px;
-    bottom: 56px;
-  }
-
-
-  .layout-footer {
-    height: 56px;
-    min-height: 56px;
-  }
-}
-
-
-/* =========================================================
-   VERY SMALL MOBILE
-========================================================= */
-
-@media (max-width: 400px) {
-
-  .layout {
-    grid-template-rows:
-      62px
-      minmax(0, 1fr)
-      54px;
-  }
-
-
-  .layout-header {
-    height: 62px;
-  }
-
-
-  .layout-sidebar {
-    top: 62px;
-    bottom: 54px;
-  }
-
-
-  .layout-footer {
-    height: 54px;
-    min-height: 54px;
-  }
-}
-
-
-/* =========================================================
-   HARD OVERFLOW PROTECTION
-========================================================= */
-
-.layout,
-.layout-body,
-.layout-main,
-.layout-sidebar,
-.layout-header,
-.layout-footer,
-.reader-scroll {
-  max-width: 100%;
 }
