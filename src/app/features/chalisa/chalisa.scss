@@ -1,183 +1,618 @@
-@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+Devanagari:wght@400;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Noto+Serif+Devanagari:wght@400;500;600;700&display=swap');
+
+
+/* =========================================================
+   CHALISA READER
+   Elegant • Comfortable • Compact • Desktop + Mobile
+========================================================= */
 
 :host {
   display: block;
   width: 100%;
   flex: 1;
+  min-width: 0;
 }
+
+
+/* =========================================================
+   MAIN CONTAINER
+========================================================= */
 
 .kindle-container {
   width: 100%;
-  padding: 24px 16px;
+  padding: 16px 18px 24px;
   box-sizing: border-box;
 }
 
+
 /* =========================================================
-   1. SELECTION GRID STYLES
+   1. CHALISA SELECTION
 ========================================================= */
 
 .chalisa-selection {
   width: 100%;
-  max-width: 100%;
-  text-align: left;
+  max-width: 1100px;
+  margin: 0 auto;
 }
 
 .kindle-title {
-  font-family: 'Noto Serif Devanagari', Georgia, serif;
-  font-size: 32px;
+  margin: 0 0 6px;
+
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: clamp(2rem, 3vw, 2.6rem);
   font-weight: 700;
-  color: #1a1a1a;
-  margin: 0 0 8px 0;
+  line-height: 1;
+
+  color: #2f2924;
 }
 
 .kindle-subtitle {
-  font-size: 15px;
-  color: #666;
-  margin: 0 0 32px 0;
+  margin: 0 0 24px;
+
+  font-family: "Noto Serif Devanagari", Georgia, serif;
+  font-size: 14px;
+  line-height: 1.5;
+
+  color: #756b62;
 }
+
+
+/* =========================================================
+   CHALISA CARDS
+========================================================= */
 
 .chalisa-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 20px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
   width: 100%;
 }
 
 .kindle-card {
   width: 100%;
   box-sizing: border-box;
-  background-color: #fbf9f5;
-  border: 1px solid #e5dfd5;
-  border-radius: 8px;
-  padding: 24px;
+
+  padding: 22px;
+
+  background: #fcfaf6;
+  border: 1px solid #e4dbce;
+  border-radius: 14px;
+
   cursor: pointer;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
-  transition: all 0.2s ease-in-out;
+
+  box-shadow:
+    0 2px 8px rgba(60, 43, 30, 0.035);
+
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    border-color 0.2s ease,
+    background 0.2s ease;
 
   &:hover {
-    background-color: #f3efe6;
-    border-color: #d4c8b8;
+    background: #f8f2e8;
+    border-color: #d7c8b5;
+
     transform: translateY(-2px);
-    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+
+    box-shadow:
+      0 8px 20px rgba(60, 43, 30, 0.07);
   }
 
   .card-icon {
+    margin-bottom: 10px;
     font-size: 24px;
-    margin-bottom: 12px;
+    line-height: 1;
   }
 
   h3 {
-    font-family: 'Noto Serif Devanagari', Georgia, serif;
-    font-size: 20px;
+    margin: 0 0 6px;
+
+    font-family: "Cormorant Garamond", Georgia, serif;
+    font-size: 1.45rem;
     font-weight: 700;
-    color: #1a1a1a;
-    margin: 0 0 8px 0;
+    line-height: 1.1;
+
+    color: #342b25;
   }
 
   p {
-    font-size: 14px;
-    color: #666;
     margin: 0;
+
+    font-family: "Noto Serif Devanagari", Georgia, serif;
+    font-size: 13px;
     line-height: 1.5;
+
+    color: #74695f;
   }
 }
 
+
 /* =========================================================
-   2. TWO-PAGE KINDLE SPREAD VIEW (FULL WIDTH EXPANSION)
+   2. CHALISA PAPER
 ========================================================= */
 
 .kindle-paper-spread {
-  background-color: #fbf9f5;
-  color: #1a1a1a;
-  width: 100% !important;
-  max-width: none !important;
-  margin: 0 !important;
-  padding: 32px 40px;
-  border-radius: 6px;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06), 0 1px 3px rgba(0, 0, 0, 0.04);
-  font-family: 'Noto Serif Devanagari', 'Georgia', serif;
+  width: 100%;
+  max-width: none;
+
+  margin: 0;
+
+  padding: 22px 28px 28px;
+
   box-sizing: border-box;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+  background:
+    linear-gradient(
+      180deg,
+      #fdfbf7 0%,
+      #fbf8f2 100%
+    );
+
+  color: #2f2924;
+
+  border: 1px solid #ebe3d8;
+  border-radius: 10px;
+
+  box-shadow:
+    0 5px 22px rgba(60, 43, 30, 0.045);
+
+  font-family:
+    "Noto Serif Devanagari",
+    Georgia,
+    serif;
 }
 
+
+/* =========================================================
+   3. HEADER
+========================================================= */
+
 .spread-header {
-  text-align: center;
-  margin-bottom: 24px;
-  padding-bottom: 16px;
-  border-bottom: 1px solid #e5dfd5;
   position: relative;
+
+  text-align: center;
+
+  margin-bottom: 18px;
+  padding-bottom: 13px;
+
+  border-bottom: 1px solid #e6ddd1;
 }
+
+
+/* Back button */
 
 .kindle-back-btn {
   position: absolute;
+
   left: 0;
   top: 4px;
-  background: none;
-  border: none;
-  font-family: inherit;
-  font-size: 14px;
-  color: #666;
+
+  padding: 4px 0;
+
+  background: transparent;
+  border: 0;
+
+  font-family:
+    "Cormorant Garamond",
+    Georgia,
+    serif;
+
+  font-size: 17px;
+  font-weight: 600;
+
+  color: #766b61;
+
   cursor: pointer;
-  padding: 0;
+
+  transition:
+    color 0.2s ease,
+    transform 0.2s ease;
 
   &:hover {
-    color: #000;
+    color: #9b673b;
+    transform: translateX(-2px);
   }
 }
 
+
+/* Main title */
+
 .book-title {
-  font-size: 26px;
-  font-weight: 700;
   margin: 0;
+
+  font-family:
+    "Cormorant Garamond",
+    Georgia,
+    serif;
+
+  font-size: clamp(2rem, 3vw, 2.7rem);
+
+  font-weight: 700;
+  line-height: 0.95;
+
+  letter-spacing: -0.01em;
+
+  color: #2d2824;
 }
+
+
+/* Subtitle */
 
 .book-subtitle {
-  font-size: 13px;
-  color: #555;
+  margin: 5px 0 0;
+
+  font-family:
+    "Cormorant Garamond",
+    Georgia,
+    serif;
+
+  font-size: 15px;
+  font-weight: 500;
   font-style: italic;
-  margin: 4px 0 0 0;
+
+  line-height: 1.2;
+
+  color: #776c63;
 }
 
+
 /* =========================================================
-   DYNAMIC 2-COLUMN BOOK BODY
+   4. MAIN READING AREA
 ========================================================= */
 
 .book-columns {
-  column-count: 2;
-  column-gap: 40px;
-  column-rule: 1px solid #eae4d9;
-  column-fill: balance;
-  font-size: 15px;
-  line-height: 1.85;
-  text-align: justify;
+  width: 100%;
 
-  @media (max-width: 850px) {
-    column-count: 1;
-    column-gap: 0;
-    column-rule: none;
-  }
+  column-count: 2;
+  column-gap: 42px;
+
+  column-rule: 1px solid #e8e0d5;
+
+  column-fill: balance;
+
+  font-family:
+    "Noto Serif Devanagari",
+    Georgia,
+    serif;
+
+  /*
+     Slightly smaller than before.
+     This reduces scrolling without making
+     the Devanagari uncomfortable to read.
+  */
+  font-size: 16px;
+
+  /*
+     Compact but still comfortable.
+  */
+  line-height: 1.68;
+
+  /*
+     Devanagari looks cleaner with a little
+     breathing room between characters.
+  */
+  letter-spacing: 0.005em;
+
+  color: #302a25;
+
+  text-align: justify;
 }
+
+
+/* =========================================================
+   SECTIONS
+========================================================= */
 
 .book-section {
-  margin-bottom: 20px;
+  margin: 0 0 16px;
+
+  break-inside: auto;
 }
 
+
+/* =========================================================
+   SECTION HEADINGS
+========================================================= */
+
 .section-label {
+  margin: 8px 0 12px;
+
   text-align: center;
+
+  font-family:
+    "Noto Serif Devanagari",
+    Georgia,
+    serif;
+
   font-size: 15px;
   font-weight: 700;
-  color: #444;
-  margin: 12px 0;
+
+  line-height: 1.35;
+
+  color: #715a45;
+
   break-after: avoid;
 }
 
+
+/* =========================================================
+   DOHA
+========================================================= */
+
+.doha-section {
+  break-inside: avoid;
+}
+
 .doha-para {
-  margin: 0 0 10px 0;
+  margin: 0 0 10px;
+
   text-align: center;
+
+  font-family:
+    "Noto Serif Devanagari",
+    Georgia,
+    serif;
+
+  font-size: 16px;
   font-weight: 600;
+
+  line-height: 1.72;
+
+  color: #302a25;
+}
+
+
+/* =========================================================
+   CHAUPAI
+========================================================= */
+
+.chaupai-section {
+  margin-top: 2px;
 }
 
 .chaupai-para {
-  margin: 0 0 8px 0;
-  text-indent: 1.2em;
+  margin: 0 0 7px;
+
+  font-family:
+    "Noto Serif Devanagari",
+    Georgia,
+    serif;
+
+  font-size: 16px;
+  font-weight: 400;
+
+  line-height: 1.68;
+
+  color: #302a25;
+
+  /*
+     Small indentation gives the prayer
+     a traditional book-like appearance.
+  */
+  text-indent: 0.7em;
+}
+
+
+/* =========================================================
+   LAST DOHA
+========================================================= */
+
+.doha-section:last-child {
+  margin-top: 12px;
+  padding-top: 12px;
+
+  border-top: 1px solid #e8dfd3;
+}
+
+
+/* =========================================================
+   DESKTOP — LARGE SCREENS
+========================================================= */
+
+@media (min-width: 1200px) {
+
+  .kindle-paper-spread {
+    padding-left: 32px;
+    padding-right: 32px;
+  }
+
+  .book-columns {
+    column-gap: 48px;
+
+    font-size: 16.5px;
+    line-height: 1.7;
+  }
+
+  .chaupai-para,
+  .doha-para {
+    font-size: 16.5px;
+  }
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 950px) {
+
+  .kindle-container {
+    padding: 14px 14px 22px;
+  }
+
+  .kindle-paper-spread {
+    padding: 20px 22px 24px;
+  }
+
+  .book-columns {
+    column-gap: 30px;
+
+    font-size: 15.5px;
+    line-height: 1.67;
+  }
+
+  .chaupai-para,
+  .doha-para {
+    font-size: 15.5px;
+  }
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 700px) {
+
+  .kindle-container {
+    padding: 10px 10px 18px;
+  }
+
+
+  /* Selection cards */
+
+  .chalisa-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .kindle-card {
+    padding: 18px;
+  }
+
+
+  /* Paper */
+
+  .kindle-paper-spread {
+    padding: 16px 15px 22px;
+
+    border-radius: 8px;
+
+    box-shadow:
+      0 3px 12px rgba(60, 43, 30, 0.04);
+  }
+
+
+  /* Header */
+
+  .spread-header {
+    margin-bottom: 16px;
+    padding-bottom: 12px;
+  }
+
+  .kindle-back-btn {
+    position: static;
+
+    display: block;
+
+    margin: 0 auto 9px;
+
+    font-size: 15px;
+  }
+
+  .book-title {
+    font-size: 2rem;
+  }
+
+  .book-subtitle {
+    font-size: 14px;
+  }
+
+
+  /* One reading column */
+
+  .book-columns {
+    column-count: 1;
+    column-gap: 0;
+    column-rule: none;
+
+    font-size: 16px;
+    line-height: 1.7;
+
+    text-align: left;
+  }
+
+  .book-section {
+    margin-bottom: 18px;
+  }
+
+  .section-label {
+    font-size: 15px;
+    margin: 10px 0 12px;
+  }
+
+  .doha-para {
+    font-size: 16px;
+    line-height: 1.75;
+
+    text-align: center;
+  }
+
+  .chaupai-para {
+    font-size: 16px;
+    line-height: 1.7;
+
+    text-indent: 0;
+  }
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media (max-width: 420px) {
+
+  .kindle-container {
+    padding: 8px 7px 16px;
+  }
+
+  .kindle-paper-spread {
+    padding: 14px 12px 20px;
+  }
+
+  .book-title {
+    font-size: 1.85rem;
+  }
+
+  .book-subtitle {
+    font-size: 13px;
+  }
+
+  .book-columns {
+    font-size: 15.5px;
+    line-height: 1.68;
+  }
+
+  .doha-para,
+  .chaupai-para {
+    font-size: 15.5px;
+  }
+}
+
+
+/* =========================================================
+   ACCESSIBILITY / TEXT RENDERING
+========================================================= */
+
+.book-title,
+.section-label,
+.doha-para,
+.chaupai-para {
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+
+/* =========================================================
+   REDUCE MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+  .kindle-card,
+  .kindle-back-btn {
+    transition: none;
+  }
 }
