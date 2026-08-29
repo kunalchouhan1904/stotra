@@ -1,5 +1,80 @@
-<div class="home-page">
-  <p>
-    Chalisa.
-  </p>
+<div class="kindle-container">
+
+  <!-- =====================================================
+       1. SELECTION VIEW (When no Chalisa is selected)
+  ====================================================== -->
+  @if (!selectedChalisa) {
+    <div class="chalisa-selection">
+      <h1 class="kindle-title">Chalisa Collection</h1>
+      <p class="kindle-subtitle">Select a text to begin reading</p>
+
+      <div class="chalisa-grid">
+        <div class="kindle-card" (click)="selectedChalisa = 'hanuman'">
+          <div class="card-icon">🚩</div>
+          <h3>Hanuman Chalisa</h3>
+          <p>Forty Verses in Praise of Lord Hanuman</p>
+        </div>
+
+        <div class="kindle-card" (click)="selectedChalisa = 'gayatri'">
+          <div class="card-icon">🌸</div>
+          <h3>Gayatri Chalisa</h3>
+          <p>Forty Verses in Praise of Goddess Gayatri</p>
+        </div>
+      </div>
+    </div>
+  }
+
+  <!-- =====================================================
+       2. KINDLE 2-PAGE SPREAD VIEW (When selected)
+  ====================================================== -->
+  @if (selectedChalisa) {
+    <div class="kindle-paper-spread">
+      
+      <!-- TOP NAVIGATION & HEADER -->
+      <div class="spread-header">
+        <button type="button" class="kindle-back-btn" (click)="selectedChalisa = null">
+          ‹ Back to Collection
+        </button>
+        <h1 class="book-title">{{ chalisaDetails[selectedChalisa].title }}</h1>
+        <p class="book-subtitle">{{ chalisaDetails[selectedChalisa].subtitle }}</p>
+      </div>
+
+      <!-- TWO-COLUMN BOOK BODY -->
+      <article class="book-columns">
+        
+        <!-- BLOCK 1: DOHA BEFORE -->
+        @if (chalisaDetails[selectedChalisa].dohaBefore?.length) {
+          <section class="book-section doha-section">
+            <h2 class="section-label">॥ प्रारंभिक दोहा ॥</h2>
+            @for (doha of chalisaDetails[selectedChalisa].dohaBefore; track $index) {
+              <p class="doha-para">{{ doha }}</p>
+            }
+          </section>
+        }
+
+        <!-- BLOCK 2: CHAUPAI -->
+        @if (chalisaDetails[selectedChalisa].verses.length) {
+          <section class="book-section chaupai-section">
+            <h2 class="section-label">॥ चौपाई ॥</h2>
+            @for (verse of chalisaDetails[selectedChalisa].verses; track $index) {
+              <p class="chaupai-para">{{ verse }}</p>
+            }
+          </section>
+        }
+
+        <!-- BLOCK 3: DOHA AFTER -->
+        @if (chalisaDetails[selectedChalisa].dohaAfter?.length) {
+          <section class="book-section doha-section">
+            <h2 class="section-label">॥ समापन दोहा ॥</h2>
+            @for (doha of chalisaDetails[selectedChalisa].dohaAfter; track $index) {
+              <p class="doha-para">{{ doha }}</p>
+            }
+          </section>
+        }
+
+      </article>
+
+    </div>
+  }
+
 </div>
