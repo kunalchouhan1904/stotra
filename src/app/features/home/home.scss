@@ -1,125 +1,569 @@
 /* =========================================================
    STOTRAAM — HOME
+   Option F: Focus & Meditation
 ========================================================= */
 
 :host {
   display: block;
-
   width: 100%;
-
   min-width: 0;
-  min-height: 0;
-
-  margin: 0;
-  padding: 0;
-
+  min-height: 100%;
   box-sizing: border-box;
-
-  font-family:
-    Inter,
-    "Segoe UI",
-    Arial,
-    sans-serif;
+  font-family: Inter, "Segoe UI", Arial, sans-serif;
 }
-
-
-/* =========================================================
-   HOME PAGE
-========================================================= */
 
 .home-page {
   width: 100%;
-
   min-width: 0;
-
   box-sizing: border-box;
-
-  margin: 0;
-  padding: 32px 40px;
-
-  color: #292524;
-
-  font-family:
-    Inter,
-    "Segoe UI",
-    Arial,
-    sans-serif;
-
-  font-size: 15px;
-  font-weight: 400;
-
-  line-height: 1.6;
-
-  background: #ffffff;
+  padding: 28px 34px 42px;
+  color: #302821;
+  background:
+    radial-gradient(circle at 78% 12%, rgba(227, 178, 111, .13), transparent 24%),
+    linear-gradient(180deg, #fffdf9 0%, #fbf5eb 100%);
 }
 
 
 /* =========================================================
-   HOME TEXT
+   1. HERO
 ========================================================= */
 
-.home-page p {
+.hero {
+  position: relative;
+  min-height: 270px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  box-sizing: border-box;
+  padding: 42px 46% 42px 46px;
+  border: 1px solid #eadcc9;
+  border-radius: 20px;
+  background:
+    linear-gradient(110deg, #fffaf1 0%, #fcebd8 58%, #f6dfc5 100%);
+  box-shadow: 0 8px 28px rgba(74, 52, 31, .055);
+}
+
+.hero-copy {
+  position: relative;
+  z-index: 3;
+}
+
+.hero-eyebrow,
+.section-kicker {
+  display: block;
+  color: #a66d32;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .14em;
+}
+
+.hero h1 {
+  margin: 10px 0 8px;
+  color: #34271d;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(2.25rem, 4vw, 3.65rem);
+  font-weight: 600;
+  line-height: 1.02;
+  letter-spacing: -.025em;
+}
+
+.hero-copy p {
   margin: 0;
+  color: #725f4d;
+  font-size: 16px;
+}
 
-  padding: 0;
+.hero-art {
+  position: absolute;
+  inset: 0 0 0 48%;
+  overflow: hidden;
+}
 
-  font: inherit;
+.sun {
+  position: absolute;
+  top: 28px;
+  right: 24%;
+  width: 130px;
+  height: 130px;
+  border-radius: 50%;
+  background: rgba(255, 249, 220, .9);
+  box-shadow: 0 0 45px rgba(222, 171, 94, .3);
+}
 
-  color: inherit;
+.mountains {
+  position: absolute;
+  right: -4%;
+  bottom: 0;
+  width: 88%;
+  height: 52%;
+  opacity: .28;
+  background:
+    linear-gradient(145deg, transparent 48%, #b8946c 49% 52%, transparent 53%),
+    linear-gradient(35deg, transparent 48%, #c3a27d 49% 52%, transparent 53%);
+}
+
+.meditating-person {
+  position: absolute;
+  right: 21%;
+  bottom: 36px;
+  width: 116px;
+  height: 116px;
+  display: grid;
+  place-items: center;
+  border-radius: 50% 50% 45% 45%;
+  color: #6d4729;
+  font-family: Georgia, serif;
+  font-size: 50px;
+  background: rgba(157, 109, 65, .13);
+  border: 2px solid rgba(166, 109, 50, .18);
+}
+
+.diya {
+  position: absolute;
+  right: 8%;
+  bottom: 20px;
+  font-size: 42px;
+  filter: drop-shadow(0 5px 7px rgba(120, 72, 30, .15));
+}
+
+.sankalp {
+  position: absolute;
+  z-index: 4;
+  right: 28px;
+  bottom: 24px;
+  width: 205px;
+  box-sizing: border-box;
+  padding: 17px 20px;
+  border: 1px solid rgba(190, 142, 82, .22);
+  border-radius: 14px;
+  background: rgba(255, 251, 243, .88);
+  box-shadow: 0 5px 18px rgba(87, 59, 33, .08);
+  backdrop-filter: blur(5px);
+}
+
+.sankalp span {
+  color: #8b5d32;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.sankalp p {
+  margin: 8px 0 0;
+  color: #4d3b2d;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 14px;
+  line-height: 1.5;
 }
 
 
 /* =========================================================
-   MOBILE
+   2. PRIMARY ACTIONS
 ========================================================= */
 
-@media (max-width: 900px) {
+.actions {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+  margin: 18px 0 26px;
+}
 
-  .home-page {
-    padding: 24px;
-  }
+.action-card {
+  min-height: 120px;
+  box-sizing: border-box;
+  padding: 22px 22px 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-decoration: none;
+  border: 1px solid #eadfce;
+  border-radius: 15px;
+  background: rgba(255, 253, 248, .88);
+  color: #342a22;
+  box-shadow: 0 5px 18px rgba(72, 52, 33, .045);
+  transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
+}
+
+.action-card:hover {
+  transform: translateY(-2px);
+  border-color: #d8bb94;
+  box-shadow: 0 9px 22px rgba(72, 52, 33, .09);
+}
+
+.action-icon {
+  width: 40px;
+  height: 40px;
+  display: grid;
+  place-items: center;
+  margin-bottom: 10px;
+  border-radius: 50%;
+  background: #f8ead8;
+  font-size: 21px;
+}
+
+.action-card strong {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 18px;
+}
+
+.action-card small {
+  margin-top: 4px;
+  color: #76685c;
+  font-size: 13px;
+  line-height: 1.4;
 }
 
 
-@media (max-width: 640px) {
+/* =========================================================
+   3. DAILY SPIRITUAL FLOW
+========================================================= */
 
-  .home-page {
-    padding: 20px;
-  }
+.section {
+  box-sizing: border-box;
+  border: 1px solid #eadfce;
+  border-radius: 16px;
+  background: rgba(255, 253, 248, .78);
+  box-shadow: 0 5px 20px rgba(72, 52, 33, .035);
+}
+
+.daily-flow {
+  padding: 24px 26px 22px;
+}
+
+.section-heading h2 {
+  margin: 5px 0 3px;
+  color: #362a21;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 25px;
+  font-weight: 600;
+}
+
+.section-heading p {
+  margin: 0;
+  color: #7b6c5e;
+  font-size: 13px;
+}
+
+.flow-line {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  margin-top: 24px;
+}
+
+.flow-line::before {
+  content: "";
+  position: absolute;
+  top: 25px;
+  left: 10%;
+  right: 10%;
+  height: 1px;
+  background: #dcc7aa;
+}
+
+.flow-item {
+  position: relative;
+  z-index: 1;
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+}
+
+.flow-icon {
+  width: 50px;
+  height: 50px;
+  display: grid;
+  place-items: center;
+  margin-bottom: 9px;
+  border: 1px solid #e5cfb1;
+  border-radius: 50%;
+  background: #fffaf2;
+  font-size: 20px;
+  box-shadow: 0 2px 7px rgba(70, 48, 29, .05);
+}
+
+.flow-item strong {
+  color: #49372a;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 14px;
+}
+
+.flow-item small {
+  margin-top: 5px;
+  color: #7c6d5f;
+  font-size: 11.5px;
+  line-height: 1.4;
 }
 
 
-@media (max-width: 400px) {
+/* =========================================================
+   4. TODAY'S INSPIRATION
+========================================================= */
 
-  .home-page {
-    padding: 16px;
-  }
+.inspiration {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  margin-top: 18px;
+  padding: 22px 30px;
+  border: 1px solid #ead7bd;
+  border-radius: 16px;
+  background: linear-gradient(100deg, #fff9ed, #f9eee0);
 }
+
+.inspiration-symbol {
+  color: #e2cda9;
+  font-family: Georgia, serif;
+  font-size: 48px;
+  line-height: 1;
+}
+
+.inspiration-content {
+  flex: 1;
+  text-align: center;
+}
+
+.inspiration blockquote {
+  margin: 9px 0 5px;
+  color: #49372a;
+  font-family: Georgia, "Noto Serif Devanagari", serif;
+  font-size: 18px;
+  line-height: 1.7;
+}
+
+.inspiration cite {
+  color: #8b6b4d;
+  font-family: Georgia, serif;
+  font-size: 12px;
+  font-style: italic;
+}
+
 
 /* =========================================================
    DARK MODE
-   Theme is controlled globally by <body class="dark-mode">
 ========================================================= */
 
 :host-context(.dark-mode) .home-page {
+  color: #eee6dc;
   background:
-    linear-gradient(
-      180deg,
-      #1b1917 0%,
-      #171513 100%
-    );
-
-  color: #eee7de;
+    radial-gradient(circle at 78% 12%, rgba(180, 125, 65, .08), transparent 24%),
+    linear-gradient(180deg, #1b1917 0%, #171513 100%);
 }
 
-:host-context(.dark-mode) .home-page p {
-  color: inherit;
+:host-context(.dark-mode) .hero {
+  border-color: #44372c;
+  background:
+    linear-gradient(110deg, #29221d 0%, #33261d 58%, #3a2b20 100%);
+  box-shadow: 0 9px 28px rgba(0, 0, 0, .22);
 }
 
-/*
- * Keep the component transparent around the actual page surface
- * so the global layout background remains consistent.
- */
-:host-context(.dark-mode) {
-  color: #eee7de;
+:host-context(.dark-mode) .hero h1 {
+  color: #f2e9df;
+}
+
+:host-context(.dark-mode) .hero-eyebrow,
+:host-context(.dark-mode) .section-kicker {
+  color: #d29b5c;
+}
+
+:host-context(.dark-mode) .hero-copy p {
+  color: #b8a99b;
+}
+
+:host-context(.dark-mode) .sun {
+  background: rgba(222, 180, 104, .12);
+  box-shadow: 0 0 45px rgba(222, 171, 94, .08);
+}
+
+:host-context(.dark-mode) .mountains {
+  opacity: .18;
+}
+
+:host-context(.dark-mode) .meditating-person {
+  color: #d7a061;
+  background: rgba(210, 155, 92, .08);
+  border-color: rgba(210, 155, 92, .22);
+}
+
+:host-context(.dark-mode) .sankalp {
+  border-color: #584533;
+  background: rgba(38, 31, 26, .9);
+  box-shadow: 0 7px 20px rgba(0, 0, 0, .2);
+}
+
+:host-context(.dark-mode) .sankalp span {
+  color: #d19a5d;
+}
+
+:host-context(.dark-mode) .sankalp p {
+  color: #d4c6b8;
+}
+
+:host-context(.dark-mode) .action-card,
+:host-context(.dark-mode) .section {
+  border-color: #40362e;
+  background: #211e1b;
+  color: #eee6dc;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, .18);
+}
+
+:host-context(.dark-mode) .action-card:hover {
+  border-color: #6a5238;
+  background: #27221e;
+}
+
+:host-context(.dark-mode) .action-icon {
+  background: #34291f;
+}
+
+:host-context(.dark-mode) .action-card small,
+:host-context(.dark-mode) .section-heading p,
+:host-context(.dark-mode) .flow-item small {
+  color: #a99c8e;
+}
+
+:host-context(.dark-mode) .action-card strong,
+:host-context(.dark-mode) .section-heading h2,
+:host-context(.dark-mode) .flow-item strong {
+  color: #eee6dc;
+}
+
+:host-context(.dark-mode) .flow-line::before {
+  background: #5a4633;
+}
+
+:host-context(.dark-mode) .flow-icon {
+  border-color: #564332;
+  background: #29231f;
+}
+
+:host-context(.dark-mode) .inspiration {
+  border-color: #4a392b;
+  background: linear-gradient(100deg, #29221c, #251f1b);
+}
+
+:host-context(.dark-mode) .inspiration blockquote {
+  color: #e6d9cc;
+}
+
+:host-context(.dark-mode) .inspiration cite {
+  color: #b9946b;
+}
+
+:host-context(.dark-mode) .inspiration-symbol {
+  color: #6b5137;
+}
+
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media (max-width: 1050px) {
+  .hero {
+    padding-right: 42%;
+  }
+
+  .sankalp {
+    right: 18px;
+    width: 180px;
+  }
+
+  .flow-line {
+    grid-template-columns: repeat(3, 1fr);
+    row-gap: 20px;
+  }
+
+  .flow-line::before {
+    display: none;
+  }
+}
+
+@media (max-width: 760px) {
+  .home-page {
+    padding: 20px;
+  }
+
+  .hero {
+    min-height: 410px;
+    padding: 30px 26px;
+    align-items: flex-start;
+  }
+
+  .hero-art {
+    inset: 35% 0 0 0;
+  }
+
+  .hero h1 {
+    font-size: 2.35rem;
+  }
+
+  .sankalp {
+    right: 18px;
+    bottom: 18px;
+    width: 190px;
+  }
+
+  .actions {
+    grid-template-columns: 1fr;
+  }
+
+  .action-card {
+    min-height: 96px;
+  }
+
+  .flow-line {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .inspiration {
+    padding: 20px;
+  }
+
+  .inspiration-symbol {
+    display: none;
+  }
+
+  .inspiration blockquote {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 420px) {
+  .home-page {
+    padding: 16px;
+  }
+
+  .hero {
+    min-height: 430px;
+    padding: 26px 20px;
+  }
+
+  .hero h1 {
+    font-size: 2rem;
+  }
+
+  .flow-line {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+
+  .flow-item {
+    flex-direction: row;
+    text-align: left;
+    gap: 12px;
+  }
+
+  .flow-icon {
+    flex: 0 0 44px;
+    width: 44px;
+    height: 44px;
+    margin: 0;
+  }
+
+  .flow-item small {
+    margin-top: 2px;
+  }
 }
