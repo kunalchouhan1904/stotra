@@ -1,6 +1,6 @@
 /* =========================================================
    STOTRAAM — HOME
-   Option F: Focus & Meditation
+   Peaceful Mountain Temple Hero
 ========================================================= */
 
 :host {
@@ -30,119 +30,103 @@
 
 .hero {
   position: relative;
-  min-height: 270px;
+  min-height: 410px;
   overflow: hidden;
   display: flex;
   align-items: center;
   box-sizing: border-box;
-  padding: 42px 46% 42px 46px;
-  border: 1px solid #eadcc9;
+  padding: 48px 48% 48px 52px;
+  border: 1px solid #ddcdb9;
   border-radius: 20px;
+  isolation: isolate;
+  box-shadow: 0 10px 30px rgba(74, 52, 31, .10);
+}
+
+.hero-background,
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.hero-background {
+  z-index: -2;
+  background-image: url('/assets/images/home-spiritual-bg.jpg');
+  background-size: cover;
+  background-position: center center;
+  transform: scale(1.015);
+}
+
+.hero-overlay {
+  z-index: -1;
   background:
-    linear-gradient(110deg, #fffaf1 0%, #fcebd8 58%, #f6dfc5 100%);
-  box-shadow: 0 8px 28px rgba(74, 52, 31, .055);
+    linear-gradient(
+      90deg,
+      rgba(255, 250, 241, .96) 0%,
+      rgba(255, 250, 241, .88) 28%,
+      rgba(255, 250, 241, .42) 52%,
+      rgba(255, 250, 241, .04) 78%
+    ),
+    linear-gradient(
+      180deg,
+      rgba(255, 248, 235, .08) 0%,
+      rgba(91, 62, 36, .08) 100%
+    );
 }
 
 .hero-copy {
   position: relative;
-  z-index: 3;
+  z-index: 2;
+  max-width: 510px;
 }
 
 .hero-eyebrow,
 .section-kicker {
   display: block;
-  color: #a66d32;
+  color: #8f5e2c;
   font-size: 11px;
   font-weight: 700;
   letter-spacing: .14em;
 }
 
 .hero h1 {
-  margin: 10px 0 8px;
+  margin: 10px 0 10px;
   color: #34271d;
   font-family: Georgia, "Times New Roman", serif;
-  font-size: clamp(2.25rem, 4vw, 3.65rem);
+  font-size: clamp(2.4rem, 4vw, 3.8rem);
   font-weight: 600;
   line-height: 1.02;
   letter-spacing: -.025em;
+  text-shadow: 0 2px 12px rgba(255, 249, 237, .55);
 }
 
 .hero-copy p {
   margin: 0;
-  color: #725f4d;
+  color: #665344;
   font-size: 16px;
+  line-height: 1.5;
 }
 
-.hero-art {
-  position: absolute;
-  inset: 0 0 0 48%;
-  overflow: hidden;
-}
 
-.sun {
-  position: absolute;
-  top: 28px;
-  right: 24%;
-  width: 130px;
-  height: 130px;
-  border-radius: 50%;
-  background: rgba(255, 249, 220, .9);
-  box-shadow: 0 0 45px rgba(222, 171, 94, .3);
-}
-
-.mountains {
-  position: absolute;
-  right: -4%;
-  bottom: 0;
-  width: 88%;
-  height: 52%;
-  opacity: .28;
-  background:
-    linear-gradient(145deg, transparent 48%, #b8946c 49% 52%, transparent 53%),
-    linear-gradient(35deg, transparent 48%, #c3a27d 49% 52%, transparent 53%);
-}
-
-.meditating-person {
-  position: absolute;
-  right: 21%;
-  bottom: 36px;
-  width: 116px;
-  height: 116px;
-  display: grid;
-  place-items: center;
-  border-radius: 50% 50% 45% 45%;
-  color: #6d4729;
-  font-family: Georgia, serif;
-  font-size: 50px;
-  background: rgba(157, 109, 65, .13);
-  border: 2px solid rgba(166, 109, 50, .18);
-}
-
-.diya {
-  position: absolute;
-  right: 8%;
-  bottom: 20px;
-  font-size: 42px;
-  filter: drop-shadow(0 5px 7px rgba(120, 72, 30, .15));
-}
+/* Sankalp card */
 
 .sankalp {
   position: absolute;
   z-index: 4;
   right: 28px;
   bottom: 24px;
-  width: 205px;
+  width: 220px;
   box-sizing: border-box;
   padding: 17px 20px;
-  border: 1px solid rgba(190, 142, 82, .22);
+  border: 1px solid rgba(190, 142, 82, .28);
   border-radius: 14px;
-  background: rgba(255, 251, 243, .88);
-  box-shadow: 0 5px 18px rgba(87, 59, 33, .08);
-  backdrop-filter: blur(5px);
+  background: rgba(255, 251, 243, .86);
+  box-shadow: 0 7px 20px rgba(87, 59, 33, .13);
+  backdrop-filter: blur(7px);
 }
 
 .sankalp span {
-  color: #8b5d32;
+  color: #805329;
   font-size: 12px;
   font-weight: 700;
 }
@@ -354,13 +338,32 @@
 
 :host-context(.dark-mode) .hero {
   border-color: #44372c;
+  box-shadow: 0 9px 28px rgba(0, 0, 0, .28);
+}
+
+:host-context(.dark-mode) .hero-background {
+  filter: brightness(.62) saturate(.82);
+}
+
+:host-context(.dark-mode) .hero-overlay {
   background:
-    linear-gradient(110deg, #29221d 0%, #33261d 58%, #3a2b20 100%);
-  box-shadow: 0 9px 28px rgba(0, 0, 0, .22);
+    linear-gradient(
+      90deg,
+      rgba(30, 25, 21, .92) 0%,
+      rgba(30, 25, 21, .78) 32%,
+      rgba(30, 25, 21, .30) 58%,
+      rgba(30, 25, 21, .04) 82%
+    ),
+    linear-gradient(
+      180deg,
+      rgba(0, 0, 0, .05) 0%,
+      rgba(0, 0, 0, .22) 100%
+    );
 }
 
 :host-context(.dark-mode) .hero h1 {
   color: #f2e9df;
+  text-shadow: none;
 }
 
 :host-context(.dark-mode) .hero-eyebrow,
@@ -369,28 +372,13 @@
 }
 
 :host-context(.dark-mode) .hero-copy p {
-  color: #b8a99b;
-}
-
-:host-context(.dark-mode) .sun {
-  background: rgba(222, 180, 104, .12);
-  box-shadow: 0 0 45px rgba(222, 171, 94, .08);
-}
-
-:host-context(.dark-mode) .mountains {
-  opacity: .18;
-}
-
-:host-context(.dark-mode) .meditating-person {
-  color: #d7a061;
-  background: rgba(210, 155, 92, .08);
-  border-color: rgba(210, 155, 92, .22);
+  color: #c3b4a6;
 }
 
 :host-context(.dark-mode) .sankalp {
   border-color: #584533;
-  background: rgba(38, 31, 26, .9);
-  box-shadow: 0 7px 20px rgba(0, 0, 0, .2);
+  background: rgba(38, 31, 26, .88);
+  box-shadow: 0 7px 20px rgba(0, 0, 0, .28);
 }
 
 :host-context(.dark-mode) .sankalp span {
@@ -463,12 +451,13 @@
 
 @media (max-width: 1050px) {
   .hero {
+    min-height: 390px;
     padding-right: 42%;
   }
 
   .sankalp {
     right: 18px;
-    width: 180px;
+    width: 190px;
   }
 
   .flow-line {
@@ -487,13 +476,24 @@
   }
 
   .hero {
-    min-height: 410px;
-    padding: 30px 26px;
+    min-height: 500px;
+    padding: 32px 26px;
     align-items: flex-start;
   }
 
-  .hero-art {
-    inset: 35% 0 0 0;
+  .hero-background {
+    background-position: 64% center;
+  }
+
+  .hero-overlay {
+    background:
+      linear-gradient(
+        180deg,
+        rgba(255, 250, 241, .97) 0%,
+        rgba(255, 250, 241, .82) 38%,
+        rgba(255, 250, 241, .16) 72%,
+        rgba(255, 250, 241, .18) 100%
+      );
   }
 
   .hero h1 {
@@ -503,7 +503,7 @@
   .sankalp {
     right: 18px;
     bottom: 18px;
-    width: 190px;
+    width: 210px;
   }
 
   .actions {
@@ -537,12 +537,16 @@
   }
 
   .hero {
-    min-height: 430px;
+    min-height: 500px;
     padding: 26px 20px;
   }
 
   .hero h1 {
     font-size: 2rem;
+  }
+
+  .hero-background {
+    background-position: 62% center;
   }
 
   .flow-line {
