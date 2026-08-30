@@ -27,7 +27,6 @@
 /* =========================================================
    1. HERO
 ========================================================= */
-
 .hero {
   position: relative;
   min-height: 410px;
@@ -35,44 +34,67 @@
   display: flex;
   align-items: center;
   box-sizing: border-box;
+
   padding: 48px 48% 48px 52px;
+
   border: 1px solid #ddcdb9;
   border-radius: 20px;
   isolation: isolate;
+
   box-shadow: 0 10px 30px rgba(74, 52, 31, .10);
 }
 
-.hero-background,
+
+/* ---------------------------------------------------------
+   HERO IMAGE
+--------------------------------------------------------- */
+
+.hero-background {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+
+  background-image: url('/assets/images/tambdi-surla.png');
+  // background-image: url('/assets/images/home-spiritual-bg.jpg');
+
+  /* Keep the complete photograph naturally proportioned */
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+
+  transform: none;
+}
+
+
+/* ---------------------------------------------------------
+   HERO OVERLAY
+--------------------------------------------------------- */
+
 .hero-overlay {
   position: absolute;
   inset: 0;
-  pointer-events: none;
-}
-
-.hero-background {
-  z-index: -2;
-  background-image: url('/assets/images/home-spiritual-bg.jpg');
-  background-size: cover;
-  background-position: center center;
-  transform: scale(1.015);
-}
-
-.hero-overlay {
   z-index: -1;
+  pointer-events: none;
+
+  /*
+     Soft readability layer only.
+     The photograph remains clearly visible.
+  */
   background:
     linear-gradient(
       90deg,
-      rgba(255, 250, 241, .96) 0%,
-      rgba(255, 250, 241, .88) 28%,
-      rgba(255, 250, 241, .42) 52%,
-      rgba(255, 250, 241, .04) 78%
-    ),
-    linear-gradient(
-      180deg,
-      rgba(255, 248, 235, .08) 0%,
-      rgba(91, 62, 36, .08) 100%
+      rgba(255, 250, 241, 0.78) 0%,
+      rgba(255, 250, 241, 0.60) 24%,
+      rgba(255, 250, 241, 0.25) 43%,
+      rgba(255, 250, 241, 0.04) 65%,
+      rgba(255, 250, 241, 0.00) 100%
     );
 }
+
+
+/* ---------------------------------------------------------
+   HERO CONTENT
+--------------------------------------------------------- */
 
 .hero-copy {
   position: relative;
@@ -83,7 +105,9 @@
 .hero-eyebrow,
 .section-kicker {
   display: block;
+
   color: #8f5e2c;
+
   font-size: 11px;
   font-weight: 700;
   letter-spacing: .14em;
@@ -91,49 +115,75 @@
 
 .hero h1 {
   margin: 10px 0 10px;
+
   color: #34271d;
+
   font-family: Georgia, "Times New Roman", serif;
   font-size: clamp(2.4rem, 4vw, 3.8rem);
   font-weight: 600;
   line-height: 1.02;
   letter-spacing: -.025em;
-  text-shadow: 0 2px 12px rgba(255, 249, 237, .55);
+
+  /*
+     Slight shadow keeps the heading readable
+     without hiding the photograph.
+  */
+  text-shadow:
+    0 2px 8px rgba(255, 250, 241, .70);
 }
 
 .hero-copy p {
   margin: 0;
+
   color: #665344;
+
   font-size: 16px;
   line-height: 1.5;
+
+  text-shadow:
+    0 1px 5px rgba(255, 250, 241, .65);
 }
 
 
-/* Sankalp card */
+/* ---------------------------------------------------------
+   TODAY'S SANKALP
+--------------------------------------------------------- */
 
 .sankalp {
   position: absolute;
   z-index: 4;
+
   right: 28px;
   bottom: 24px;
+
   width: 220px;
   box-sizing: border-box;
+
   padding: 17px 20px;
+
   border: 1px solid rgba(190, 142, 82, .28);
   border-radius: 14px;
-  background: rgba(255, 251, 243, .86);
-  box-shadow: 0 7px 20px rgba(87, 59, 33, .13);
+
+  background: rgba(255, 251, 243, .88);
+
+  box-shadow:
+    0 7px 20px rgba(87, 59, 33, .13);
+
   backdrop-filter: blur(7px);
 }
 
 .sankalp span {
   color: #805329;
+
   font-size: 12px;
   font-weight: 700;
 }
 
 .sankalp p {
   margin: 8px 0 0;
+
   color: #4d3b2d;
+
   font-family: Georgia, "Times New Roman", serif;
   font-size: 14px;
   line-height: 1.5;
@@ -482,17 +532,18 @@
   }
 
   .hero-background {
-    background-position: 64% center;
+    background-size: cover;
+    background-position: center center;
   }
 
   .hero-overlay {
     background:
       linear-gradient(
         180deg,
-        rgba(255, 250, 241, .97) 0%,
-        rgba(255, 250, 241, .82) 38%,
-        rgba(255, 250, 241, .16) 72%,
-        rgba(255, 250, 241, .18) 100%
+        rgba(255, 250, 241, .82) 0%,
+        rgba(255, 250, 241, .55) 32%,
+        rgba(255, 250, 241, .12) 68%,
+        rgba(255, 250, 241, .08) 100%
       );
   }
 
