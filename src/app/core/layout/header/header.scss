@@ -115,95 +115,80 @@
 
 
 /* =========================================================
-   SEARCH
+   AUDIO READER
 ========================================================= */
 
-.search {
+.audio-player {
   position: relative;
 
   flex: 1;
 
   max-width: 650px;
 
-  margin: 0 auto;
-}
-
-.search input {
-  width: 100%;
   height: 44px;
+
+  margin: 0 auto;
+  padding: 0 10px;
 
   box-sizing: border-box;
 
-  padding: 0 42px 0 43px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 7px;
+
+  background: #f4f1eb;
 
   border: 1px solid #e7e2d9;
   border-radius: 23px;
 
-  outline: none;
-
-  background: #f4f1eb;
-  color: #292524;
-
-  font-family:
-    Inter,
-    "Segoe UI",
-    Arial,
-    sans-serif;
-
-  font-size: 13px;
-  font-weight: 400;
-
-  line-height: 1;
+  color: #6f6256;
 
   transition:
     background 0.2s ease,
     border-color 0.2s ease;
 }
 
-.search input::placeholder {
-  color: #78716c;
+.audio-player.is-playing {
+  border-color: #d7c4a5;
 }
 
-.search input:focus {
-  background: #ffffff;
-  border-color: #cdb996;
-}
-
-.search-icon {
-  position: absolute;
-
-  left: 16px;
-  top: 50%;
-
-  transform: translateY(-50%);
-
-  color: #78716c;
-
-  font-size: 22px;
-
+.audio-icon {
+  font-size: 14px;
   line-height: 1;
-
-  pointer-events: none;
 }
 
-.search-shortcut {
-  position: absolute;
+.audio-label {
+  margin-right: 4px;
 
-  right: 12px;
-  top: 9px;
+  color: #6f6256;
 
-  width: 26px;
-  height: 26px;
+  font-size: 12px;
+  font-weight: 600;
+
+  white-space: nowrap;
+}
+
+
+/* =========================================================
+   AUDIO BUTTONS
+========================================================= */
+
+.audio-button {
+  width: 30px;
+  height: 30px;
 
   display: grid;
   place-items: center;
 
-  box-sizing: border-box;
+  padding: 0;
 
-  border: 1px solid #ded8ce;
-  border-radius: 5px;
+  border: 1px solid #dcd4c9;
+  border-radius: 50%;
 
-  color: #78716c;
+  background: #ffffff;
+  color: #6d5845;
 
   font-family:
     Inter,
@@ -211,8 +196,103 @@
     Arial,
     sans-serif;
 
-  font-size: 12px;
-  font-weight: 500;
+  font-size: 10px;
+
+  cursor: pointer;
+
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease,
+    color 0.2s ease,
+    transform 0.15s ease;
+}
+
+.audio-button:hover:not(:disabled) {
+  background: #f8f2e8;
+  border-color: #cdbb9e;
+  color: #9a6a32;
+
+  transform: translateY(-1px);
+}
+
+.audio-button:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+.audio-button:disabled {
+  opacity: 0.35;
+  cursor: default;
+}
+
+
+/* =========================================================
+   PLAY BUTTON
+========================================================= */
+
+.play-button {
+  background: #9a6a32;
+  border-color: #9a6a32;
+
+  color: #ffffff;
+
+  font-size: 10px;
+}
+
+.play-button:hover:not(:disabled) {
+  background: #855a2a;
+  border-color: #855a2a;
+  color: #ffffff;
+}
+
+
+/* =========================================================
+   SPEED
+========================================================= */
+
+.audio-speed {
+  height: 30px;
+
+  margin-left: 4px;
+  padding: 0 7px;
+
+  border: 1px solid #dcd4c9;
+  border-radius: 15px;
+
+  outline: none;
+
+  background: #ffffff;
+  color: #665b52;
+
+  font-family:
+    Inter,
+    "Segoe UI",
+    Arial,
+    sans-serif;
+
+  font-size: 11px;
+
+  cursor: pointer;
+}
+
+.audio-speed:focus {
+  border-color: #cdb996;
+}
+
+
+/* =========================================================
+   STATUS
+========================================================= */
+
+.audio-status {
+  min-width: 48px;
+
+  margin-left: 3px;
+
+  color: #887b6e;
+
+  font-size: 10px;
+
+  white-space: nowrap;
 }
 
 
@@ -268,6 +348,7 @@
 ========================================================= */
 
 @media (max-width: 900px) {
+
   .header {
     padding: 0 18px;
   }
@@ -280,9 +361,11 @@
     min-width: auto;
   }
 
-  .search {
-    margin: 0 18px;
+  .audio-player {
+    margin: 0 14px;
+    max-width: 520px;
   }
+
 }
 
 
@@ -291,6 +374,7 @@
 ========================================================= */
 
 @media (max-width: 640px) {
+
   .header {
     height: 68px;
     padding: 0 15px;
@@ -312,13 +396,46 @@
     display: none;
   }
 
-  .search {
+  .audio-player {
+    height: 38px;
+
+    margin: 0 8px;
+    padding: 0 5px;
+
+    gap: 4px;
+
+    border-radius: 20px;
+  }
+
+  .audio-label {
+    display: none;
+  }
+
+  .audio-icon {
+    font-size: 13px;
+  }
+
+  .audio-button {
+    width: 27px;
+    height: 27px;
+  }
+
+  .audio-speed {
+    height: 27px;
+
+    padding: 0 5px;
+
+    font-size: 10px;
+  }
+
+  .audio-status {
     display: none;
   }
 
   .header-actions {
     margin-left: auto;
   }
+
 }
 
 .creator-credit {
@@ -357,30 +474,63 @@
   color: #9d9082;
 }
 
-:host-context(.dark-mode) .search input {
+
+/* =========================================================
+   DARK MODE — AUDIO
+========================================================= */
+
+:host-context(.dark-mode) .audio-player {
   background: #211e1b;
-  color: #f1ebe3;
   border-color: #3a332c;
+  color: #d2c5b6;
 }
 
-:host-context(.dark-mode) .search input::placeholder {
-  color: #92877b;
+:host-context(.dark-mode) .audio-player.is-playing {
+  border-color: #6a5137;
 }
 
-:host-context(.dark-mode) .search input:focus {
-  background: #28231f;
-  border-color: #8e6a45;
+:host-context(.dark-mode) .audio-label {
+  color: #c0b2a3;
 }
 
-:host-context(.dark-mode) .search-icon {
-  color: #a79b8e;
-}
-
-:host-context(.dark-mode) .search-shortcut {
-  color: #a79b8e;
+:host-context(.dark-mode) .audio-button {
+  background: #2b2622;
+  color: #e0d3c4;
   border-color: #4a4138;
-  background: #1b1917;
 }
+
+:host-context(.dark-mode) .audio-button:hover:not(:disabled) {
+  background: #352d27;
+  color: #e0ad68;
+  border-color: #735638;
+}
+
+:host-context(.dark-mode) .play-button {
+  background: #9a6a32;
+  border-color: #9a6a32;
+  color: #ffffff;
+}
+
+:host-context(.dark-mode) .play-button:hover:not(:disabled) {
+  background: #b07a3a;
+  border-color: #b07a3a;
+  color: #ffffff;
+}
+
+:host-context(.dark-mode) .audio-speed {
+  background: #2b2622;
+  color: #e0d3c4;
+  border-color: #4a4138;
+}
+
+:host-context(.dark-mode) .audio-status {
+  color: #a79b8e;
+}
+
+
+/* =========================================================
+   DARK MODE — THEME BUTTON
+========================================================= */
 
 :host-context(.dark-mode) .theme-button {
   background: #211e1b;
