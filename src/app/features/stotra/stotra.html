@@ -1,5 +1,120 @@
-<div class="home-page">
-  <p>
-    Stotra.
-  </p>
+<div class="kindle-container">
+
+  <!-- =====================================================
+       1. SELECTION VIEW
+  ====================================================== -->
+
+  @if (!selectedStotra) {
+
+    <div class="stotra-selection">
+
+      <h1 class="kindle-title">
+        Stotra Collection
+      </h1>
+
+      <p class="kindle-subtitle">
+        Select a text to begin reading
+      </p>
+
+
+      <div class="stotra-grid">
+
+        @for (stotra of stotraList; track stotra.title) {
+
+          <div
+            class="kindle-card"
+            (click)="selectStotra('jagannath')"
+          >
+
+            <div class="card-icon">
+              🪷
+            </div>
+
+            <h3>
+              {{ stotra.title }}
+            </h3>
+
+            <p>
+              {{ stotra.subtitle }}
+            </p>
+
+          </div>
+
+        }
+
+      </div>
+
+    </div>
+
+  }
+
+
+  <!-- =====================================================
+       2. KINDLE 2-PAGE SPREAD VIEW
+  ====================================================== -->
+
+  @if (selectedStotra) {
+
+    <div class="kindle-paper-spread">
+
+      <!-- TOP NAVIGATION & HEADER -->
+
+      <div class="spread-header">
+
+        <button
+          type="button"
+          class="kindle-back-btn"
+          (click)="selectedStotra = null"
+        >
+          ‹ Back to Collection
+        </button>
+
+
+        <h1 class="book-title">
+          {{ stotraDetails[selectedStotra].title }}
+        </h1>
+
+
+        <p class="book-subtitle">
+          {{ stotraDetails[selectedStotra].subtitle }}
+        </p>
+
+      </div>
+
+
+      <!-- TWO-COLUMN BOOK BODY -->
+
+      <article class="book-columns">
+
+        @for (
+          verse of stotraDetails[selectedStotra].verses;
+          track $index
+        ) {
+
+          <section class="book-section">
+
+            @if ($index === 0 || $index === stotraDetails[selectedStotra].verses.length - 1) {
+
+              <h2 class="section-label">
+                {{ verse }}
+              </h2>
+
+            } @else {
+
+              <p class="stotra-para">
+                {{ verse }}
+              </p>
+
+            }
+
+          </section>
+
+        }
+
+      </article>
+
+    </div>
+
+  }
+
 </div>
